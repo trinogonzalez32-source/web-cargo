@@ -108,7 +108,7 @@
 
     /* Navegación principal */
     header {
-      background: rgba(247, 246, 242, 0.94);
+      background: rgba(247, 246, 242, 0.96);
       backdrop-filter: blur(6px);
       border-bottom: 1px solid var(--border-hairline);
       position: sticky;
@@ -120,7 +120,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 16px 0;
+      padding: 14px 0;
       gap: 20px;
     }
 
@@ -134,7 +134,7 @@
 
     nav.nav-links {
       display: flex;
-      gap: 22px;
+      gap: 20px;
       align-items: center;
       flex-wrap: wrap;
     }
@@ -142,9 +142,9 @@
     nav.nav-links a {
       text-decoration: none;
       color: var(--text-main);
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.03em;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       transition: color 0.2s;
     }
@@ -192,7 +192,7 @@
       font-size: 11px;
     }
 
-    /* Tablero de Aviso Importante (Estilo Flyer Oficial) */
+    /* Tablero de Aviso Importante + Panel de Tasas del Negocio */
     .notice-section {
       padding-top: 28px;
     }
@@ -234,29 +234,33 @@
     .operator-panel {
       display: none;
       margin-top: 12px;
-      padding: 16px;
-      background: var(--bg-subtle);
-      border: 1px solid var(--border-hairline);
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
+      padding: 20px;
+      background: var(--bg-surface);
+      border: 1px solid var(--brand-primary);
     }
 
     .operator-panel.active {
-      display: flex;
+      display: block;
+    }
+
+    .operator-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
     }
 
     /* Hero Section */
     .hero {
-      padding: 64px 0 56px;
+      padding: 56px 0;
       border-bottom: 1px solid var(--border-hairline);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 48px;
-      align-items: center;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 44px;
+      align-items: start;
     }
 
     .eyebrow {
@@ -265,24 +269,24 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--brand-accent);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       display: block;
     }
 
     .hero h1 {
       font-family: 'Oswald', sans-serif;
-      font-size: clamp(36px, 5vw, 54px);
+      font-size: clamp(36px, 5vw, 52px);
       line-height: 1.08;
       text-transform: uppercase;
       letter-spacing: 0.01em;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       color: var(--brand-primary);
     }
 
     .hero p {
       font-size: 16px;
       color: var(--text-muted);
-      margin-bottom: 28px;
+      margin-bottom: 26px;
       max-width: 560px;
     }
 
@@ -290,7 +294,43 @@
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
+    }
+
+    /* Pizarra de Tasas Vigentes */
+    .rates-ticker {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+    }
+
+    .rates-ticker-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      color: var(--brand-primary);
+      border-bottom: 1px solid var(--border-hairline);
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+    }
+
+    .rates-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 20px;
+      font-size: 13px;
+    }
+
+    .rate-row {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed var(--border-hairline);
+      padding-bottom: 4px;
     }
 
     .hero-metrics {
@@ -317,7 +357,7 @@
     .calculator-card {
       background: var(--bg-surface);
       border: 1px solid var(--brand-primary);
-      padding: 32px;
+      padding: 30px;
       position: relative;
     }
 
@@ -342,17 +382,17 @@
     .card-subtitle {
       font-size: 13px;
       color: var(--text-muted);
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     .form-group {
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .form-group label {
       display: block;
-      font-size: 12px;
-      font-weight: 600;
+      font-size: 11px;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       margin-bottom: 6px;
@@ -376,6 +416,12 @@
       background: var(--bg-surface);
     }
 
+    .form-control[readonly] {
+      background: var(--bg-subtle);
+      font-weight: 600;
+      cursor: not-allowed;
+    }
+
     .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -390,10 +436,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 12px;
     }
 
     .calc-result-label {
-      font-size: 12px;
+      font-size: 11px;
+      font-weight: 700;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.04em;
@@ -404,17 +452,18 @@
       font-size: 26px;
       font-weight: 600;
       color: var(--brand-primary);
+      text-align: right;
     }
 
     /* Secciones Generales */
     section.content-section {
-      padding: 72px 0;
+      padding: 68px 0;
       border-bottom: 1px solid var(--border-hairline);
     }
 
     .section-header {
-      margin-bottom: 44px;
-      max-width: 680px;
+      margin-bottom: 40px;
+      max-width: 720px;
     }
 
     .section-header h2 {
@@ -586,20 +635,16 @@
       font-weight: 600;
     }
 
-    /* FAQ Acordeón */
-    .faq-item {
+    /* FAQ Nativo con <details> y <summary> (Abre siempre sin fallar) */
+    details.faq-item {
       background: var(--bg-surface);
       border: 1px solid var(--border-hairline);
       margin-bottom: 12px;
     }
 
-    .faq-question {
-      width: 100%;
-      text-align: left;
+    details.faq-item summary.faq-question {
+      list-style: none;
       padding: 18px 22px;
-      background: none;
-      border: none;
-      font-family: inherit;
       font-size: 15px;
       font-weight: 600;
       color: var(--brand-primary);
@@ -607,39 +652,87 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      user-select: none;
     }
 
-    .faq-answer {
-      padding: 0 22px 18px;
+    details.faq-item summary.faq-question::-webkit-details-marker {
+      display: none;
+    }
+
+    details.faq-item summary.faq-question::after {
+      content: "+";
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--brand-accent);
+      margin-left: 16px;
+    }
+
+    details.faq-item[open] summary.faq-question::after {
+      content: "−";
+    }
+
+    details.faq-item .faq-answer {
+      padding: 14px 22px 18px;
       font-size: 14px;
       color: var(--text-muted);
-      display: none;
       border-top: 1px solid var(--border-hairline);
-      padding-top: 14px;
+      line-height: 1.7;
     }
 
-    .faq-item.open .faq-answer {
-      display: block;
+    /* Apartado Completo de Políticas para Aprobación de Meta */
+    .meta-policy-block {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      padding: 32px;
+      margin-bottom: 24px;
     }
 
-    /* Seguridad, Privacidad y URLs Legales */
+    .meta-policy-block h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 21px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .meta-policy-block h4 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--brand-primary);
+      margin: 16px 0 6px;
+    }
+
+    .meta-policy-block p,
+    .meta-policy-block li {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .meta-policy-block ul {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+
     .legal-url-bar {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 24px;
+      margin-top: 16px;
     }
 
     .legal-url-pill {
       font-family: monospace;
       font-size: 12px;
-      background: var(--bg-surface);
+      background: var(--bg-page);
       border: 1px solid var(--border-hairline);
       padding: 8px 14px;
       color: var(--brand-primary);
       text-decoration: none;
-      cursor: pointer;
-      transition: border-color 0.2s;
+      display: inline-block;
     }
 
     .legal-url-pill:hover {
@@ -647,59 +740,10 @@
       background: var(--bg-subtle);
     }
 
-    /* Modal Legal */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(14, 31, 61, 0.65);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      z-index: 100;
-    }
-
-    .modal-backdrop.open {
-      display: flex;
-    }
-
-    .modal-dialog {
-      background: var(--bg-surface);
-      border: 1px solid var(--brand-primary);
-      max-width: 680px;
-      width: 100%;
-      max-height: 85vh;
-      overflow-y: auto;
-      padding: 32px;
-      position: relative;
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--border-hairline);
-      padding-bottom: 14px;
-      margin-bottom: 18px;
-    }
-
-    .modal-body h4 {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      margin: 16px 0 6px;
-      color: var(--brand-primary);
-    }
-
-    .modal-body p {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-    }
-
     /* Footer */
     footer {
       background: var(--bg-surface);
+      border-top: 1px solid var(--border-hairline);
       padding: 48px 0 32px;
       font-size: 13px;
       color: var(--text-muted);
@@ -755,7 +799,8 @@
       .grid-3,
       .grid-2,
       .catalog-box,
-      .footer-grid {
+      .footer-grid,
+      .rates-list {
         grid-template-columns: 1fr;
       }
       .nav-links {
@@ -810,17 +855,13 @@
   <header>
     <div class="container nav-inner">
       <a href="#" class="brand-link" aria-label="Inversiones Car-Go Inicio">
-        <!-- Recreación vectorial fiel del logotipo oficial -->
         <svg width="175" height="62" viewBox="0 0 260 92" fill="none" xmlns="http://www.w3.org/2000/svg">
           <text x="130" y="21" text-anchor="middle" fill="#0E1F3D" font-family="Inter, sans-serif" font-size="16" font-weight="500" letter-spacing="2">INVERSIONES</text>
           <text x="130" y="54" text-anchor="middle" fill="#0E1F3D" font-family="Inter, sans-serif" font-size="34" font-weight="700" letter-spacing="1.5">CAR-GO</text>
-          <!-- Acento en la Ó -->
           <line x1="196" y1="24" x2="202" y2="18" stroke="#0E1F3D" stroke-width="3" stroke-linecap="round"/>
-          <!-- Barra Tricolor -->
           <rect x="52" y="62" width="52" height="5" rx="2.5" fill="#FCD116"/>
           <rect x="104" y="62" width="52" height="5" rx="2.5" fill="#003893"/>
           <rect x="156" y="62" width="52" height="5" rx="2.5" fill="#CE1126"/>
-          <!-- 8 Estrellas -->
           <text x="130" y="81" text-anchor="middle" fill="#0E1F3D" font-size="11" letter-spacing="4">★★★★★★★★</text>
         </svg>
       </a>
@@ -830,7 +871,8 @@
         <a href="#servicios">Servicios y Bancos</a>
         <a href="#catalogos">Catálogos</a>
         <a href="#seguridad">Verificador</a>
-        <a href="#legal">Privacidad</a>
+        <a href="#faq">FAQ</a>
+        <a href="#politicas-meta">Políticas & Meta</a>
       </nav>
 
       <a href="https://wa.me/584128034793?text=Hola%20Inversiones%20Car-Go,%20deseo%20consultar%20la%20tasa%20del%20d%C3%ADa." target="_blank" rel="noopener" class="btn btn-primary btn-sm">
@@ -840,7 +882,7 @@
   </header>
 
   <main>
-    <!-- Tablero de Aviso Importante Autoadministrable -->
+    <!-- Tablero de Aviso Importante + Panel de Tasas del Negocio -->
     <section class="notice-section" aria-label="Aviso Importante">
       <div class="container">
         <div class="notice-board">
@@ -850,20 +892,52 @@
             <div class="notice-sub" id="noticeDesc">Transacciones seguras, rápidas y con la mejor tasa del mercado. Gracias por su preferencia.</div>
           </div>
           <div style="display:flex; gap:8px; flex-wrap:wrap;">
-            <button type="button" class="btn btn-outline btn-sm" onclick="toggleOperatorPanel()">Modo Operador (Editar Aviso)</button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="toggleOperatorPanel()">Panel Operador (Tasas y Avisos)</button>
           </div>
         </div>
 
+        <!-- Panel del Negocio para Actualizar Tasas del Día y Avisos -->
         <div class="operator-panel" id="operatorPanel">
-          <button type="button" class="btn btn-sm" onclick="setNotice('normal')">Horario Normal</button>
-          <button type="button" class="btn btn-sm" onclick="setNotice('nonworking')">Flyer: Mañana No Laboramos</button>
-          <input type="text" id="customNoticeInput" class="form-control" style="max-width:320px;" placeholder="Escribe un aviso personalizado..." />
-          <button type="button" class="btn btn-primary btn-sm" onclick="setCustomNotice()">Publicar</button>
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; border-bottom:1px solid var(--border-hairline); padding-bottom:12px;">
+            <strong style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em;">1. Control de Avisos Oficiales</strong>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button type="button" class="btn btn-sm" onclick="setNotice('normal')">Horario Normal</button>
+              <button type="button" class="btn btn-sm" onclick="setNotice('nonworking')">Flyer: Mañana No Laboramos</button>
+              <input type="text" id="customNoticeInput" class="form-control" style="max-width:240px; padding:6px 10px;" placeholder="Aviso personalizado..." />
+              <button type="button" class="btn btn-primary btn-sm" onclick="setCustomNotice()">Publicar</button>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;">
+            <strong style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em;">2. Actualizar Tasas Oficiales del Negocio (Se reflejan en la calculadora)</strong>
+            <div class="operator-grid">
+              <div>
+                <label style="font-size:11px; font-weight:600; display:block; margin-bottom:4px;">1 USD → Pesos Col. (COP)</label>
+                <input type="number" id="adminRateUsdCop" class="form-control" step="0.01" />
+              </div>
+              <div>
+                <label style="font-size:11px; font-weight:600; display:block; margin-bottom:4px;">1 USD → Bolívares (VES)</label>
+                <input type="number" id="adminRateUsdVes" class="form-control" step="0.01" />
+              </div>
+              <div>
+                <label style="font-size:11px; font-weight:600; display:block; margin-bottom:4px;">1.000 COP → Bolívares (VES)</label>
+                <input type="number" id="adminRateCopVes" class="form-control" step="0.01" />
+              </div>
+              <div>
+                <label style="font-size:11px; font-weight:600; display:block; margin-bottom:4px;">1 EUR → Bolívares (VES)</label>
+                <input type="number" id="adminRateEurVes" class="form-control" step="0.01" />
+              </div>
+            </div>
+            <div style="margin-top:12px; display:flex; gap:10px; align-items:center;">
+              <button type="button" class="btn btn-primary btn-sm" onclick="saveBusinessRates()">Guardar Tasas del Día</button>
+              <span id="rateSaveMsg" style="font-size:12px; color:var(--status-ok); font-weight:600;"></span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Hero Principal + Calculadora Cotizadora -->
+    <!-- Hero Principal + Calculadora Cotizadora con Tasas del Negocio -->
     <section class="hero" id="cotizador">
       <div class="container hero-grid">
         <div>
@@ -872,6 +946,32 @@
           <p>
             En <strong>INVERSIONES CAR-GO</strong> acortamos distancias. Gestionamos envíos inmediatos a Colombia, recepción de remesas internacionales y pago puntual de facturas de catálogos con respaldo verificado.
           </p>
+
+          <!-- Pizarra de Tasas Oficiales Actualizadas -->
+          <div class="rates-ticker">
+            <div class="rates-ticker-header">
+              <span>Tasas Vigentes del Negocio</span>
+              <span id="ratesUpdatedTime" style="font-weight:400; color:var(--text-muted);">Actualizado hoy</span>
+            </div>
+            <div class="rates-list">
+              <div class="rate-row">
+                <span>Envío USD → Colombia:</span>
+                <strong id="displayUsdCop">4.150,00 COP</strong>
+              </div>
+              <div class="rate-row">
+                <span>Remesa USD → Venezuela:</span>
+                <strong id="displayUsdVes">45,50 VES</strong>
+              </div>
+              <div class="rate-row">
+                <span>Remesa 1.000 COP → VES:</span>
+                <strong id="displayCopVes">10,95 VES</strong>
+              </div>
+              <div class="rate-row">
+                <span>Remesa EUR → Venezuela:</span>
+                <strong id="displayEurVes">49,20 VES</strong>
+              </div>
+            </div>
+          </div>
 
           <div class="hero-actions">
             <a href="https://wa.me/584128034793?text=Hola%20Inversiones%20Car-Go,%20quiero%20realizar%20un%20cambio%20hoy." target="_blank" rel="noopener" class="btn btn-primary">
@@ -898,64 +998,55 @@
           </div>
         </div>
 
-        <!-- Cotizador / Calculadora en Tiempo Real -->
+        <!-- Cotizador / Calculadora Oficial -->
         <div class="calculator-card">
-          <h2 class="card-title">Cotizador Express</h2>
-          <p class="card-subtitle">Simula tu operación y envía los datos listos a nuestro WhatsApp.</p>
+          <h2 class="card-title">Cotizador Oficial</h2>
+          <p class="card-subtitle">Calcula automáticamente según la tasa vigente de INVERSIONES CAR-GO.</p>
 
           <div class="form-group">
-            <label for="opType">Tipo de Operación</label>
-            <select id="opType" class="form-control" onchange="updateCalculator()">
-              <option value="envio_colombia">Envío a Colombia (Nequi / Bancolombia / Davivienda / Daviplata)</option>
-              <option value="remesa_intl">Recibir Remesa Internacional (EE. UU. / México / Panamá / España)</option>
-              <option value="pago_catalogo">Pago de Factura de Catálogo (Ésika / L'Bel / Avon)</option>
+            <label for="opType">Operación a Realizar</label>
+            <select id="opType" class="form-control" onchange="syncCalculatorMode()">
+              <option value="usd_cop">Enviar Dólares (USD) → Recibir en Colombia (COP)</option>
+              <option value="usd_ves">Remesa Dólares (USD) → Recibir en Venezuela (VES)</option>
+              <option value="cop_ves">Remesa Pesos (COP) → Recibir en Venezuela (VES)</option>
+              <option value="eur_ves">Remesa Euros (EUR) → Recibir en Venezuela (VES)</option>
+              <option value="cat_cop">Pago Factura Catálogo (Ésika / L'Bel / Avon en COP)</option>
             </select>
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label for="amountInput">Monto a Enviar</label>
+              <label for="amountInput" id="amountLabel">Monto a Enviar (USD)</label>
               <input type="number" id="amountInput" class="form-control" value="100" min="1" oninput="updateCalculator()" />
             </div>
             <div class="form-group">
-              <label for="currencySelect">Moneda Origen</label>
-              <select id="currencySelect" class="form-control" onchange="updateCalculator()">
-                <option value="USD">USD ($ Dólares)</option>
-                <option value="COP">COP ($ Pesos Col.)</option>
-                <option value="EUR">EUR (€ Euros)</option>
-                <option value="VES">VES (Bs. Bolívares)</option>
-              </select>
+              <label for="appliedRate">Tasa Oficial Aplicada</label>
+              <input type="text" id="appliedRate" class="form-control" readonly />
             </div>
           </div>
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="destBank">Banco / Plataforma Destino</label>
-              <select id="destBank" class="form-control" onchange="updateCalculator()">
-                <option value="Nequi">Nequi (Colombia)</option>
-                <option value="Bancolombia">Bancolombia</option>
-                <option value="Davivienda">Davivienda</option>
-                <option value="Daviplata">Daviplata</option>
-                <option value="Pago Móvil / Venezuela">Pago Móvil / Transferencia Venezuela</option>
-                <option value="Factura Ésika / L'Bel / Avon">Factura Ésika / L'Bel / Avon</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="refRate">Tasa Referencial (Editable)</label>
-              <input type="number" id="refRate" class="form-control" value="4150" step="0.01" oninput="updateCalculator()" />
-            </div>
+          <div class="form-group">
+            <label for="destBank">Banco o Plataforma Destino</label>
+            <select id="destBank" class="form-control">
+              <option value="Nequi (Colombia)">Nequi (Colombia)</option>
+              <option value="Bancolombia">Bancolombia</option>
+              <option value="Davivienda">Davivienda</option>
+              <option value="Daviplata">Daviplata</option>
+              <option value="Pago Móvil / Banco Nacional (Venezuela)">Pago Móvil / Banco Nacional (Venezuela)</option>
+              <option value="Factura Ésika / L'Bel / Avon">Factura Ésika / L'Bel / Avon</option>
+            </select>
           </div>
 
           <div class="calc-result-box">
             <div>
-              <div class="calc-result-label">Estimado a Recibir</div>
-              <div style="font-size:11px; color:var(--text-muted);">*Sujeto a confirmación de tasa en vivo</div>
+              <div class="calc-result-label">Monto Exacto a Recibir</div>
+              <div style="font-size:11px; color:var(--text-muted);" id="calcNote">Tasa oficial del negocio</div>
             </div>
-            <div class="calc-result-amount" id="calcOutput">415,000.00</div>
+            <div class="calc-result-amount" id="calcOutput">415.000,00 COP</div>
           </div>
 
           <button type="button" class="btn btn-primary" style="width:100%;" onclick="sendQuoteWhatsApp()">
-            Cotizar y Procesar por WhatsApp
+            Procesar Operación por WhatsApp
           </button>
         </div>
       </div>
@@ -1122,7 +1213,7 @@
           </div>
         </div>
 
-        <!-- Muro de Operaciones Verificadas (Datos sensibles censurados) -->
+        <!-- Muro de Operaciones Verificadas -->
         <h3 style="font-family:'Oswald',sans-serif; font-size:20px; text-transform:uppercase; margin-bottom:14px;">Registro Reciente de Operaciones Completadas</h3>
         <div style="overflow-x:auto;">
           <table class="ledger-table">
@@ -1170,7 +1261,7 @@
       </div>
     </section>
 
-    <!-- Preguntas Frecuentes (FAQ) -->
+    <!-- Preguntas Frecuentes (FAQ) con apertura nativa garantizada -->
     <section class="content-section" id="faq">
       <div class="container">
         <div class="section-header">
@@ -1178,39 +1269,353 @@
           <h2>Preguntas Frecuentes</h2>
         </div>
 
-        <div class="faq-item">
-          <button type="button" class="faq-question" onclick="toggleFaq(this)">
-            <span>¿Cuál es el horario de atención de INVERSIONES CAR-GO?</span>
-            <span>+</span>
-          </button>
+        <details class="faq-item" open>
+          <summary class="faq-question">¿Cuál es el horario de atención de INVERSIONES CAR-GO?</summary>
           <div class="faq-answer">
             Nuestro horario habitual es de <strong>8:00 a. m. a 5:00 p. m.</strong> En caso de días feriados o jornadas especiales no laborables, lo anunciamos con antelación en nuestro Tablero de Aviso Importante y en nuestros estados oficiales de WhatsApp.
           </div>
-        </div>
+        </details>
 
-        <div class="faq-item">
-          <button type="button" class="faq-question" onclick="toggleFaq(this)">
-            <span>¿Qué datos necesito para enviar dinero a Colombia?</span>
-            <span>+</span>
-          </button>
+        <details class="faq-item">
+          <summary class="faq-question">¿Qué datos necesito para enviar dinero a Colombia?</summary>
           <div class="faq-answer">
             Solo necesitas indicar el banco o billetera destino (<strong>Nequi, Bancolombia, Davivienda o Daviplata</strong>), el número de cuenta o celular asociado, el nombre completo del titular y su número de documento de identidad (Cédula).
           </div>
-        </div>
+        </details>
 
-        <div class="faq-item">
-          <button type="button" class="faq-question" onclick="toggleFaq(this)">
-            <span>¿Desde qué países puedo enviar remesas?</span>
-            <span>+</span>
-          </button>
+        <details class="faq-item">
+          <summary class="faq-question">¿Desde qué países puedo enviar remesas?</summary>
           <div class="faq-answer">
             Recibimos remesas desde <strong>Colombia, Estados Unidos (EE. UU.), México, Panamá, España</strong> y otros destinos internacionales. Escríbenos al <strong>+58 412-8034793</strong> para indicarte el método de recepción disponible según tu país.
           </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">¿Cómo se verifica el pago de una factura de catálogo (Ésika, L'Bel, Avon)?</summary>
+          <div class="faq-answer">
+            Una vez realizado el pago en el portal oficial de la marca, te enviamos de inmediato el soporte digital con el número de aprobación y fecha de aplicación para tu respaldo.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">¿Cuál es el monto mínimo para realizar una transferencia o remesa?</summary>
+          <div class="faq-answer">
+            Puedes consultar desde montos pequeños para recargas o pagos de facturas hasta remesas familiares completas. Escríbenos directamente a nuestro WhatsApp oficial <strong>+58 412-8034793</strong> y te indicamos al instante.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Apartado Completo de Políticas Legales para Verificación y Aprobación de Meta -->
+    <section class="content-section" id="politicas-meta" style="border-bottom:none;">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Cumplimiento Normativo · Meta Business & WhatsApp API</span>
+          <h2>Políticas de Privacidad, Protección de Datos y Términos Legales</h2>
+          <p>Documentación pública y verificable de <strong>INVERSIONES CAR-GO</strong> en cumplimiento con las políticas de plataforma de Meta, WhatsApp Business y normativas vigentes de protección de datos personales.</p>
         </div>
 
-        <div class="faq-item">
-          <button type="button" class="faq-question" onclick="toggleFaq(this)">
-            <span>
+        <!-- 1. Política de Privacidad -->
+        <article class="meta-policy-block" id="politica-privacidad">
+          <h3>1. Política de Privacidad y Tratamiento de Datos Personales</h3>
+          <p><strong>Titular / Entidad Responsable:</strong> INVERSIONES CAR-GO · Sitio Web Oficial: <code>https://inversionescargo.com</code> · Canal Oficial de Atención y WhatsApp Business: <strong>+58 412-8034793</strong>.</p>
+          <h4>1.1. Información que Recopilamos</h4>
+          <p>Cuando un usuario se comunica con INVERSIONES CAR-GO a través de nuestro sitio web o mediante nuestra línea oficial de WhatsApp Business (<code>+58 412-8034793</code>), recopilamos únicamente los datos estrictamente necesarios para procesar su solicitud financiera:</p>
+          <ul>
+            <li>Nombre completo y documento de identidad (Cédula o pasaporte) del remitente y del beneficiario.</li>
+            <li>Número telefónico de contacto y mensajes enviados voluntariamente mediante WhatsApp.</li>
+            <li>Datos bancarios de destino (banco, tipo y número de cuenta o billetera digital como Nequi, Bancolombia, Davivienda, Daviplata o Pago Móvil).</li>
+            <li>Código de consultora y referencia de factura para pagos de catálogos (Ésika, L'Bel, Avon).</li>
+          </ul>
+          <h4>1.2. Finalidad del Uso de la Información y Mensajería WhatsApp</h4>
+          <p>Los datos recopilados se utilizan exclusivamente para: (a) cotizar tasas de cambio, (b) ejecutar transferencias y remesas solicitadas por el cliente, (c) emitir comprobantes de pago y soporte contable, y (d) prevenir fraudes o suplantaciones de identidad. <strong>No vendemos, alquilamos ni cedemos datos personales a terceros con fines publicitarios.</strong></p>
+        </article>
 
- 
-    
+        <!-- 2. Instrucciones de Eliminación de Datos (Obligatorio para Meta Developers) -->
+        <article class="meta-policy-block" id="eliminacion-datos">
+          <h3>2. Instrucciones de Eliminación de Datos de Usuario (Data Deletion Policy)</h3>
+          <p>De conformidad con las políticas para desarrolladores y empresas de <strong>Meta Platforms, Inc. (WhatsApp Business Platform)</strong>, cualquier usuario puede solicitar la eliminación total de su historial de conversaciones, datos de contacto y registros asociados en cualquier momento.</p>
+          <h4>2.1. Procedimiento para Solicitar la Eliminación de Datos</h4>
+          <ul>
+            <li><strong>Paso 1:</strong> Envía un mensaje directo a nuestro canal oficial de WhatsApp <strong>+58 412-8034793</strong> con el asunto: <em>«SOLICITUD DE ELIMINACIÓN DE DATOS»</em>.</li>
+            <li><strong>Paso 2:</strong> Indica tu nombre completo y el número telefónico desde el cual interactuaste con nuestros servicios para validar la titularidad.</li>
+            <li><strong>Paso 3:</strong> Nuestro equipo procederá a eliminar tus datos personales de nuestras bases operativas en un plazo máximo de <strong>48 horas hábiles</strong> y te enviará confirmación escrita de la supresión, conservando únicamente los registros contables exigidos por ley durante el período legal aplicable.</li>
+          </ul>
+        </article>
+
+        <!-- 3. Términos del Servicio y Política de Comercio de Meta -->
+        <article class="meta-policy-block" id="terminos-servicio">
+          <h3>3. Términos del Servicio, Consentimiento (Opt-In) y Seguridad KYC</h3>
+          <h4>3.1. Consentimiento de Comunicación (Opt-In)</h4>
+          <p>INVERSIONES CAR-GO opera bajo un modelo estricto de consentimiento previo: únicamente enviamos respuestas operativas, cotizaciones y comprobantes de transacción a los usuarios que inician contacto voluntariamente con nosotros a través de nuestros botones web o escribiendo directamente al <strong>+58 412-8034793</strong>. No enviamos spam ni mensajes masivos no solicitados.</p>
+          <h4>3.2. Vigencia de Tasas y Horario Operativo</h4>
+          <p>Las tasas publicadas en <code>inversionescargo.com</code> son actualizadas por el negocio durante la jornada laboral (<strong>8:00 a. m. – 5:00 p. m.</strong>) y se confirman al momento de formalizar la orden por WhatsApp. Todo pago debe provenir de cuentas bancarias lícitas pertenecientes al titular ordenante.</p>
+
+          <!-- Enlaces Directos Ancla para Revisión de Meta -->
+          <div style="margin-top:18px; padding-top:14px; border-top:1px solid var(--border-hairline);">
+            <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;">
+              Enlaces Directos Verificables para Configuración en Meta Business / App Dashboard:
+            </div>
+            <div class="legal-url-bar">
+              <a href="#politica-privacidad" class="legal-url-pill">https://inversionescargo.com/#politica-privacidad</a>
+              <a href="#eliminacion-datos" class="legal-url-pill">https://inversionescargo.com/#eliminacion-datos</a>
+              <a href="#terminos-servicio" class="legal-url-pill">https://inversionescargo.com/#terminos-servicio</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de Página -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <strong style="font-family:'Oswald',sans-serif; font-size:20px; color:var(--brand-primary); letter-spacing:0.04em;">INVERSIONES CAR-GO</strong>
+          <p style="margin-top:10px; max-width:360px;">
+            ¡Tu dinero donde lo necesitas, al instante! Transferencias a Colombia, recepción de remesas internacionales y pago de facturas de catálogos.
+          </p>
+          <p style="margin-top:12px;">
+            <strong>WhatsApp Oficial:</strong> +58 412-8034793<br>
+            <strong>Horario:</strong> 8:00 a. m. – 5:00 p. m.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-title">Servicios</div>
+          <ul class="footer-links">
+            <li><a href="#cotizador">Cotizador Oficial</a></li>
+            <li><a href="#servicios">Envíos Nequi / Bancolombia / Davivienda</a></li>
+            <li><a href="#servicios">Remesas EE. UU., México, Panamá, España</a></li>
+            <li><a href="#catalogos">Pago Ésika, L'Bel y Avon</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Políticas y Cumplimiento Meta</div>
+          <ul class="footer-links">
+            <li><a href="#politica-privacidad">Política de Privacidad</a></li>
+            <li><a href="#eliminacion-datos">Eliminación de Datos de Usuario</a></li>
+            <li><a href="#terminos-servicio">Términos del Servicio y Opt-In</a></li>
+            <li><a href="#seguridad">Verificador Antifraude</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 INVERSIONES CAR-GO. Todos los derechos reservados.</span>
+        <span>Transacciones seguras · Canal verificado +58 412-8034793</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const WHATSAPP_NUMBER = "584128034793";
+
+    // Tasas oficiales por defecto del negocio (se guardan en localStorage al editarlas en el Panel Operador)
+    const defaultRates = {
+      usd_cop: 4150.00,
+      usd_ves: 45.50,
+      cop_ves: 10.95, // por cada 1.000 COP
+      eur_ves: 49.20,
+      updatedAt: "Hoy · 8:00 a. m."
+    };
+
+    let businessRates = JSON.parse(localStorage.getItem("cargo_business_rates")) || { ...defaultRates };
+
+    function renderRatesBoard() {
+      document.getElementById("displayUsdCop").textContent = businessRates.usd_cop.toLocaleString("es-CO", { minimumFractionDigits: 2 }) + " COP";
+      document.getElementById("displayUsdVes").textContent = businessRates.usd_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES";
+      document.getElementById("displayCopVes").textContent = businessRates.cop_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES";
+      document.getElementById("displayEurVes").textContent = businessRates.eur_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES";
+      document.getElementById("ratesUpdatedTime").textContent = "Actualizado: " + businessRates.updatedAt;
+
+      // Cargar valores en los campos del panel operador
+      document.getElementById("adminRateUsdCop").value = businessRates.usd_cop;
+      document.getElementById("adminRateUsdVes").value = businessRates.usd_ves;
+      document.getElementById("adminRateCopVes").value = businessRates.cop_ves;
+      document.getElementById("adminRateEurVes").value = businessRates.eur_ves;
+    }
+
+    function saveBusinessRates() {
+      const usdCop = parseFloat(document.getElementById("adminRateUsdCop").value) || defaultRates.usd_cop;
+      const usdVes = parseFloat(document.getElementById("adminRateUsdVes").value) || defaultRates.usd_ves;
+      const copVes = parseFloat(document.getElementById("adminRateCopVes").value) || defaultRates.cop_ves;
+      const eurVes = parseFloat(document.getElementById("adminRateEurVes").value) || defaultRates.eur_ves;
+
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString("es-VE", { hour: "2-digit", minute: "2-digit" });
+
+      businessRates = {
+        usd_cop: usdCop,
+        usd_ves: usdVes,
+        cop_ves: copVes,
+        eur_ves: eurVes,
+        updatedAt: "Hoy · " + timeStr
+      };
+
+      localStorage.setItem("cargo_business_rates", JSON.stringify(businessRates));
+      renderRatesBoard();
+      syncCalculatorMode();
+
+      const msg = document.getElementById("rateSaveMsg");
+      msg.textContent = "✓ Tasas actualizadas en la calculadora.";
+      setTimeout(() => { msg.textContent = ""; }, 4000);
+    }
+
+    // Tablero de Avisos Oficiales
+    function toggleOperatorPanel() {
+      document.getElementById("operatorPanel").classList.toggle("active");
+    }
+
+    function setNotice(mode) {
+      const title = document.getElementById("noticeTitle");
+      const desc = document.getElementById("noticeDesc");
+      const dot = document.getElementById("statusDot");
+      const statusText = document.getElementById("statusText");
+
+      if (mode === "nonworking") {
+        title.textContent = "MAÑANA NO LABORAMOS";
+        desc.textContent = "Gracias por su comprensión. Retomamos operaciones en nuestro horario habitual de 8:00 a. m. – 5:00 p. m.";
+        dot.classList.add("closed");
+        statusText.textContent = "Aviso especial activo · Consulte disponibilidad";
+      } else {
+        title.textContent = "OPERANDO EN HORARIO HABITUAL (8:00 A. M. – 5:00 P. M.)";
+        desc.textContent = "Transacciones seguras, rápidas y con la mejor tasa del mercado. Gracias por su preferencia.";
+        dot.classList.remove("closed");
+        statusText.textContent = "Horario habitual de atención: 8:00 a. m. – 5:00 p. m.";
+      }
+    }
+
+    function setCustomNotice() {
+      const val = document.getElementById("customNoticeInput").value.trim();
+      if (!val) return;
+      document.getElementById("noticeTitle").textContent = val.toUpperCase();
+      document.getElementById("noticeDesc").textContent = "Comunicado oficial emitido por INVERSIONES CAR-GO.";
+    }
+
+    // Sincronizar Calculadora con las Tasas del Negocio
+    function syncCalculatorMode() {
+      const mode = document.getElementById("opType").value;
+      const amountLabel = document.getElementById("amountLabel");
+      const rateInput = document.getElementById("appliedRate");
+      const amountInput = document.getElementById("amountInput");
+
+      if (mode === "usd_cop") {
+        amountLabel.textContent = "Monto a Enviar (USD)";
+        rateInput.value = businessRates.usd_cop.toLocaleString("es-CO", { minimumFractionDigits: 2 }) + " COP / USD";
+        if (parseFloat(amountInput.value) >= 10000) amountInput.value = 100;
+      } else if (mode === "usd_ves") {
+        amountLabel.textContent = "Monto a Enviar (USD)";
+        rateInput.value = businessRates.usd_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES / USD";
+        if (parseFloat(amountInput.value) >= 10000) amountInput.value = 100;
+      } else if (mode === "cop_ves") {
+        amountLabel.textContent = "Monto a Enviar (COP)";
+        rateInput.value = businessRates.cop_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES / 1.000 COP";
+        if (parseFloat(amountInput.value) < 1000) amountInput.value = 100000;
+      } else if (mode === "eur_ves") {
+        amountLabel.textContent = "Monto a Enviar (EUR)";
+        rateInput.value = businessRates.eur_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES / EUR";
+        if (parseFloat(amountInput.value) >= 10000) amountInput.value = 100;
+      } else if (mode === "cat_cop") {
+        amountLabel.textContent = "Valor Factura Catálogo (COP)";
+        rateInput.value = businessRates.cop_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES / 1.000 COP";
+        if (parseFloat(amountInput.value) < 1000) amountInput.value = 250000;
+        document.getElementById("destBank").value = "Factura Ésika / L'Bel / Avon";
+      }
+
+      updateCalculator();
+    }
+
+    function updateCalculator() {
+      const mode = document.getElementById("opType").value;
+      const amount = parseFloat(document.getElementById("amountInput").value) || 0;
+      const output = document.getElementById("calcOutput");
+      const note = document.getElementById("calcNote");
+
+      if (mode === "usd_cop") {
+        const res = amount * businessRates.usd_cop;
+        output.textContent = res.toLocaleString("es-CO", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " COP";
+        note.textContent = "Recibe en Colombia (Nequi / Bancolombia / Davivienda)";
+      } else if (mode === "usd_ves") {
+        const res = amount * businessRates.usd_ves;
+        output.textContent = res.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " VES";
+        note.textContent = "Recibe en Venezuela (Pago Móvil / Transferencia)";
+      } else if (mode === "cop_ves") {
+        const res = (amount / 1000) * businessRates.cop_ves;
+        output.textContent = res.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " VES";
+        note.textContent = "Recibe en Venezuela (Pago Móvil / Transferencia)";
+      } else if (mode === "eur_ves") {
+        const res = amount * businessRates.eur_ves;
+        output.textContent = res.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " VES";
+        note.textContent = "Recibe en Venezuela (Pago Móvil / Transferencia)";
+      } else if (mode === "cat_cop") {
+        const res = (amount / 1000) * businessRates.cop_ves;
+        output.textContent = res.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " VES";
+        note.textContent = "Monto a transferir en Bolívares para pagar tu factura";
+      }
+    }
+
+    function sendQuoteWhatsApp() {
+      const opSelect = document.getElementById("opType");
+      const opText = opSelect.options[opSelect.selectedIndex].text;
+      const amount = document.getElementById("amountInput").value || "0";
+      const rate = document.getElementById("appliedRate").value;
+      const bank = document.getElementById("destBank").value;
+      const estimated = document.getElementById("calcOutput").textContent;
+
+      const message = `Hola *INVERSIONES CAR-GO*, deseo procesar una operación con la tasa vigente:\n\n` +
+        `• *Operación:* ${opText}\n` +
+        `• *Monto ingresado:* ${amount}\n` +
+        `• *Tasa aplicada:* ${rate}\n` +
+        `• *Destino:* ${bank}\n` +
+        `• *Total calculado:* ${estimated}\n\n` +
+        `Quedo atento(a) a los datos de cuenta para realizar el pago.`;
+
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank");
+    }
+
+    // Reporte Express de Catálogos
+    function sendCatalogWhatsApp() {
+      const brand = document.getElementById("catBrand").value;
+      const code = document.getElementById("catCode").value.trim() || "No especificado";
+      const amount = document.getElementById("catAmount").value || "Por confirmar";
+
+      const message = `Hola *INVERSIONES CAR-GO*, solicito el pago de factura de catálogo:\n\n` +
+        `• *Marca:* ${brand}\n` +
+        `• *Código de Consultora:* ${code}\n` +
+        `• *Monto Factura:* $${amount} COP\n\n` +
+        `Quedo atenta a la tasa del día para transferir.`;
+
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank");
+    }
+
+    // Verificador Antifraude
+    function verifyChannel() {
+      const raw = document.getElementById("phoneVerifyInput").value.replace(/\D/g, "");
+      const res = document.getElementById("verifierResult");
+
+      if (!raw) {
+        res.className = "verifier-result invalid";
+        res.textContent = "Por favor ingresa un número telefónico para validar.";
+        return;
+      }
+
+      if (raw.endsWith("4128034793")) {
+        res.className = "verifier-result valid";
+        res.innerHTML = "✓ <strong>CANAL OFICIAL VERIFICADO:</strong> El número +58 412-8034793 pertenece oficialmente a INVERSIONES CAR-GO.";
+      } else {
+        res.className = "verifier-result invalid";
+        res.innerHTML = "✕ <strong>ALERTA DE SEGURIDAD:</strong> Este número NO corresponde a nuestros canales autorizados. No realices transferencias ni compartas datos.";
+      }
+    }
+
+    // Inicializar pizarra de tasas y calculadora
+    renderRatesBoard();
+    syncCalculatorMode();
+  </script>
+</body>
+</html>
+
+

@@ -107,10 +107,6 @@
       flex-shrink: 0;
     }
 
-    .status-dot.closed {
-      background-color: var(--status-warn);
-    }
-
     /* Navegación principal */
     header {
       background: rgba(247, 246, 242, 0.96);
@@ -204,7 +200,7 @@
       font-size: 11px;
     }
 
-    /* Tablero de Aviso Importante + Panel de Tasas */
+    /* Tablero de Aviso Importante */
     .notice-section {
       padding-top: 24px;
     }
@@ -241,25 +237,6 @@
     .notice-sub {
       font-size: 13px;
       color: var(--text-muted);
-    }
-
-    .operator-panel {
-      display: none;
-      margin-top: 12px;
-      padding: 20px;
-      background: var(--bg-surface);
-      border: 1px solid var(--brand-primary);
-    }
-
-    .operator-panel.active {
-      display: block;
-    }
-
-    .operator-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 12px;
     }
 
     /* Hero Section */
@@ -804,8 +781,7 @@
       .grid-2,
       .catalog-box,
       .footer-grid,
-      .rates-list,
-      .operator-grid {
+      .rates-list {
         grid-template-columns: 1fr;
       }
 
@@ -894,7 +870,7 @@
     <polygon points="155,130 166,112 177,130" fill="#0E1F3D" transform="rotate(180 166 121)"/>
   </svg>
 
-  <!-- Barra superior de horario y canal oficial -->
+  <!-- Barra superior de estado y canal oficial -->
   <div class="top-bar">
     <div class="container top-bar-inner">
       <div class="status-pill">
@@ -931,14 +907,14 @@
         <a href="#legal">Políticas</a>
       </nav>
 
-      <a href="https://wa.me/584246262165?text=Hola%20Inversiones%20Car-Go,%20deseo%20consultar%20la%20tasa%20del%20d%C3%ADa." target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+      <a href="https://wa.me/584246262165?text=Hola%20Inversiones%20Car-Go,%20deseo%20consultar%20la%20tasa%20del%20d%C3%ADa." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
         WhatsApp
       </a>
     </div>
   </header>
 
   <main>
-    <!-- Tablero de Aviso Importante + Panel de Tasas -->
+    <!-- Tablero de Aviso Importante -->
     <section class="notice-section" aria-label="Aviso Importante">
       <div class="container">
         <div class="notice-board">
@@ -946,40 +922,6 @@
             <div class="notice-label">★ Aviso Importante</div>
             <div class="notice-headline" id="noticeTitle">OPERANDO EN HORARIO HABITUAL (8:00 A. M. – 5:00 P. M.)</div>
             <div class="notice-sub" id="noticeDesc">Transacciones seguras, rápidas y con la mejor tasa del mercado. Gracias por su preferencia.</div>
-          </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap;">
-            <button type="button" class="btn btn-outline btn-sm" onclick="toggleOperatorPanel()">Panel Operador (Tasas y Avisos)</button>
-          </div>
-        </div>
-
-        <!-- Panel del Negocio para Actualizar Tasas del Día y Avisos -->
-        <div class="operator-panel" id="operatorPanel">
-          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; border-bottom:1px solid var(--border-hairline); padding-bottom:12px;">
-            <strong style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em;">1. Control de Avisos Oficiales</strong>
-            <div style="display:flex; gap:8px; flex-wrap:wrap; width:100%;">
-              <button type="button" class="btn btn-sm" onclick="setNotice('normal')">Horario Normal</button>
-              <button type="button" class="btn btn-sm" onclick="setNotice('nonworking')">Flyer: Mañana No Laboramos</button>
-              <input type="text" id="customNoticeInput" class="form-control" style="max-width:280px; padding:8px 10px;" placeholder="Aviso personalizado..." />
-              <button type="button" class="btn btn-primary btn-sm" onclick="setCustomNotice()">Publicar</button>
-            </div>
-          </div>
-
-          <div style="margin-top:14px;">
-            <strong style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em;">2. Actualizar Tasas de Cambio del Negocio</strong>
-            <div class="operator-grid">
-              <div>
-                <label style="font-size:11px; font-weight:600; display:block; margin-bottom:4px;">1 USD → Pesos Col. (COP)</label>
-                <input type="number" id="adminRateUsdCop" class="form-control" step="0.01" />
-              </div>
-              <div>
-                <label style="font-size:11px; font-weight:600; display:block; margin-bottom:4px;">1.000 COP → Bolívares (VES)</label>
-                <input type="number" id="adminRateCopVes" class="form-control" step="0.01" />
-              </div>
-            </div>
-            <div style="margin-top:12px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
-              <button type="button" class="btn btn-primary btn-sm" onclick="saveBusinessRates()">Guardar Tasas del Día</button>
-              <span id="rateSaveMsg" style="font-size:12px; color:var(--status-ok); font-weight:600;"></span>
-            </div>
           </div>
         </div>
       </div>
@@ -1022,7 +964,7 @@
           </div>
 
           <div class="hero-actions">
-            <a href="https://wa.me/584246262165?text=Hola%20Inversiones%20Car-Go,%20quiero%20realizar%20un%20cambio%20hoy." target="_blank" rel="noopener" class="btn btn-primary">
+            <a href="https://wa.me/584246262165?text=Hola%20Inversiones%20Car-Go,%20quiero%20realizar%20un%20cambio%20hoy." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
               Realizar Cambio Hoy
             </a>
             <a href="#servicios" class="btn btn-outline">
@@ -1049,7 +991,7 @@
         <!-- Cotizador / Calculadora Oficial -->
         <div class="calculator-card">
           <h2 class="card-title">Cotizador Oficial</h2>
-          <p class="card-subtitle">Calcula automáticamente la comisión o tasa vigente de INVERSIONES CAR-GO.</p>
+          <p class="card-subtitle">Cálculo referencial según comisión o tasa vigente (sujeto a confirmación al iniciar).</p>
 
           <div class="form-group">
             <label for="opType">Operación a Realizar</label>
@@ -1064,7 +1006,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="amountInput" id="amountLabel">Monto Enviado (USD)</label>
-              <input type="number" id="amountInput" class="form-control" value="100" min="1" oninput="updateCalculator()" />
+              <input type="number" id="amountInput" class="form-control" value="100" min="1" max="1000000000" step="0.01" oninput="updateCalculator()" />
             </div>
             <div class="form-group">
               <label for="appliedRate" id="rateLabel">Comisión / Tasa Aplicada</label>
@@ -1099,8 +1041,8 @@
 
           <div class="calc-result-box">
             <div>
-              <div class="calc-result-label">Monto Neto a Recibir</div>
-              <div style="font-size:11px; color:var(--text-muted);" id="calcNote">Descontando comisión del 10%</div>
+              <div class="calc-result-label">Monto Neto Estimado</div>
+              <div style="font-size:11px; color:var(--text-muted);" id="calcNote">Descontando comisión fija del 10%</div>
             </div>
             <div class="calc-result-amount" id="calcOutput">$90,00 USD</div>
           </div>
@@ -1225,11 +1167,11 @@
             </div>
             <div class="form-group">
               <label for="catCode">Código de Consultora / Cédula</label>
-              <input type="text" id="catCode" class="form-control" placeholder="Ej. 10458921" />
+              <input type="text" id="catCode" class="form-control" maxlength="40" placeholder="Ej. 10458921" />
             </div>
             <div class="form-group">
               <label for="catAmount">Monto de la Factura (COP)</label>
-              <input type="number" id="catAmount" class="form-control" placeholder="Ej. 285000" />
+              <input type="number" id="catAmount" class="form-control" min="1" max="1000000000" placeholder="Ej. 285000" />
             </div>
             <button type="button" class="btn btn-primary" style="width:100%;" onclick="sendCatalogWhatsApp()">
               Enviar Reporte a WhatsApp
@@ -1253,7 +1195,7 @@
             <h3 class="card-title">Validador de Número Oficial</h3>
             <p class="card-subtitle">Ingresa el número de WhatsApp o teléfono que te contactó para verificar su autenticidad.</p>
             <div class="verifier-input-row">
-              <input type="text" id="phoneVerifyInput" class="form-control" style="flex:1; min-width:200px;" placeholder="Ej. +58 424-6262165" />
+              <input type="text" id="phoneVerifyInput" class="form-control" maxlength="25" style="flex:1; min-width:200px;" placeholder="Ej. +58 424-6262165" />
               <button type="button" class="btn btn-primary" onclick="verifyChannel()">Verificar</button>
             </div>
             <div id="verifierResult" class="verifier-result"></div>
@@ -1445,73 +1387,35 @@
   <script>
     const WHATSAPP_NUMBER = "584246262165";
 
-    const defaultRates = {
+    // Tasas oficiales definidas por el administrador al editar el archivo
+    const DEFAULT_RATES = Object.freeze({
       usd_cop: 4150.00,
-      cop_ves: 10.95,
-      updatedAt: "Hoy · 8:00 a. m."
-    };
+      cop_ves: 10.95
+    });
 
-    let businessRates = JSON.parse(localStorage.getItem("cargo_business_rates_v2")) || { ...defaultRates };
+    function getSafeAmount(inputId) {
+      const el = document.getElementById(inputId);
+      const val = Number(el ? el.value : 0);
+      if (!Number.isFinite(val) || val <= 0) return 0;
+      return Math.min(val, 1000000000);
+    }
+
+    function sanitizeText(raw, maxLen = 60) {
+      return String(raw || "")
+        .replace(/[<>&"'`]/g, "")
+        .trim()
+        .slice(0, maxLen);
+    }
 
     function renderRatesBoard() {
-      document.getElementById("displayUsdCop").textContent = businessRates.usd_cop.toLocaleString("es-CO", { minimumFractionDigits: 2 }) + " COP";
-      document.getElementById("displayCopVes").textContent = businessRates.cop_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES";
-      document.getElementById("ratesUpdatedTime").textContent = "Actualizado: " + businessRates.updatedAt;
-
-      document.getElementById("adminRateUsdCop").value = businessRates.usd_cop;
-      document.getElementById("adminRateCopVes").value = businessRates.cop_ves;
-    }
-
-    function saveBusinessRates() {
-      const usdCop = parseFloat(document.getElementById("adminRateUsdCop").value) || defaultRates.usd_cop;
-      const copVes = parseFloat(document.getElementById("adminRateCopVes").value) || defaultRates.cop_ves;
-
-      const now = new Date();
-      const timeStr = now.toLocaleTimeString("es-VE", { hour: "2-digit", minute: "2-digit" });
-
-      businessRates = {
-        usd_cop: usdCop,
-        cop_ves: copVes,
-        updatedAt: "Hoy · " + timeStr
-      };
-
-      localStorage.setItem("cargo_business_rates_v2", JSON.stringify(businessRates));
-      renderRatesBoard();
-      syncCalculatorMode();
-
-      const msg = document.getElementById("rateSaveMsg");
-      msg.textContent = "✓ Tasas actualizadas en la calculadora.";
-      setTimeout(() => { msg.textContent = ""; }, 4000);
-    }
-
-    function toggleOperatorPanel() {
-      document.getElementById("operatorPanel").classList.toggle("active");
-    }
-
-    function setNotice(mode) {
-      const title = document.getElementById("noticeTitle");
-      const desc = document.getElementById("noticeDesc");
-      const dot = document.getElementById("statusDot");
-      const statusText = document.getElementById("statusText");
-
-      if (mode === "nonworking") {
-        title.textContent = "MAÑANA NO LABORAMOS";
-        desc.textContent = "Gracias por su comprensión. Retomamos operaciones en nuestro horario habitual de 8:00 a. m. – 5:00 p. m.";
-        dot.classList.add("closed");
-        statusText.textContent = "Aviso especial activo · Consulte disponibilidad";
-      } else {
-        title.textContent = "OPERANDO EN HORARIO HABITUAL (8:00 A. M. – 5:00 P. M.)";
-        desc.textContent = "Transacciones seguras, rápidas y con la mejor tasa del mercado. Gracias por su preferencia.";
-        dot.classList.remove("closed");
-        statusText.textContent = "Horario habitual de atención: 8:00 a. m. – 5:00 p. m.";
+      const usdCopEl = document.getElementById("displayUsdCop");
+      const copVesEl = document.getElementById("displayCopVes");
+      if (usdCopEl) {
+        usdCopEl.textContent = DEFAULT_RATES.usd_cop.toLocaleString("es-CO", { minimumFractionDigits: 2 }) + " COP";
       }
-    }
-
-    function setCustomNotice() {
-      const val = document.getElementById("customNoticeInput").value.trim();
-      if (!val) return;
-      document.getElementById("noticeTitle").textContent = val.toUpperCase();
-      document.getElementById("noticeDesc").textContent = "Comunicado oficial emitido por INVERSIONES CAR-GO.";
+      if (copVesEl) {
+        copVesEl.textContent = DEFAULT_RATES.cop_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES";
+      }
     }
 
     function syncCalculatorMode() {
@@ -1526,25 +1430,25 @@
         amountLabel.textContent = "Monto Enviado (USD)";
         rateLabel.textContent = "Comisión Aplicada";
         rateInput.value = "10% sobre el monto enviado";
-        if (parseFloat(amountInput.value) >= 10000) amountInput.value = 100;
+        if (getSafeAmount("amountInput") >= 10000) amountInput.value = "100";
         destBank.value = "Entrega en Dólares / Liquidación Directa";
       } else if (mode === "giro_eur") {
         amountLabel.textContent = "Monto Giro Europeo (EUR)";
         rateLabel.textContent = "Comisión Aplicada";
         rateInput.value = "6% sobre el giro europeo";
-        if (parseFloat(amountInput.value) >= 10000) amountInput.value = 100;
+        if (getSafeAmount("amountInput") >= 10000) amountInput.value = "100";
         destBank.value = "Entrega en Euros / Liquidación Europea";
       } else if (mode === "envio_colombia") {
         amountLabel.textContent = "Monto a Enviar (USD)";
-        rateLabel.textContent = "Tasa Oficial Aplicada";
-        rateInput.value = businessRates.usd_cop.toLocaleString("es-CO", { minimumFractionDigits: 2 }) + " COP / USD";
-        if (parseFloat(amountInput.value) >= 10000) amountInput.value = 100;
+        rateLabel.textContent = "Tasa Referencial";
+        rateInput.value = DEFAULT_RATES.usd_cop.toLocaleString("es-CO", { minimumFractionDigits: 2 }) + " COP / USD";
+        if (getSafeAmount("amountInput") >= 10000) amountInput.value = "100";
         destBank.value = "Nequi (Colombia)";
       } else if (mode === "cat_cop") {
         amountLabel.textContent = "Valor Factura Catálogo (COP)";
-        rateLabel.textContent = "Tasa Oficial Aplicada";
-        rateInput.value = businessRates.cop_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES / 1.000 COP";
-        if (parseFloat(amountInput.value) < 1000) amountInput.value = 250000;
+        rateLabel.textContent = "Tasa Referencial";
+        rateInput.value = DEFAULT_RATES.cop_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES / 1.000 COP";
+        if (getSafeAmount("amountInput") < 1000) amountInput.value = "250000";
         destBank.value = "Factura Ésika / L'Bel / Avon";
       }
 
@@ -1553,7 +1457,7 @@
 
     function updateCalculator() {
       const mode = document.getElementById("opType").value;
-      const amount = parseFloat(document.getElementById("amountInput").value) || 0;
+      const amount = getSafeAmount("amountInput");
       const output = document.getElementById("calcOutput");
       const note = document.getElementById("calcNote");
       const grossLabel = document.getElementById("breakdownGrossLabel");
@@ -1580,21 +1484,21 @@
         output.textContent = "€" + net.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " EUR";
         note.textContent = "Descontando comisión fija del 6%";
       } else if (mode === "envio_colombia") {
-        const res = amount * businessRates.usd_cop;
+        const res = amount * DEFAULT_RATES.usd_cop;
         grossLabel.textContent = "Monto a enviar (USD):";
         grossVal.textContent = "$" + amount.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " USD";
-        feeLabel.textContent = "Tasa aplicada:";
-        feeVal.textContent = businessRates.usd_cop.toLocaleString("es-CO", { minimumFractionDigits: 2 }) + " COP";
+        feeLabel.textContent = "Tasa referencial:";
+        feeVal.textContent = DEFAULT_RATES.usd_cop.toLocaleString("es-CO", { minimumFractionDigits: 2 }) + " COP";
         output.textContent = res.toLocaleString("es-CO", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " COP";
         note.textContent = "Recibe en Colombia (Nequi / Bancolombia / Davivienda)";
       } else if (mode === "cat_cop") {
-        const res = (amount / 1000) * businessRates.cop_ves;
+        const res = (amount / 1000) * DEFAULT_RATES.cop_ves;
         grossLabel.textContent = "Factura en Pesos (COP):";
         grossVal.textContent = "$" + amount.toLocaleString("es-CO", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " COP";
-        feeLabel.textContent = "Tasa aplicada (por 1.000 COP):";
-        feeVal.textContent = businessRates.cop_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES";
+        feeLabel.textContent = "Tasa referencial (por 1.000 COP):";
+        feeVal.textContent = DEFAULT_RATES.cop_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES";
         output.textContent = res.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " VES";
-        note.textContent = "Monto a transferir en Bolívares para pagar tu factura";
+        note.textContent = "Monto referencial en Bolívares para pagar tu factura";
       }
     }
 
@@ -1606,29 +1510,30 @@
       const bank = document.getElementById("destBank").value;
       const net = document.getElementById("calcOutput").textContent;
 
-      const message = `Hola *INVERSIONES CAR-GO*, deseo procesar una operación:\n\n` +
+      const message = `Hola *INVERSIONES CAR-GO*, deseo consultar y procesar una operación (cálculo referencial sujeto a confirmación de la agencia):\n\n` +
         `• *Servicio:* ${opText}\n` +
         `• *Monto enviado:* ${gross}\n` +
-        `• *Tarifa / Tasa:* ${fee}\n` +
+        `• *Tarifa / Tasa referencial:* ${fee}\n` +
         `• *Destino:* ${bank}\n` +
-        `• *Total neto a recibir:* ${net}\n\n` +
-        `Quedo atento(a) a las instrucciones para concretar.`;
+        `• *Total neto estimado:* ${net}\n\n` +
+        `Por favor confírmenme la tasa vigente y las instrucciones oficiales.`;
 
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank");
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
     }
 
     function sendCatalogWhatsApp() {
-      const brand = document.getElementById("catBrand").value;
-      const code = document.getElementById("catCode").value.trim() || "No especificado";
-      const amount = document.getElementById("catAmount").value || "Por confirmar";
+      const brand = sanitizeText(document.getElementById("catBrand").value, 20);
+      const code = sanitizeText(document.getElementById("catCode").value, 40) || "No especificado";
+      const amountVal = getSafeAmount("catAmount");
+      const amountText = amountVal > 0 ? `$${amountVal.toLocaleString("es-CO")} COP` : "Por confirmar";
 
-      const message = `Hola *INVERSIONES CAR-GO*, solicito el pago de factura de catálogo:\n\n` +
+      const message = `Hola *INVERSIONES CAR-GO*, solicito información para pago de factura de catálogo:\n\n` +
         `• *Marca:* ${brand}\n` +
         `• *Código de Consultora:* ${code}\n` +
-        `• *Monto Factura:* $${amount} COP\n\n` +
-        `Quedo atenta a la tasa del día para transferir.`;
+        `• *Monto Factura:* ${amountText}\n\n` +
+        `Quedo atenta a la confirmación de la tasa del día.`;
 
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank");
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
     }
 
     function verifyChannel() {
@@ -1643,10 +1548,10 @@
 
       if (raw.endsWith("4246262165")) {
         res.className = "verifier-result valid";
-        res.innerHTML = "✓ <strong>CANAL OFICIAL VERIFICADO:</strong> El número +58 424-6262165 pertenece oficialmente a INVERSIONES CAR-GO.";
+        res.textContent = "✓ CANAL OFICIAL VERIFICADO: El número +58 424-6262165 es la línea oficial de atención al cliente de INVERSIONES CAR-GO.";
       } else {
         res.className = "verifier-result invalid";
-        res.innerHTML = "✕ <strong>ALERTA DE SEGURIDAD:</strong> Este número NO corresponde a nuestra línea oficial (+58 424-6262165). No realices transferencias ni compartas datos.";
+        res.textContent = "✕ ALERTA DE SEGURIDAD: Este número NO corresponde a nuestra línea oficial (+58 424-6262165). No realices transferencias ni compartas datos.";
       }
     }
 
@@ -1655,4 +1560,3 @@
   </script>
 </body>
 </html>
-

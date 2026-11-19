@@ -469,7 +469,7 @@
       text-align: right;
     }
 
-    .net-100-bar {
+    .commission-step-bar {
       margin-bottom: 16px;
       padding: 10px 12px;
       background: var(--bg-page);
@@ -1059,11 +1059,11 @@
             <div class="calc-result-amount" id="calcOutput">$90,00 USD</div>
           </div>
 
-          <!-- Botón de ajuste a 100 netos -->
-          <div class="net-100-bar" id="net100Bar">
-            <span style="font-size: 12px; color: var(--text-muted);">¿Necesitas que lleguen 100 netos?</span>
-            <button type="button" id="btnNet100" class="btn btn-outline btn-sm" onclick="applyNet100Button()">
-              Ajustar a 100 Neto
+          <!-- Botón de comisión alternada (+% / -%) fuera de la transacción -->
+          <div class="commission-step-bar" id="commissionStepBar">
+            <span id="commissionStepHint" style="font-size: 12px; color: var(--text-muted);">Ajuste rápido de porcentaje:</span>
+            <button type="button" id="btnCommissionStep" class="btn btn-outline btn-sm" onclick="toggleCommissionStepButton()">
+              Aplicar +10%
             </button>
           </div>
 
@@ -1413,7 +1413,7 @@
       cop_ves: 10.95
     });
 
-    let forceNet100 = false;
+    let extraStepApplied = false;
 
     function getSafeAmount(inputId) {
       const el = document.getElementById(inputId);
@@ -1429,34 +1429,52 @@
         .slice(0, maxLen);
     }
 
-    function resetNet100Button() {
-      forceNet100 = false;
-      const btn = document.getElementById("btnNet100");
-      if (btn) btn.textContent = "Ajustar a 100 Neto";
+    function getActivePercentRate() {
+      const mode = document.getElementById("opType").value;
+      if (mode === "remesa_usd") return 0.10;
+      if (mode === "giro_eur") return 0.06;
+      return 0;
+    }
+
+    function syncCommissionStepButtonLabel() {
+      const btn = document.getElementById("btnCommissionStep");
+      if (!btn) return;
+      const pct = Math.round(getActivePercentRate() * 100);
+      if (pct <= 0) return;
+      btn.textContent = extraStepApplied ? `Aplicar -${pct}%` : `Aplicar +${pct}%`;
+    }
+
+    function resetCommissionStep() {
+      extraStepApplied = false;
+      syncCommissionStepButtonLabel();
     }
 
     function handleManualAmountInput() {
-      resetNet100Button();
+      resetCommissionStep();
       updateCalculator();
     }
 
-    function applyNet100Button() {
-      const mode = document.getElementById("opType").value;
-      const amountInput = document.getElementById("amountInput");
-      const btn = document.getElementById("btnNet100");
+    function toggleCommissionStepButton() {
+      const rate = getActivePercentRate();
+      if (rate <= 0) return;
 
-      if (mode === "remesa_usd") {
-        // Para recibir 100.00 USD netos con 10% de comisión: 100 / 0.90 = 111.11
-        amountInput.value = (100 / 0.90).toFixed(2);
-      } else if (mode === "giro_eur") {
-        // Para recibir 100.00 EUR netos con 6% de comisión: 100 / 0.94 = 106.38
-        amountInput.value = (100 / 0.94).toFixed(2);
+      const amountInput = document.getElementById("amountInput");
+      const current = getSafeAmount("amountInput");
+      if (current <= 0) return;
+
+      if (!extraStepApplied) {
+        // Paso 1: monto + porcentaje (ej. 100 + 10% = 110)[cite: 10]
+        const plusVal = current * (1 + rate);
+        amountInput.value = Number(plusVal.toFixed(2));
+        extraStepApplied = true;
       } else {
-        return;
+        // Paso 2: total - porcentaje (ej. 110 - 10% = 99)[cite: 11]
+        const minusVal = current * (1 - rate);
+        amountInput.value = Number(minusVal.toFixed(2));
+        extraStepApplied = false;
       }
 
-      forceNet100 = true;
-      if (btn) btn.textContent = "✓ 100 Neto Aplicado";
+      syncCommissionStepButtonLabel();
       updateCalculator();
     }
 
@@ -1472,7 +1490,7 @@
     }
 
     function syncCalculatorMode() {
-      resetNet100Button();
+      resetCommissionStep();
 
       const mode = document.getElementById("opType").value;
       const amountLabel = document.getElementById("amountLabel");
@@ -1480,7 +1498,7 @@
       const rateInput = document.getElementById("appliedRate");
       const amountInput = document.getElementById("amountInput");
       const destBank = document.getElementById("destBank");
-      const net100Bar = document.getElementById("net100Bar");
+      const stepBar = document.getElementById("commissionStepBar");
 
       if (mode === "remesa_usd") {
         amountLabel.textContent = "Monto Enviado (USD)";
@@ -1488,28 +1506,28 @@
         rateInput.value = "10% sobre el monto enviado";
         if (getSafeAmount("amountInput") >= 10000) amountInput.value = "100";
         destBank.value = "Entrega en Dólares / Liquidación Directa";
-        if (net100Bar) net100Bar.style.display = "flex";
+        if (stepBar) stepBar.style.display = "flex";
       } else if (mode === "giro_eur") {
         amountLabel.textContent = "Monto Giro Europeo (EUR)";
         rateLabel.textContent = "Comisión Aplicada";
         rateInput.value = "6% sobre el giro europeo";
         if (getSafeAmount("amountInput") >= 10000) amountInput.value = "100";
         destBank.value = "Entrega en Euros / Liquidación Europea";
-        if (net100Bar) net100Bar.style.display = "flex";
+        if (stepBar) stepBar.style.display = "flex";
       } else if (mode === "envio_colombia") {
         amountLabel.textContent = "Monto a Enviar (USD)";
         rateLabel.textContent = "Tasa Referencial";
         rateInput.value = DEFAULT_RATES.usd_cop.toLocaleString("es-CO", { minimumFractionDigits: 2 }) + " COP / USD";
         if (getSafeAmount("amountInput") >= 10000) amountInput.value = "100";
         destBank.value = "Nequi (Colombia)";
-        if (net100Bar) net100Bar.style.display = "none";
+        if (stepBar) stepBar.style.display = "none";
       } else if (mode === "cat_cop") {
         amountLabel.textContent = "Valor Factura Catálogo (COP)";
         rateLabel.textContent = "Tasa Referencial";
         rateInput.value = DEFAULT_RATES.cop_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES / 1.000 COP";
         if (getSafeAmount("amountInput") < 1000) amountInput.value = "250000";
         destBank.value = "Factura Ésika / L'Bel / Avon";
-        if (net100Bar) net100Bar.style.display = "none";
+        if (stepBar) stepBar.style.display = "none";
       }
 
       updateCalculator();
@@ -1526,33 +1544,23 @@
       const feeVal = document.getElementById("breakdownFeeVal");
 
       if (mode === "remesa_usd") {
-        const feeRate = 0.10;
-        const net = forceNet100 ? 100 : amount * (1 - feeRate);
-        const gross = forceNet100 ? (100 / (1 - feeRate)) : amount;
-        const fee = gross - net;
-
+        const fee = amount * 0.10;
+        const net = amount - fee;
         grossLabel.textContent = "Monto bruto enviado (USD):";
-        grossVal.textContent = "$" + gross.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " USD";
+        grossVal.textContent = "$" + amount.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " USD";
         feeLabel.textContent = "Comisión del servicio (10%):";
         feeVal.textContent = "-$" + fee.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " USD";
         output.textContent = "$" + net.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " USD";
-        note.textContent = forceNet100
-          ? "Calculado para recibir $100,00 netos (comisión 10%)"
-          : "Descontando comisión fija del 10%";
+        note.textContent = "Descontando comisión fija del 10%";
       } else if (mode === "giro_eur") {
-        const feeRate = 0.06;
-        const net = forceNet100 ? 100 : amount * (1 - feeRate);
-        const gross = forceNet100 ? (100 / (1 - feeRate)) : amount;
-        const fee = gross - net;
-
+        const fee = amount * 0.06;
+        const net = amount - fee;
         grossLabel.textContent = "Monto bruto giro europeo (EUR):";
-        grossVal.textContent = "€" + gross.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " EUR";
+        grossVal.textContent = "€" + amount.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " EUR";
         feeLabel.textContent = "Comisión giro europeo (6%):";
         feeVal.textContent = "-€" + fee.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " EUR";
         output.textContent = "€" + net.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " EUR";
-        note.textContent = forceNet100
-          ? "Calculado para recibir €100,00 netos (comisión 6%)"
-          : "Descontando comisión fija del 6%";
+        note.textContent = "Descontando comisión fija del 6%";
       } else if (mode === "envio_colombia") {
         const res = amount * DEFAULT_RATES.usd_cop;
         grossLabel.textContent = "Monto a enviar (USD):";

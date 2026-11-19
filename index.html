@@ -1,118 +1,1216 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INVERSIONES CAR-GO | Envíos de Dinero y Remesas</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        html { scroll-behavior: smooth; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INVERSIONES CAR-GO | Remesas, Transferencias y Pago de Catálogos</title>
+  <meta name="description" content="Inversiones Car-Go: Envíos a Colombia (Nequi, Bancolombia, Davivienda, Daviplata), recepción de remesas de EE. UU., México, Panamá, España y pago de facturas de catálogos Ésika, L'Bel y Avon." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Paleta Oficial: Blanco Hueso con Azul Marino y Dorado */
+      --bg-page: #F7F6F2;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #EFEDE6;
+      --brand-primary: #0E1F3D;
+      --brand-accent: #C59B27;
+      --text-main: #0E1F3D;
+      --text-muted: #475569;
+      --border-hairline: #DCDAD3;
+      --tricolor-yellow: #FCD116;
+      --tricolor-blue: #003893;
+      --tricolor-red: #CE1126;
+      --status-ok: #15803D;
+      --status-warn: #B45309;
+      --status-danger: #B91C1C;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Fondo geométrico poligonal inspirado en el flyer oficial */
+    .geo-bg-top-left,
+    .geo-bg-top-right,
+    .geo-bg-bottom-left,
+    .geo-bg-bottom-right {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.85;
+    }
+    .geo-bg-top-left { top: 0; left: 0; width: 220px; height: 220px; }
+    .geo-bg-top-right { top: 0; right: 0; width: 260px; height: 260px; }
+    .geo-bg-bottom-left { bottom: 0; left: 0; width: 240px; height: 240px; }
+    .geo-bg-bottom-right { bottom: 0; right: 0; width: 220px; height: 220px; }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Barra superior de estado y horario */
+    .top-bar {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-hairline);
+      font-size: 13px;
+      padding: 10px 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    .top-bar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--status-ok);
+      display: inline-block;
+    }
+
+    .status-dot.closed {
+      background-color: var(--status-warn);
+    }
+
+    /* Navegación principal */
+    header {
+      background: rgba(247, 246, 242, 0.94);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--border-hairline);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      gap: 20px;
+    }
+
+    .brand-link {
+      text-decoration: none;
+      color: var(--brand-primary);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    nav.nav-links {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav.nav-links a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    nav.nav-links a:hover {
+      color: var(--brand-accent);
+    }
+
+    /* Botones minimalistas arquitectónicos */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--brand-primary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: transparent;
+      color: var(--brand-primary);
+    }
+
+    .btn-primary {
+      background: var(--brand-primary);
+      color: #FFFFFF;
+    }
+
+    .btn-primary:hover {
+      background: #18325E;
+      border-color: #18325E;
+    }
+
+    .btn-outline:hover {
+      background: var(--brand-primary);
+      color: #FFFFFF;
+    }
+
+    .btn-sm {
+      padding: 8px 14px;
+      font-size: 11px;
+    }
+
+    /* Tablero de Aviso Importante (Estilo Flyer Oficial) */
+    .notice-section {
+      padding-top: 28px;
+    }
+
+    .notice-board {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-left: 4px solid var(--brand-accent);
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .notice-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--brand-accent);
+      margin-bottom: 4px;
+    }
+
+    .notice-headline {
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--brand-primary);
+    }
+
+    .notice-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .operator-panel {
+      display: none;
+      margin-top: 12px;
+      padding: 16px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-hairline);
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .operator-panel.active {
+      display: flex;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 64px 0 56px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--brand-accent);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(36px, 5vw, 54px);
+      line-height: 1.08;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      margin-bottom: 20px;
+      color: var(--brand-primary);
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      max-width: 560px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--border-hairline);
+      padding-top: 20px;
+      gap: 16px;
+    }
+
+    .metric-val {
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--brand-primary);
+    }
+
+    .metric-lbl {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Cotizador en Tiempo Real */
+    .calculator-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--brand-primary);
+      padding: 32px;
+      position: relative;
+    }
+
+    .calculator-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--tricolor-yellow) 0% 33.3%, var(--tricolor-blue) 33.3% 66.6%, var(--tricolor-red) 66.6% 100%);
+    }
+
+    .card-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 6px;
+    }
+
+    .card-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+      color: var(--brand-primary);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid var(--border-hairline);
+      background: var(--bg-page);
+      color: var(--brand-primary);
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-control:focus {
+      border-color: var(--brand-primary);
+      background: var(--bg-surface);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .calc-result-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-hairline);
+      padding: 16px;
+      margin: 18px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .calc-result-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .calc-result-amount {
+      font-family: 'Oswald', sans-serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--brand-primary);
+    }
+
+    /* Secciones Generales */
+    section.content-section {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .section-header {
+      margin-bottom: 44px;
+      max-width: 680px;
+    }
+
+    .section-header h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 32px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    /* Grid de Servicios y Directorio de Bancos */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .minimal-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .minimal-card h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0;
+      list-style: none;
+    }
+
+    .tag-item {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 10px;
+      background: var(--bg-page);
+      border: 1px solid var(--border-hairline);
+      color: var(--brand-primary);
+    }
+
+    .time-badge {
+      font-size: 12px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-hairline);
+      padding-top: 12px;
+      margin-top: 12px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Módulo Consultoras de Catálogos */
+    .catalog-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      padding: 36px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .step-list {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .step-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border-hairline);
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--brand-accent);
+      border: 1px solid var(--brand-accent);
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Verificador Antifraude */
+    .verifier-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--brand-primary);
+      padding: 32px;
+    }
+
+    .verifier-input-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .verifier-result {
+      margin-top: 16px;
+      padding: 14px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      display: none;
+      border: 1px solid var(--border-hairline);
+    }
+
+    .verifier-result.valid {
+      display: block;
+      background: #F0FDF4;
+      border-color: #86EFAC;
+      color: var(--status-ok);
+    }
+
+    .verifier-result.invalid {
+      display: block;
+      background: #FEF2F2;
+      border-color: #FCA5A5;
+      color: var(--status-danger);
+    }
+
+    /* Muro de Operaciones Verificadas */
+    .ledger-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      font-size: 13px;
+    }
+
+    .ledger-table th,
+    .ledger-table td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .ledger-table th {
+      background: var(--bg-subtle);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+
+    /* FAQ Acordeón */
+    .faq-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      margin-bottom: 12px;
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 18px 22px;
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--brand-primary);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-answer {
+      padding: 0 22px 18px;
+      font-size: 14px;
+      color: var(--text-muted);
+      display: none;
+      border-top: 1px solid var(--border-hairline);
+      padding-top: 14px;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* Seguridad, Privacidad y URLs Legales */
+    .legal-url-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .legal-url-pill {
+      font-family: monospace;
+      font-size: 12px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      padding: 8px 14px;
+      color: var(--brand-primary);
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .legal-url-pill:hover {
+      border-color: var(--brand-primary);
+      background: var(--bg-subtle);
+    }
+
+    /* Modal Legal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(14, 31, 61, 0.65);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 100;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-dialog {
+      background: var(--bg-surface);
+      border: 1px solid var(--brand-primary);
+      max-width: 680px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 32px;
+      position: relative;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-hairline);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+    }
+
+    .modal-body h4 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 16px 0 6px;
+      color: var(--brand-primary);
+    }
+
+    .modal-body p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-surface);
+      padding: 48px 0 32px;
+      font-size: 13px;
+      color: var(--text-muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .footer-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--brand-primary);
+      margin-bottom: 12px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 8px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--brand-primary);
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid-3,
+      .grid-2,
+      .catalog-box,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+<body>
 
-    <!-- Navegación -->
-    <nav class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="#" class="flex items-center space-x-2">
-                <i class="fa-solid fa-truck-fast text-2xl text-emerald-400"></i>
-                <span class="font-bold text-xl tracking-wide">INVERSIONES <span class="text-emerald-400">CAR-GO</span></span>
+  <!-- Geometría poligonal fina inspirada en la publicidad oficial de INVERSIONES CAR-GO -->
+  <svg class="geo-bg-top-left" viewBox="0 0 220 220" fill="none">
+    <line x1="0" y1="140" x2="140" y2="0" stroke="#0E1F3D" stroke-width="1.5"/>
+    <line x1="0" y1="165" x2="165" y2="0" stroke="#0E1F3D" stroke-width="1"/>
+    <polygon points="85,78 96,60 107,78" fill="#0E1F3D"/>
+    <polyline points="40,0 75,35 110,0" stroke="#0E1F3D" stroke-width="1" fill="none"/>
+  </svg>
+
+  <svg class="geo-bg-top-right" viewBox="0 0 260 260" fill="none">
+    <polygon points="210,0 260,0 260,55" fill="#0E1F3D"/>
+    <polyline points="120,0 175,65 260,40" stroke="#C59B27" stroke-width="1" fill="none"/>
+    <polyline points="150,0 215,95 260,125" stroke="#C59B27" stroke-width="1" fill="none"/>
+    <polyline points="180,25 260,85 205,145 160,55" stroke="#C59B27" stroke-width="1" fill="none"/>
+  </svg>
+
+  <svg class="geo-bg-bottom-left" viewBox="0 0 240 240" fill="none">
+    <polygon points="0,165 0,240 75,240" fill="#0E1F3D"/>
+    <polyline points="0,115 70,150 40,210 120,240" stroke="#C59B27" stroke-width="1" fill="none"/>
+    <polyline points="0,145 95,185 150,240" stroke="#C59B27" stroke-width="1" fill="none"/>
+  </svg>
+
+  <svg class="geo-bg-bottom-right" viewBox="0 0 220 220" fill="none">
+    <line x1="80" y1="220" x2="220" y2="80" stroke="#0E1F3D" stroke-width="1.5"/>
+    <line x1="105" y1="220" x2="220" y2="105" stroke="#0E1F3D" stroke-width="1"/>
+    <polygon points="155,130 166,112 177,130" fill="#0E1F3D" transform="rotate(180 166 121)"/>
+  </svg>
+
+  <!-- Barra superior de horario y canal oficial -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="status-pill">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">Horario habitual de atención: 8:00 a. m. – 5:00 p. m.</span>
+      </div>
+      <div>
+        Canal Único Autorizado: <strong>+58 412-8034793</strong> · Finanzas & Remesas
+      </div>
+    </div>
+  </div>
+
+  <!-- Encabezado con Logotipo Oficial SVG -->
+  <header>
+    <div class="container nav-inner">
+      <a href="#" class="brand-link" aria-label="Inversiones Car-Go Inicio">
+        <!-- Recreación vectorial fiel del logotipo oficial -->
+        <svg width="175" height="62" viewBox="0 0 260 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="130" y="21" text-anchor="middle" fill="#0E1F3D" font-family="Inter, sans-serif" font-size="16" font-weight="500" letter-spacing="2">INVERSIONES</text>
+          <text x="130" y="54" text-anchor="middle" fill="#0E1F3D" font-family="Inter, sans-serif" font-size="34" font-weight="700" letter-spacing="1.5">CAR-GO</text>
+          <!-- Acento en la Ó -->
+          <line x1="196" y1="24" x2="202" y2="18" stroke="#0E1F3D" stroke-width="3" stroke-linecap="round"/>
+          <!-- Barra Tricolor -->
+          <rect x="52" y="62" width="52" height="5" rx="2.5" fill="#FCD116"/>
+          <rect x="104" y="62" width="52" height="5" rx="2.5" fill="#003893"/>
+          <rect x="156" y="62" width="52" height="5" rx="2.5" fill="#CE1126"/>
+          <!-- 8 Estrellas -->
+          <text x="130" y="81" text-anchor="middle" fill="#0E1F3D" font-size="11" letter-spacing="4">★★★★★★★★</text>
+        </svg>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#cotizador">Cotizador</a>
+        <a href="#servicios">Servicios y Bancos</a>
+        <a href="#catalogos">Catálogos</a>
+        <a href="#seguridad">Verificador</a>
+        <a href="#legal">Privacidad</a>
+      </nav>
+
+      <a href="https://wa.me/584128034793?text=Hola%20Inversiones%20Car-Go,%20deseo%20consultar%20la%20tasa%20del%20d%C3%ADa." target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+        WhatsApp Directo
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Tablero de Aviso Importante Autoadministrable -->
+    <section class="notice-section" aria-label="Aviso Importante">
+      <div class="container">
+        <div class="notice-board">
+          <div>
+            <div class="notice-label">★ Aviso Importante</div>
+            <div class="notice-headline" id="noticeTitle">OPERANDO EN HORARIO HABITUAL (8:00 A. M. – 5:00 P. M.)</div>
+            <div class="notice-sub" id="noticeDesc">Transacciones seguras, rápidas y con la mejor tasa del mercado. Gracias por su preferencia.</div>
+          </div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button type="button" class="btn btn-outline btn-sm" onclick="toggleOperatorPanel()">Modo Operador (Editar Aviso)</button>
+          </div>
+        </div>
+
+        <div class="operator-panel" id="operatorPanel">
+          <button type="button" class="btn btn-sm" onclick="setNotice('normal')">Horario Normal</button>
+          <button type="button" class="btn btn-sm" onclick="setNotice('nonworking')">Flyer: Mañana No Laboramos</button>
+          <input type="text" id="customNoticeInput" class="form-control" style="max-width:320px;" placeholder="Escribe un aviso personalizado..." />
+          <button type="button" class="btn btn-primary btn-sm" onclick="setCustomNotice()">Publicar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero Principal + Calculadora Cotizadora -->
+    <section class="hero" id="cotizador">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Agencia Financiera · Transferencias y Remesas</span>
+          <h1>¡Tu dinero donde lo necesitas, al instante!</h1>
+          <p>
+            En <strong>INVERSIONES CAR-GO</strong> acortamos distancias. Gestionamos envíos inmediatos a Colombia, recepción de remesas internacionales y pago puntual de facturas de catálogos con respaldo verificado.
+          </p>
+
+          <div class="hero-actions">
+            <a href="https://wa.me/584128034793?text=Hola%20Inversiones%20Car-Go,%20quiero%20realizar%20un%20cambio%20hoy." target="_blank" rel="noopener" class="btn btn-primary">
+              Realizar Cambio Hoy
             </a>
-            <div class="hidden md:flex space-x-6 text-sm font-medium">
-                <a href="#servicios" class="hover:text-emerald-400 transition">Servicios</a>
-                <a href="#privacidad" class="hover:text-emerald-400 transition">Privacidad</a>
-                <a href="#terminos" class="hover:text-emerald-400 transition">Términos</a>
-                <a href="#eliminacion-datos" class="hover:text-emerald-400 transition">Eliminación de Datos</a>
-            </div>
-            <a href="https://wa.me/584127908338?text=Hola,%20deseo%20consultar%20la%20tasa%20del%20d%C3%ADa" 
-               target="_blank" 
-               class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-full font-semibold text-sm transition flex items-center space-x-2">
-                <i class="fa-brands fa-whatsapp text-lg"></i>
-                <span>Contacto</span>
+            <a href="#servicios" class="btn btn-outline">
+              Ver Bancos y Países
             </a>
-        </div>
-    </nav>
+          </div>
 
-    <!-- Encabezado Principal -->
-    <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 text-white py-16 px-4">
-        <div class="max-w-4xl mx-auto text-center space-y-6">
-            <span class="bg-emerald-500/20 text-emerald-300 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider border border-emerald-500/30">
-                🔒 Rápido, Seguro y Transparente
-            </span>
-            <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight">
-                ¡Tu dinero donde lo necesitas, <span class="text-emerald-400">al instante!</span>
-            </h1>
-            <p class="text-lg text-slate-300 max-w-2xl mx-auto">
-                En <strong>INVERSIONES CAR-GO</strong> acortamos distancias: envíos a Colombia, recepción de remesas internacionales y pago de facturas de catálogos.
-            </p>
-            <div class="pt-4 flex justify-center">
-                <a href="https://wa.me/584127908338?text=Hola,%20quiero%20hacer%20un%20cambio" 
-                   target="_blank" 
-                   class="bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:scale-105 transition flex items-center space-x-2">
-                    <i class="fa-brands fa-whatsapp text-2xl"></i>
-                    <span>Realizar Cambio Hoy</span>
-                </a>
+          <div class="hero-metrics">
+            <div>
+              <div class="metric-val">5+ Países</div>
+              <div class="metric-lbl">Colombia, EE. UU., México, Panamá y España</div>
             </div>
+            <div>
+              <div class="metric-val">8 AM – 5 PM</div>
+              <div class="metric-lbl">Atención continua personalizada</div>
+            </div>
+            <div>
+              <div class="metric-val">100% Verificado</div>
+              <div class="metric-lbl">Comprobante bancario en cada operación</div>
+            </div>
+          </div>
         </div>
-    </header>
 
-    <!-- Servicios -->
-    <section id="servicios" class="max-w-6xl mx-auto px-4 py-16">
-        <div class="text-center mb-12">
-            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Nuestros Servicios</h2>
+        <!-- Cotizador / Calculadora en Tiempo Real -->
+        <div class="calculator-card">
+          <h2 class="card-title">Cotizador Express</h2>
+          <p class="card-subtitle">Simula tu operación y envía los datos listos a nuestro WhatsApp.</p>
+
+          <div class="form-group">
+            <label for="opType">Tipo de Operación</label>
+            <select id="opType" class="form-control" onchange="updateCalculator()">
+              <option value="envio_colombia">Envío a Colombia (Nequi / Bancolombia / Davivienda / Daviplata)</option>
+              <option value="remesa_intl">Recibir Remesa Internacional (EE. UU. / México / Panamá / España)</option>
+              <option value="pago_catalogo">Pago de Factura de Catálogo (Ésika / L'Bel / Avon)</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="amountInput">Monto a Enviar</label>
+              <input type="number" id="amountInput" class="form-control" value="100" min="1" oninput="updateCalculator()" />
+            </div>
+            <div class="form-group">
+              <label for="currencySelect">Moneda Origen</label>
+              <select id="currencySelect" class="form-control" onchange="updateCalculator()">
+                <option value="USD">USD ($ Dólares)</option>
+                <option value="COP">COP ($ Pesos Col.)</option>
+                <option value="EUR">EUR (€ Euros)</option>
+                <option value="VES">VES (Bs. Bolívares)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="destBank">Banco / Plataforma Destino</label>
+              <select id="destBank" class="form-control" onchange="updateCalculator()">
+                <option value="Nequi">Nequi (Colombia)</option>
+                <option value="Bancolombia">Bancolombia</option>
+                <option value="Davivienda">Davivienda</option>
+                <option value="Daviplata">Daviplata</option>
+                <option value="Pago Móvil / Venezuela">Pago Móvil / Transferencia Venezuela</option>
+                <option value="Factura Ésika / L'Bel / Avon">Factura Ésika / L'Bel / Avon</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="refRate">Tasa Referencial (Editable)</label>
+              <input type="number" id="refRate" class="form-control" value="4150" step="0.01" oninput="updateCalculator()" />
+            </div>
+          </div>
+
+          <div class="calc-result-box">
+            <div>
+              <div class="calc-result-label">Estimado a Recibir</div>
+              <div style="font-size:11px; color:var(--text-muted);">*Sujeto a confirmación de tasa en vivo</div>
+            </div>
+            <div class="calc-result-amount" id="calcOutput">415,000.00</div>
+          </div>
+
+          <button type="button" class="btn btn-primary" style="width:100%;" onclick="sendQuoteWhatsApp()">
+            Cotizar y Procesar por WhatsApp
+          </button>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                <i class="fa-solid fa-paper-plane text-3xl text-emerald-500 mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">Envíos a Colombia</h3>
-                <p class="text-slate-600 text-sm">Transferencias inmediatas a Nequi, Bancolombia, Davivienda y Daviplata.</p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                <i class="fa-solid fa-globe text-3xl text-blue-500 mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">Recepción de Remesas</h3>
-                <p class="text-slate-600 text-sm">Recibimos tus remesas desde Colombia, EE. UU., México, Panamá, España y más.</p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                <i class="fa-solid fa-file-invoice-dollar text-3xl text-purple-500 mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">Pago de Catálogos</h3>
-                <p class="text-slate-600 text-sm">Gestión rápida del pago de facturas directas de Ésika, L'Bel y Avon.</p>
-            </div>
-        </div>
+      </div>
     </section>
 
-    <!-- SECCIÓN: POLÍTICA DE PRIVACIDAD (Requisito para Meta) -->
-    <section id="privacidad" class="max-w-4xl mx-auto px-4 py-12 border-t border-slate-200">
-        <h2 class="text-2xl font-bold text-slate-900 mb-4">Política de Privacidad</h2>
-        <div class="prose prose-slate text-slate-600 text-sm space-y-3 leading-relaxed">
-            <p>En <strong>INVERSIONES CAR-GO</strong> garantizamos la privacidad y protección de los datos de nuestros usuarios al interactuar con nuestra plataforma o canal de atención automatizado en WhatsApp.</p>
-            <p><strong>Recopilación de Datos:</strong> Recopilamos únicamente información básica necesaria para procesar las transacciones (nombre, número de contacto, datos bancarios del beneficiario y comprobantes de pago).</p>
-            <p><strong>Uso de la Información:</strong> Los datos se emplean únicamente para procesar las solicitudes de envío, recepción de dinero y resolución de soporte al cliente. No compartimos información con terceros sin autorización previa.</p>
+    <!-- Directorio de Servicios, Bancos y Países -->
+    <section class="content-section" id="servicios">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Cobertura Financiera</span>
+          <h2>Directorio de Bancos y Canales de Recepción</h2>
+          <p>Operamos directamente con las principales entidades financieras y billeteras digitales para garantizar acreditaciones sin demoras.</p>
         </div>
+
+        <div class="grid-3">
+          <div class="minimal-card">
+            <div>
+              <h3>Envíos a Colombia</h3>
+              <p style="font-size:14px; color:var(--text-muted);">Transferencias directas a cuentas bancarias y billeteras digitales en Colombia sin intermediarios innecesarios.</p>
+              <ul class="tag-list">
+                <li class="tag-item">Nequi</li>
+                <li class="tag-item">Bancolombia</li>
+                <li class="tag-item">Davivienda</li>
+                <li class="tag-item">Daviplata</li>
+              </ul>
+            </div>
+            <div class="time-badge">
+              <span>Acreditación estimada:</span>
+              <strong>5 – 20 min</strong>
+            </div>
+          </div>
+
+          <div class="minimal-card">
+            <div>
+              <h3>Remesas Internacionales</h3>
+              <p style="font-size:14px; color:var(--text-muted);">Recibimos tus remesas desde el exterior y las liquidamos de forma rápida y segura donde las necesites.</p>
+              <ul class="tag-list">
+                <li class="tag-item">Colombia</li>
+                <li class="tag-item">EE. UU.</li>
+                <li class="tag-item">México</li>
+                <li class="tag-item">Panamá</li>
+                <li class="tag-item">España</li>
+                <li class="tag-item">+ Otros destinos</li>
+              </ul>
+            </div>
+            <div class="time-badge">
+              <span>Liquidación:</span>
+              <strong>Mismo día hábil</strong>
+            </div>
+          </div>
+
+          <div class="minimal-card">
+            <div>
+              <h3>Pago de Catálogos</h3>
+              <p style="font-size:14px; color:var(--text-muted);">Gestión especializada de pago de facturas para consultoras y distribuidoras de marcas líderes de belleza.</p>
+              <ul class="tag-list">
+                <li class="tag-item">Ésika</li>
+                <li class="tag-item">L'Bel</li>
+                <li class="tag-item">Avon</li>
+              </ul>
+            </div>
+            <div class="time-badge">
+              <span>Soporte incluido:</span>
+              <strong>Recibo oficial</strong>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- SECCIÓN: TÉRMINOS Y CONDICIONES (Requisito para Meta) -->
-    <section id="terminos" class="max-w-4xl mx-auto px-4 py-12 border-t border-slate-200">
-        <h2 class="text-2xl font-bold text-slate-900 mb-4">Términos y Condiciones del Servicio</h2>
-        <div class="prose prose-slate text-slate-600 text-sm space-y-3 leading-relaxed">
-            <p>Al hacer uso de nuestros servicios, el cliente confirma la exactitud de los datos suministrados para las transferencias o pagos.</p>
-            <p>Las tasas de cambio informadas son válidas al momento de la cotización y confirmación del pago.</p>
+    <!-- Módulo Dedicado a Consultoras de Catálogos -->
+    <section class="content-section" id="catalogos">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Módulo Especializado</span>
+          <h2>Pago de Facturas para Consultoras de Catálogo</h2>
+          <p>Evita recargos por mora o bloqueos de pedido en tus campañas de <strong>Ésika, L'Bel y Avon</strong> reportando tu factura en 3 pasos.</p>
         </div>
+
+        <div class="catalog-box">
+          <div>
+            <h3 style="font-family:'Oswald',sans-serif; font-size:22px; text-transform:uppercase;">¿Cómo funciona el proceso?</h3>
+            <ul class="step-list">
+              <li>
+                <span class="step-num">1</span>
+                <div>
+                  <strong>Indica tu marca y código de consultora</strong><br>
+                  <span style="font-size:13px; color:var(--text-muted);">Selecciona Ésika, L'Bel o Avon y verifica el saldo exacto de tu factura vigente.</span>
+                </div>
+              </li>
+              <li>
+                <span class="step-num">2</span>
+                <div>
+                  <strong>Realiza tu transferencia local</strong><br>
+                  <span style="font-size:13px; color:var(--text-muted);">Te indicamos la tasa del día y nuestras cuentas oficiales verificadas.</span>
+                </div>
+              </li>
+              <li>
+                <span class="step-num">3</span>
+                <div>
+                  <strong>Recibe tu comprobante de abono</strong><br>
+                  <span style="font-size:13px; color:var(--text-muted);">Procesamos el pago en plataforma y te enviamos el soporte para tu control contable.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div style="background:var(--bg-page); border:1px solid var(--border-hairline); padding:24px;">
+            <h3 style="font-family:'Oswald',sans-serif; font-size:20px; text-transform:uppercase; margin-bottom:14px;">Reporte Rápido de Factura</h3>
+            <div class="form-group">
+              <label for="catBrand">Marca del Catálogo</label>
+              <select id="catBrand" class="form-control">
+                <option value="Ésika">Ésika</option>
+                <option value="L'Bel">L'Bel</option>
+                <option value="Avon">Avon</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="catCode">Código de Consultora / Cédula</label>
+              <input type="text" id="catCode" class="form-control" placeholder="Ej. 10458921" />
+            </div>
+            <div class="form-group">
+              <label for="catAmount">Monto de la Factura (COP)</label>
+              <input type="number" id="catAmount" class="form-control" placeholder="Ej. 285000" />
+            </div>
+            <button type="button" class="btn btn-primary" style="width:100%;" onclick="sendCatalogWhatsApp()">
+              Enviar Reporte a WhatsApp
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- SECCIÓN: ELIMINACIÓN DE DATOS (Requisito para Meta) -->
-    <section id="eliminacion-datos" class="max-w-4xl mx-auto px-4 py-12 border-t border-slate-200">
-        <h2 class="text-2xl font-bold text-slate-900 mb-4">Eliminación de Datos de Usuario</h2>
-        <div class="prose prose-slate text-slate-600 text-sm space-y-3 leading-relaxed">
-            <p>Los usuarios pueden solicitar la eliminación definitiva de su historial de interacciones o datos de registro enviando un mensaje por WhatsApp o correo a nuestro equipo con el asunto <em>"Solicitud de Eliminación de Datos"</em>. El procesamiento se realiza en un plazo de 24 a 72 horas.</p>
+    <!-- Verificador Antifraude + Muro de Operaciones Verificadas -->
+    <section class="content-section" id="seguridad">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Seguridad Antifraude</span>
+          <h2>Verificador de Canales Oficiales y Bitácora</h2>
+          <p>Protégete contra suplantaciones. Antes de transferir, confirma siempre que te comunicas con nuestro único número oficial.</p>
         </div>
+
+        <div class="grid-2" style="margin-bottom:44px;">
+          <div class="verifier-box">
+            <h3 class="card-title">Validador de Número Oficial</h3>
+            <p class="card-subtitle">Ingresa el número de WhatsApp o teléfono que te contactó para verificar su autenticidad.</p>
+            <div class="verifier-input-row">
+              <input type="text" id="phoneVerifyInput" class="form-control" style="flex:1;" placeholder="Ej. +58 412-8034793" />
+              <button type="button" class="btn btn-primary" onclick="verifyChannel()">Verificar</button>
+            </div>
+            <div id="verifierResult" class="verifier-result"></div>
+          </div>
+
+          <div class="minimal-card">
+            <div>
+              <h3>Reglas de Oro de Seguridad</h3>
+              <ul style="margin-top:12px; padding-left:18px; font-size:14px; color:var(--text-muted); line-height:1.8;">
+                <li>Nuestro único WhatsApp autorizado es <strong>+58 412-8034793</strong>.</li>
+                <li>Nunca solicitamos claves bancarias, códigos SMS ni tokens de seguridad.</li>
+                <li>Verifica siempre el titular de la cuenta receptora antes de confirmar tu envío.</li>
+                <li>Atendemos exclusivamente dentro del horario publicado en nuestro tablero oficial.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Muro de Operaciones Verificadas (Datos sensibles censurados) -->
+        <h3 style="font-family:'Oswald',sans-serif; font-size:20px; text-transform:uppercase; margin-bottom:14px;">Registro Reciente de Operaciones Completadas</h3>
+        <div style="overflow-x:auto;">
+          <table class="ledger-table">
+            <thead>
+              <tr>
+                <th>Referencia</th>
+                <th>Servicio / Destino</th>
+                <th>Canal</th>
+                <th>Tiempo de Gestión</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#CG-9481</td>
+                <td>Envío a Colombia</td>
+                <td>Nequi (***4821)</td>
+                <td>8 minutos</td>
+                <td><strong>✓ Acreditado</strong></td>
+              </tr>
+              <tr>
+                <td>#CG-9482</td>
+                <td>Pago Factura Catálogo</td>
+                <td>Ésika (Cód. ***910)</td>
+                <td>12 minutos</td>
+                <td><strong>✓ Comprobante Emitido</strong></td>
+              </tr>
+              <tr>
+                <td>#CG-9483</td>
+                <td>Recepción Remesa EE. UU.</td>
+                <td>Liquidación Directa</td>
+                <td>15 minutos</td>
+                <td><strong>✓ Completado</strong></td>
+              </tr>
+              <tr>
+                <td>#CG-9484</td>
+                <td>Envío a Colombia</td>
+                <td>Bancolombia (***3309)</td>
+                <td>9 minutos</td>
+                <td><strong>✓ Acreditado</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </section>
 
-    <!-- Pie de Página -->
-    <footer class="bg-slate-950 text-slate-400 py-8 px-4 border-t border-slate-800 text-sm text-center">
-        <p>&copy; 2026 INVERSIONES CAR-GO. Todos los derechos reservados.</p>
-    </footer>
+    <!-- Preguntas Frecuentes (FAQ) -->
+    <section class="content-section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Soporte al Cliente</span>
+          <h2>Preguntas Frecuentes</h2>
+        </div>
 
-</body>
-</html>
+        <div class="faq-item">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>¿Cuál es el horario de atención de INVERSIONES CAR-GO?</span>
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            Nuestro horario habitual es de <strong>8:00 a. m. a 5:00 p. m.</strong> En caso de días feriados o jornadas especiales no laborables, lo anunciamos con antelación en nuestro Tablero de Aviso Importante y en nuestros estados oficiales de WhatsApp.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>¿Qué datos necesito para enviar dinero a Colombia?</span>
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            Solo necesitas indicar el banco o billetera destino (<strong>Nequi, Bancolombia, Davivienda o Daviplata</strong>), el número de cuenta o celular asociado, el nombre completo del titular y su número de documento de identidad (Cédula).
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>¿Desde qué países puedo enviar remesas?</span>
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            Recibimos remesas desde <strong>Colombia, Estados Unidos (EE. UU.), México, Panamá, España</strong> y otros destinos internacionales. Escríbenos al <strong>+58 412-8034793</strong> para indicarte el método de recepción disponible según tu país.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>
+
+ 
+    

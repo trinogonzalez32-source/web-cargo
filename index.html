@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>INVERSIONES CAR-GO | Remesas, Transferencias y Pago de Catálogos</title>
-  <meta name="description" content="Inversiones Car-Go: Envíos a Colombia (Nequi, Bancolombia, Davivienda, Daviplata), recepción de remesas de EE. UU., México, Panamá, España y pago de facturas de catálogos Ésika, L'Bel y Avon." />
+  <meta name="description" content="Inversiones Car-Go: Envíos a Colombia (Nequi, Bancolombia, Davivienda, Daviplata), recepción de remesas internacionales, giros europeos y pago de facturas de catálogos Ésika, L'Bel y Avon." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
@@ -192,7 +192,7 @@
       font-size: 11px;
     }
 
-    /* Tablero de Aviso Importante + Panel de Tasas del Negocio */
+    /* Tablero de Aviso Importante + Panel de Tasas */
     .notice-section {
       padding-top: 28px;
     }
@@ -245,7 +245,7 @@
 
     .operator-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 12px;
       margin-top: 12px;
     }
@@ -258,7 +258,7 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1.05fr 0.95fr;
       gap: 44px;
       align-items: start;
     }
@@ -297,7 +297,7 @@
       margin-bottom: 28px;
     }
 
-    /* Pizarra de Tasas Vigentes */
+    /* Pizarra de Tarifas y Tasas Vigentes */
     .rates-ticker {
       background: var(--bg-surface);
       border: 1px solid var(--border-hairline);
@@ -353,7 +353,7 @@
       color: var(--text-muted);
     }
 
-    /* Cotizador en Tiempo Real */
+    /* Cotizador Oficial */
     .calculator-card {
       background: var(--bg-surface);
       border: 1px solid var(--brand-primary);
@@ -428,11 +428,27 @@
       gap: 12px;
     }
 
+    .calc-breakdown {
+      background: var(--bg-page);
+      border: 1px solid var(--border-hairline);
+      padding: 12px 16px;
+      margin-top: 14px;
+      font-size: 13px;
+    }
+
+    .breakdown-line {
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 0;
+      color: var(--text-muted);
+    }
+
     .calc-result-box {
       background: var(--bg-subtle);
       border: 1px solid var(--border-hairline);
+      border-top: none;
       padding: 16px;
-      margin: 18px 0;
+      margin-bottom: 18px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -442,7 +458,7 @@
     .calc-result-label {
       font-size: 11px;
       font-weight: 700;
-      color: var(--text-muted);
+      color: var(--brand-primary);
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
@@ -635,7 +651,7 @@
       font-weight: 600;
     }
 
-    /* FAQ Nativo con <details> y <summary> (Abre siempre sin fallar) */
+    /* FAQ Nativo con <details> y <summary> */
     details.faq-item {
       background: var(--bg-surface);
       border: 1px solid var(--border-hairline);
@@ -679,65 +695,25 @@
       line-height: 1.7;
     }
 
-    /* Apartado Completo de Políticas para Aprobación de Meta */
-    .meta-policy-block {
+    /* Tarjetas de URLs Legales Separadas */
+    .policy-card {
       background: var(--bg-surface);
       border: 1px solid var(--border-hairline);
-      padding: 32px;
-      margin-bottom: 24px;
-    }
-
-    .meta-policy-block h3 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 21px;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      margin-bottom: 12px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--border-hairline);
-    }
-
-    .meta-policy-block h4 {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--brand-primary);
-      margin: 16px 0 6px;
-    }
-
-    .meta-policy-block p,
-    .meta-policy-block li {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    .meta-policy-block ul {
-      padding-left: 20px;
-      margin-bottom: 12px;
-    }
-
-    .legal-url-bar {
+      padding: 28px;
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
     }
 
-    .legal-url-pill {
+    .policy-url-tag {
       font-family: monospace;
       font-size: 12px;
       background: var(--bg-page);
       border: 1px solid var(--border-hairline);
-      padding: 8px 14px;
+      padding: 8px 12px;
       color: var(--brand-primary);
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .legal-url-pill:hover {
-      border-color: var(--brand-primary);
-      background: var(--bg-subtle);
+      word-break: break-all;
     }
 
     /* Footer */
@@ -846,7 +822,7 @@
         <span id="statusText">Horario habitual de atención: 8:00 a. m. – 5:00 p. m.</span>
       </div>
       <div>
-        Canal Único Autorizado: <strong>+58 412-8034793</strong> · Finanzas & Remesas
+        Línea Oficial de Atención al Cliente: <strong>+58 424-6262165</strong> · Finanzas & Remesas
       </div>
     </div>
   </div>
@@ -872,17 +848,17 @@
         <a href="#catalogos">Catálogos</a>
         <a href="#seguridad">Verificador</a>
         <a href="#faq">FAQ</a>
-        <a href="#politicas-meta">Políticas & Meta</a>
+        <a href="#legal">Políticas</a>
       </nav>
 
-      <a href="https://wa.me/584128034793?text=Hola%20Inversiones%20Car-Go,%20deseo%20consultar%20la%20tasa%20del%20d%C3%ADa." target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+      <a href="https://wa.me/584246262165?text=Hola%20Inversiones%20Car-Go,%20deseo%20consultar%20la%20tasa%20del%20d%C3%ADa." target="_blank" rel="noopener" class="btn btn-primary btn-sm">
         WhatsApp Directo
       </a>
     </div>
   </header>
 
   <main>
-    <!-- Tablero de Aviso Importante + Panel de Tasas del Negocio -->
+    <!-- Tablero de Aviso Importante + Panel de Tasas -->
     <section class="notice-section" aria-label="Aviso Importante">
       <div class="container">
         <div class="notice-board">
@@ -909,23 +885,15 @@
           </div>
 
           <div style="margin-top:14px;">
-            <strong style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em;">2. Actualizar Tasas Oficiales del Negocio (Se reflejan en la calculadora)</strong>
+            <strong style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em;">2. Actualizar Tasas de Cambio del Negocio</strong>
             <div class="operator-grid">
               <div>
                 <label style="font-size:11px; font-weight:600; display:block; margin-bottom:4px;">1 USD → Pesos Col. (COP)</label>
                 <input type="number" id="adminRateUsdCop" class="form-control" step="0.01" />
               </div>
               <div>
-                <label style="font-size:11px; font-weight:600; display:block; margin-bottom:4px;">1 USD → Bolívares (VES)</label>
-                <input type="number" id="adminRateUsdVes" class="form-control" step="0.01" />
-              </div>
-              <div>
                 <label style="font-size:11px; font-weight:600; display:block; margin-bottom:4px;">1.000 COP → Bolívares (VES)</label>
                 <input type="number" id="adminRateCopVes" class="form-control" step="0.01" />
-              </div>
-              <div>
-                <label style="font-size:11px; font-weight:600; display:block; margin-bottom:4px;">1 EUR → Bolívares (VES)</label>
-                <input type="number" id="adminRateEurVes" class="form-control" step="0.01" />
               </div>
             </div>
             <div style="margin-top:12px; display:flex; gap:10px; align-items:center;">
@@ -937,44 +905,44 @@
       </div>
     </section>
 
-    <!-- Hero Principal + Calculadora Cotizadora con Tasas del Negocio -->
+    <!-- Hero Principal + Calculadora Oficial con Comisiones 10% USD y 6% Giros Europeos -->
     <section class="hero" id="cotizador">
       <div class="container hero-grid">
         <div>
           <span class="eyebrow">Agencia Financiera · Transferencias y Remesas</span>
           <h1>¡Tu dinero donde lo necesitas, al instante!</h1>
           <p>
-            En <strong>INVERSIONES CAR-GO</strong> acortamos distancias. Gestionamos envíos inmediatos a Colombia, recepción de remesas internacionales y pago puntual de facturas de catálogos con respaldo verificado.
+            En <strong>INVERSIONES CAR-GO</strong> acortamos distancias. Gestionamos envíos desde cualquier país en dólares, giros europeos, transferencias directas a Colombia y pago puntual de facturas de catálogos.
           </p>
 
-          <!-- Pizarra de Tasas Oficiales Actualizadas -->
+          <!-- Pizarra de Tarifas y Tasas Vigentes -->
           <div class="rates-ticker">
             <div class="rates-ticker-header">
-              <span>Tasas Vigentes del Negocio</span>
-              <span id="ratesUpdatedTime" style="font-weight:400; color:var(--text-muted);">Actualizado hoy</span>
+              <span>Tarifas y Tasas Oficiales</span>
+              <span id="ratesUpdatedTime" style="font-weight:400; color:var(--text-muted);">Tarifas vigentes</span>
             </div>
             <div class="rates-list">
+              <div class="rate-row">
+                <span>Envíos en Dólares (Cualquier país):</span>
+                <strong>Comisión 10%</strong>
+              </div>
+              <div class="rate-row">
+                <span>Giros Europeos (EUR):</span>
+                <strong>Comisión 6%</strong>
+              </div>
               <div class="rate-row">
                 <span>Envío USD → Colombia:</span>
                 <strong id="displayUsdCop">4.150,00 COP</strong>
               </div>
               <div class="rate-row">
-                <span>Remesa USD → Venezuela:</span>
-                <strong id="displayUsdVes">45,50 VES</strong>
-              </div>
-              <div class="rate-row">
-                <span>Remesa 1.000 COP → VES:</span>
+                <span>Catálogos 1.000 COP → VES:</span>
                 <strong id="displayCopVes">10,95 VES</strong>
-              </div>
-              <div class="rate-row">
-                <span>Remesa EUR → Venezuela:</span>
-                <strong id="displayEurVes">49,20 VES</strong>
               </div>
             </div>
           </div>
 
           <div class="hero-actions">
-            <a href="https://wa.me/584128034793?text=Hola%20Inversiones%20Car-Go,%20quiero%20realizar%20un%20cambio%20hoy." target="_blank" rel="noopener" class="btn btn-primary">
+            <a href="https://wa.me/584246262165?text=Hola%20Inversiones%20Car-Go,%20quiero%20realizar%20un%20cambio%20hoy." target="_blank" rel="noopener" class="btn btn-primary">
               Realizar Cambio Hoy
             </a>
             <a href="#servicios" class="btn btn-outline">
@@ -984,8 +952,8 @@
 
           <div class="hero-metrics">
             <div>
-              <div class="metric-val">5+ Países</div>
-              <div class="metric-lbl">Colombia, EE. UU., México, Panamá y España</div>
+              <div class="metric-val">10% / 6%</div>
+              <div class="metric-lbl">Tarifa fija USD (10%) y Giros Europeos (6%)</div>
             </div>
             <div>
               <div class="metric-val">8 AM – 5 PM</div>
@@ -993,7 +961,7 @@
             </div>
             <div>
               <div class="metric-val">100% Verificado</div>
-              <div class="metric-lbl">Comprobante bancario en cada operación</div>
+              <div class="metric-lbl">Comprobante oficial en cada operación</div>
             </div>
           </div>
         </div>
@@ -1001,48 +969,60 @@
         <!-- Cotizador / Calculadora Oficial -->
         <div class="calculator-card">
           <h2 class="card-title">Cotizador Oficial</h2>
-          <p class="card-subtitle">Calcula automáticamente según la tasa vigente de INVERSIONES CAR-GO.</p>
+          <p class="card-subtitle">Calcula automáticamente la comisión o tasa vigente de INVERSIONES CAR-GO.</p>
 
           <div class="form-group">
             <label for="opType">Operación a Realizar</label>
             <select id="opType" class="form-control" onchange="syncCalculatorMode()">
-              <option value="usd_cop">Enviar Dólares (USD) → Recibir en Colombia (COP)</option>
-              <option value="usd_ves">Remesa Dólares (USD) → Recibir en Venezuela (VES)</option>
-              <option value="cop_ves">Remesa Pesos (COP) → Recibir en Venezuela (VES)</option>
-              <option value="eur_ves">Remesa Euros (EUR) → Recibir en Venezuela (VES)</option>
+              <option value="remesa_usd">Envío en Dólares desde cualquier país (Comisión 10%)</option>
+              <option value="giro_eur">Giro Europeo en Euros (Comisión 6%)</option>
+              <option value="envio_colombia">Envío a Colombia (Nequi / Bancolombia / Davivienda / Daviplata)</option>
               <option value="cat_cop">Pago Factura Catálogo (Ésika / L'Bel / Avon en COP)</option>
             </select>
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label for="amountInput" id="amountLabel">Monto a Enviar (USD)</label>
+              <label for="amountInput" id="amountLabel">Monto Enviado (USD)</label>
               <input type="number" id="amountInput" class="form-control" value="100" min="1" oninput="updateCalculator()" />
             </div>
             <div class="form-group">
-              <label for="appliedRate">Tasa Oficial Aplicada</label>
+              <label for="appliedRate" id="rateLabel">Comisión / Tasa Aplicada</label>
               <input type="text" id="appliedRate" class="form-control" readonly />
             </div>
           </div>
 
           <div class="form-group">
-            <label for="destBank">Banco o Plataforma Destino</label>
+            <label for="destBank">Canal o Banco Destino</label>
             <select id="destBank" class="form-control">
+              <option value="Entrega en Dólares / Liquidación Directa">Entrega en Dólares / Liquidación Directa</option>
+              <option value="Entrega en Euros / Liquidación Europea">Entrega en Euros / Liquidación Europea</option>
               <option value="Nequi (Colombia)">Nequi (Colombia)</option>
               <option value="Bancolombia">Bancolombia</option>
               <option value="Davivienda">Davivienda</option>
               <option value="Daviplata">Daviplata</option>
-              <option value="Pago Móvil / Banco Nacional (Venezuela)">Pago Móvil / Banco Nacional (Venezuela)</option>
               <option value="Factura Ésika / L'Bel / Avon">Factura Ésika / L'Bel / Avon</option>
             </select>
           </div>
 
+          <!-- Desglose Transparente de Comisión -->
+          <div class="calc-breakdown">
+            <div class="breakdown-line">
+              <span id="breakdownGrossLabel">Monto bruto enviado:</span>
+              <strong id="breakdownGrossVal">$100,00 USD</strong>
+            </div>
+            <div class="breakdown-line">
+              <span id="breakdownFeeLabel">Comisión del servicio (10%):</span>
+              <strong id="breakdownFeeVal" style="color:var(--status-warn);">-$10,00 USD</strong>
+            </div>
+          </div>
+
           <div class="calc-result-box">
             <div>
-              <div class="calc-result-label">Monto Exacto a Recibir</div>
-              <div style="font-size:11px; color:var(--text-muted);" id="calcNote">Tasa oficial del negocio</div>
+              <div class="calc-result-label">Monto Neto a Recibir</div>
+              <div style="font-size:11px; color:var(--text-muted);" id="calcNote">Descontando comisión del 10%</div>
             </div>
-            <div class="calc-result-amount" id="calcOutput">415.000,00 COP</div>
+            <div class="calc-result-amount" id="calcOutput">$90,00 USD</div>
           </div>
 
           <button type="button" class="btn btn-primary" style="width:100%;" onclick="sendQuoteWhatsApp()">
@@ -1081,15 +1061,14 @@
 
           <div class="minimal-card">
             <div>
-              <h3>Remesas Internacionales</h3>
-              <p style="font-size:14px; color:var(--text-muted);">Recibimos tus remesas desde el exterior y las liquidamos de forma rápida y segura donde las necesites.</p>
+              <h3>Remesas y Giros Europeos</h3>
+              <p style="font-size:14px; color:var(--text-muted);">Recibimos envíos en dólares desde cualquier país (10%) y giros desde Europa (6%) con liquidación rápida.</p>
               <ul class="tag-list">
+                <li class="tag-item">EE. UU. (10%)</li>
+                <li class="tag-item">Europa / España (6%)</li>
                 <li class="tag-item">Colombia</li>
-                <li class="tag-item">EE. UU.</li>
                 <li class="tag-item">México</li>
                 <li class="tag-item">Panamá</li>
-                <li class="tag-item">España</li>
-                <li class="tag-item">+ Otros destinos</li>
               </ul>
             </div>
             <div class="time-badge">
@@ -1186,7 +1165,7 @@
         <div class="section-header">
           <span class="eyebrow">Seguridad Antifraude</span>
           <h2>Verificador de Canales Oficiales y Bitácora</h2>
-          <p>Protégete contra suplantaciones. Antes de transferir, confirma siempre que te comunicas con nuestro único número oficial.</p>
+          <p>Protégete contra suplantaciones. Antes de transferir, confirma siempre que te comunicas con nuestra única línea oficial de atención al cliente.</p>
         </div>
 
         <div class="grid-2" style="margin-bottom:44px;">
@@ -1194,7 +1173,7 @@
             <h3 class="card-title">Validador de Número Oficial</h3>
             <p class="card-subtitle">Ingresa el número de WhatsApp o teléfono que te contactó para verificar su autenticidad.</p>
             <div class="verifier-input-row">
-              <input type="text" id="phoneVerifyInput" class="form-control" style="flex:1;" placeholder="Ej. +58 412-8034793" />
+              <input type="text" id="phoneVerifyInput" class="form-control" style="flex:1;" placeholder="Ej. +58 424-6262165" />
               <button type="button" class="btn btn-primary" onclick="verifyChannel()">Verificar</button>
             </div>
             <div id="verifierResult" class="verifier-result"></div>
@@ -1204,7 +1183,7 @@
             <div>
               <h3>Reglas de Oro de Seguridad</h3>
               <ul style="margin-top:12px; padding-left:18px; font-size:14px; color:var(--text-muted); line-height:1.8;">
-                <li>Nuestro único WhatsApp autorizado es <strong>+58 412-8034793</strong>.</li>
+                <li>Nuestra única línea oficial de atención al cliente es <strong>+58 424-6262165</strong>.</li>
                 <li>Nunca solicitamos claves bancarias, códigos SMS ni tokens de seguridad.</li>
                 <li>Verifica siempre el titular de la cuenta receptora antes de confirmar tu envío.</li>
                 <li>Atendemos exclusivamente dentro del horario publicado en nuestro tablero oficial.</li>
@@ -1243,17 +1222,17 @@
               </tr>
               <tr>
                 <td>#CG-9483</td>
-                <td>Recepción Remesa EE. UU.</td>
+                <td>Giro Europeo (6%)</td>
                 <td>Liquidación Directa</td>
                 <td>15 minutos</td>
                 <td><strong>✓ Completado</strong></td>
               </tr>
               <tr>
                 <td>#CG-9484</td>
-                <td>Envío a Colombia</td>
-                <td>Bancolombia (***3309)</td>
-                <td>9 minutos</td>
-                <td><strong>✓ Acreditado</strong></td>
+                <td>Remesa en Dólares (10%)</td>
+                <td>Entrega Verificada</td>
+                <td>10 minutos</td>
+                <td><strong>✓ Completado</strong></td>
               </tr>
             </tbody>
           </table>
@@ -1270,9 +1249,16 @@
         </div>
 
         <details class="faq-item" open>
-          <summary class="faq-question">¿Cuál es el horario de atención de INVERSIONES CAR-GO?</summary>
+          <summary class="faq-question">¿Cuál es el horario de atención y la línea oficial de INVERSIONES CAR-GO?</summary>
           <div class="faq-answer">
-            Nuestro horario habitual es de <strong>8:00 a. m. a 5:00 p. m.</strong> En caso de días feriados o jornadas especiales no laborables, lo anunciamos con antelación en nuestro Tablero de Aviso Importante y en nuestros estados oficiales de WhatsApp.
+            Nuestra línea oficial de atención al cliente es <strong>+58 424-6262165</strong> y atendemos en horario habitual de <strong>8:00 a. m. a 5:00 p. m.</strong> En caso de días feriados o jornadas especiales no laborables, lo anunciamos con antelación en nuestro Tablero de Aviso Importante.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">¿Cuál es el porcentaje de comisión para envíos en dólares y giros europeos?</summary>
+          <div class="faq-answer">
+            Para envíos en dólares desde cualquier país se aplica una comisión fija del <strong>10%</strong> sobre el monto enviado. Para giros europeos en euros se aplica una comisión del <strong>6%</strong>. Puedes simular el monto exacto a recibir en nuestro Cotizador Oficial.
           </div>
         </details>
 
@@ -1284,85 +1270,51 @@
         </details>
 
         <details class="faq-item">
-          <summary class="faq-question">¿Desde qué países puedo enviar remesas?</summary>
-          <div class="faq-answer">
-            Recibimos remesas desde <strong>Colombia, Estados Unidos (EE. UU.), México, Panamá, España</strong> y otros destinos internacionales. Escríbenos al <strong>+58 412-8034793</strong> para indicarte el método de recepción disponible según tu país.
-          </div>
-        </details>
-
-        <details class="faq-item">
           <summary class="faq-question">¿Cómo se verifica el pago de una factura de catálogo (Ésika, L'Bel, Avon)?</summary>
           <div class="faq-answer">
             Una vez realizado el pago en el portal oficial de la marca, te enviamos de inmediato el soporte digital con el número de aprobación y fecha de aplicación para tu respaldo.
           </div>
         </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">¿Cuál es el monto mínimo para realizar una transferencia o remesa?</summary>
-          <div class="faq-answer">
-            Puedes consultar desde montos pequeños para recargas o pagos de facturas hasta remesas familiares completas. Escríbenos directamente a nuestro WhatsApp oficial <strong>+58 412-8034793</strong> y te indicamos al instante.
-          </div>
-        </details>
       </div>
     </section>
 
-    <!-- Apartado Completo de Políticas Legales para Verificación y Aprobación de Meta -->
-    <section class="content-section" id="politicas-meta" style="border-bottom:none;">
+    <!-- Apartado de Documentos Legales con URLs Separadas -->
+    <section class="content-section" id="legal" style="border-bottom:none;">
       <div class="container">
         <div class="section-header">
-          <span class="eyebrow">Cumplimiento Normativo · Meta Business & WhatsApp API</span>
-          <h2>Políticas de Privacidad, Protección de Datos y Términos Legales</h2>
-          <p>Documentación pública y verificable de <strong>INVERSIONES CAR-GO</strong> en cumplimiento con las políticas de plataforma de Meta, WhatsApp Business y normativas vigentes de protección de datos personales.</p>
+          <span class="eyebrow">Transparencia y Cumplimiento</span>
+          <h2>Políticas de Privacidad, Protección de Datos y Términos</h2>
+          <p>Consulta cada documento legal en su página independiente para conocer cómo protegemos tu información y tus derechos como usuario.</p>
         </div>
 
-        <!-- 1. Política de Privacidad -->
-        <article class="meta-policy-block" id="politica-privacidad">
-          <h3>1. Política de Privacidad y Tratamiento de Datos Personales</h3>
-          <p><strong>Titular / Entidad Responsable:</strong> INVERSIONES CAR-GO · Sitio Web Oficial: <code>https://inversionescargo.com</code> · Canal Oficial de Atención y WhatsApp Business: <strong>+58 412-8034793</strong>.</p>
-          <h4>1.1. Información que Recopilamos</h4>
-          <p>Cuando un usuario se comunica con INVERSIONES CAR-GO a través de nuestro sitio web o mediante nuestra línea oficial de WhatsApp Business (<code>+58 412-8034793</code>), recopilamos únicamente los datos estrictamente necesarios para procesar su solicitud financiera:</p>
-          <ul>
-            <li>Nombre completo y documento de identidad (Cédula o pasaporte) del remitente y del beneficiario.</li>
-            <li>Número telefónico de contacto y mensajes enviados voluntariamente mediante WhatsApp.</li>
-            <li>Datos bancarios de destino (banco, tipo y número de cuenta o billetera digital como Nequi, Bancolombia, Davivienda, Daviplata o Pago Móvil).</li>
-            <li>Código de consultora y referencia de factura para pagos de catálogos (Ésika, L'Bel, Avon).</li>
-          </ul>
-          <h4>1.2. Finalidad del Uso de la Información y Mensajería WhatsApp</h4>
-          <p>Los datos recopilados se utilizan exclusivamente para: (a) cotizar tasas de cambio, (b) ejecutar transferencias y remesas solicitadas por el cliente, (c) emitir comprobantes de pago y soporte contable, y (d) prevenir fraudes o suplantaciones de identidad. <strong>No vendemos, alquilamos ni cedemos datos personales a terceros con fines publicitarios.</strong></p>
-        </article>
-
-        <!-- 2. Instrucciones de Eliminación de Datos (Obligatorio para Meta Developers) -->
-        <article class="meta-policy-block" id="eliminacion-datos">
-          <h3>2. Instrucciones de Eliminación de Datos de Usuario (Data Deletion Policy)</h3>
-          <p>De conformidad con las políticas para desarrolladores y empresas de <strong>Meta Platforms, Inc. (WhatsApp Business Platform)</strong>, cualquier usuario puede solicitar la eliminación total de su historial de conversaciones, datos de contacto y registros asociados en cualquier momento.</p>
-          <h4>2.1. Procedimiento para Solicitar la Eliminación de Datos</h4>
-          <ul>
-            <li><strong>Paso 1:</strong> Envía un mensaje directo a nuestro canal oficial de WhatsApp <strong>+58 412-8034793</strong> con el asunto: <em>«SOLICITUD DE ELIMINACIÓN DE DATOS»</em>.</li>
-            <li><strong>Paso 2:</strong> Indica tu nombre completo y el número telefónico desde el cual interactuaste con nuestros servicios para validar la titularidad.</li>
-            <li><strong>Paso 3:</strong> Nuestro equipo procederá a eliminar tus datos personales de nuestras bases operativas en un plazo máximo de <strong>48 horas hábiles</strong> y te enviará confirmación escrita de la supresión, conservando únicamente los registros contables exigidos por ley durante el período legal aplicable.</li>
-          </ul>
-        </article>
-
-        <!-- 3. Términos del Servicio y Política de Comercio de Meta -->
-        <article class="meta-policy-block" id="terminos-servicio">
-          <h3>3. Términos del Servicio, Consentimiento (Opt-In) y Seguridad KYC</h3>
-          <h4>3.1. Consentimiento de Comunicación (Opt-In)</h4>
-          <p>INVERSIONES CAR-GO opera bajo un modelo estricto de consentimiento previo: únicamente enviamos respuestas operativas, cotizaciones y comprobantes de transacción a los usuarios que inician contacto voluntariamente con nosotros a través de nuestros botones web o escribiendo directamente al <strong>+58 412-8034793</strong>. No enviamos spam ni mensajes masivos no solicitados.</p>
-          <h4>3.2. Vigencia de Tasas y Horario Operativo</h4>
-          <p>Las tasas publicadas en <code>inversionescargo.com</code> son actualizadas por el negocio durante la jornada laboral (<strong>8:00 a. m. – 5:00 p. m.</strong>) y se confirman al momento de formalizar la orden por WhatsApp. Todo pago debe provenir de cuentas bancarias lícitas pertenecientes al titular ordenante.</p>
-
-          <!-- Enlaces Directos Ancla para Revisión de Meta -->
-          <div style="margin-top:18px; padding-top:14px; border-top:1px solid var(--border-hairline);">
-            <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;">
-              Enlaces Directos Verificables para Configuración en Meta Business / App Dashboard:
+        <div class="grid-3">
+          <div class="policy-card">
+            <div>
+              <h3 style="font-family:'Oswald',sans-serif; font-size:20px; text-transform:uppercase; margin-bottom:10px;">1. Política de Privacidad</h3>
+              <p style="font-size:14px; color:var(--text-muted); margin-bottom:14px;">Detalle sobre el tratamiento confidencial de datos personales y bancarios suministrados a través de nuestra línea oficial.</p>
+              <div class="policy-url-tag">https://inversionescargo.com/politica-privacidad.html</div>
             </div>
-            <div class="legal-url-bar">
-              <a href="#politica-privacidad" class="legal-url-pill">https://inversionescargo.com/#politica-privacidad</a>
-              <a href="#eliminacion-datos" class="legal-url-pill">https://inversionescargo.com/#eliminacion-datos</a>
-              <a href="#terminos-servicio" class="legal-url-pill">https://inversionescargo.com/#terminos-servicio</a>
-            </div>
+            <a href="politica-privacidad.html" class="btn btn-outline btn-sm">Abrir Política de Privacidad</a>
           </div>
-        </article>
+
+          <div class="policy-card">
+            <div>
+              <h3 style="font-family:'Oswald',sans-serif; font-size:20px; text-transform:uppercase; margin-bottom:10px;">2. Eliminación de Datos</h3>
+              <p style="font-size:14px; color:var(--text-muted); margin-bottom:14px;">Procedimiento paso a paso para solicitar la supresión o actualización de tus datos personales en nuestros registros.</p>
+              <div class="policy-url-tag">https://inversionescargo.com/eliminacion-datos.html</div>
+            </div>
+            <a href="eliminacion-datos.html" class="btn btn-outline btn-sm">Abrir Eliminación de Datos</a>
+          </div>
+
+          <div class="policy-card">
+            <div>
+              <h3 style="font-family:'Oswald',sans-serif; font-size:20px; text-transform:uppercase; margin-bottom:10px;">3. Términos del Servicio</h3>
+              <p style="font-size:14px; color:var(--text-muted); margin-bottom:14px;">Condiciones operativas, tarifas aplicables (10% USD y 6% giros europeos), horarios y protocolos de seguridad.</p>
+              <div class="policy-url-tag">https://inversionescargo.com/terminos-servicio.html</div>
+            </div>
+            <a href="terminos-servicio.html" class="btn btn-outline btn-sm">Abrir Términos del Servicio</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -1374,10 +1326,10 @@
         <div>
           <strong style="font-family:'Oswald',sans-serif; font-size:20px; color:var(--brand-primary); letter-spacing:0.04em;">INVERSIONES CAR-GO</strong>
           <p style="margin-top:10px; max-width:360px;">
-            ¡Tu dinero donde lo necesitas, al instante! Transferencias a Colombia, recepción de remesas internacionales y pago de facturas de catálogos.
+            ¡Tu dinero donde lo necesitas, al instante! Envíos en dólares, giros europeos, transferencias a Colombia y pago de facturas de catálogos.
           </p>
           <p style="margin-top:12px;">
-            <strong>WhatsApp Oficial:</strong> +58 412-8034793<br>
+            <strong>Línea Oficial:</strong> +58 424-6262165<br>
             <strong>Horario:</strong> 8:00 a. m. – 5:00 p. m.
           </p>
         </div>
@@ -1385,19 +1337,19 @@
         <div>
           <div class="footer-title">Servicios</div>
           <ul class="footer-links">
-            <li><a href="#cotizador">Cotizador Oficial</a></li>
+            <li><a href="#cotizador">Cotizador Oficial (10% USD / 6% EUR)</a></li>
             <li><a href="#servicios">Envíos Nequi / Bancolombia / Davivienda</a></li>
-            <li><a href="#servicios">Remesas EE. UU., México, Panamá, España</a></li>
+            <li><a href="#servicios">Remesas Internacionales y Giros Europeos</a></li>
             <li><a href="#catalogos">Pago Ésika, L'Bel y Avon</a></li>
           </ul>
         </div>
 
         <div>
-          <div class="footer-title">Políticas y Cumplimiento Meta</div>
+          <div class="footer-title">Documentos Legales (URLs Independientes)</div>
           <ul class="footer-links">
-            <li><a href="#politica-privacidad">Política de Privacidad</a></li>
-            <li><a href="#eliminacion-datos">Eliminación de Datos de Usuario</a></li>
-            <li><a href="#terminos-servicio">Términos del Servicio y Opt-In</a></li>
+            <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
+            <li><a href="eliminacion-datos.html">Eliminación de Datos de Usuario</a></li>
+            <li><a href="terminos-servicio.html">Términos del Servicio</a></li>
             <li><a href="#seguridad">Verificador Antifraude</a></li>
           </ul>
         </div>
@@ -1405,57 +1357,45 @@
 
       <div class="footer-bottom">
         <span>© 2026 INVERSIONES CAR-GO. Todos los derechos reservados.</span>
-        <span>Transacciones seguras · Canal verificado +58 412-8034793</span>
+        <span>Transacciones seguras · Línea oficial +58 424-6262165</span>
       </div>
     </div>
   </footer>
 
   <script>
-    const WHATSAPP_NUMBER = "584128034793";
+    const WHATSAPP_NUMBER = "584246262165";
 
-    // Tasas oficiales por defecto del negocio (se guardan en localStorage al editarlas en el Panel Operador)
     const defaultRates = {
       usd_cop: 4150.00,
-      usd_ves: 45.50,
-      cop_ves: 10.95, // por cada 1.000 COP
-      eur_ves: 49.20,
+      cop_ves: 10.95,
       updatedAt: "Hoy · 8:00 a. m."
     };
 
-    let businessRates = JSON.parse(localStorage.getItem("cargo_business_rates")) || { ...defaultRates };
+    let businessRates = JSON.parse(localStorage.getItem("cargo_business_rates_v2")) || { ...defaultRates };
 
     function renderRatesBoard() {
       document.getElementById("displayUsdCop").textContent = businessRates.usd_cop.toLocaleString("es-CO", { minimumFractionDigits: 2 }) + " COP";
-      document.getElementById("displayUsdVes").textContent = businessRates.usd_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES";
       document.getElementById("displayCopVes").textContent = businessRates.cop_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES";
-      document.getElementById("displayEurVes").textContent = businessRates.eur_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES";
       document.getElementById("ratesUpdatedTime").textContent = "Actualizado: " + businessRates.updatedAt;
 
-      // Cargar valores en los campos del panel operador
       document.getElementById("adminRateUsdCop").value = businessRates.usd_cop;
-      document.getElementById("adminRateUsdVes").value = businessRates.usd_ves;
       document.getElementById("adminRateCopVes").value = businessRates.cop_ves;
-      document.getElementById("adminRateEurVes").value = businessRates.eur_ves;
     }
 
     function saveBusinessRates() {
       const usdCop = parseFloat(document.getElementById("adminRateUsdCop").value) || defaultRates.usd_cop;
-      const usdVes = parseFloat(document.getElementById("adminRateUsdVes").value) || defaultRates.usd_ves;
       const copVes = parseFloat(document.getElementById("adminRateCopVes").value) || defaultRates.cop_ves;
-      const eurVes = parseFloat(document.getElementById("adminRateEurVes").value) || defaultRates.eur_ves;
 
       const now = new Date();
       const timeStr = now.toLocaleTimeString("es-VE", { hour: "2-digit", minute: "2-digit" });
 
       businessRates = {
         usd_cop: usdCop,
-        usd_ves: usdVes,
         cop_ves: copVes,
-        eur_ves: eurVes,
         updatedAt: "Hoy · " + timeStr
       };
 
-      localStorage.setItem("cargo_business_rates", JSON.stringify(businessRates));
+      localStorage.setItem("cargo_business_rates_v2", JSON.stringify(businessRates));
       renderRatesBoard();
       syncCalculatorMode();
 
@@ -1464,7 +1404,6 @@
       setTimeout(() => { msg.textContent = ""; }, 4000);
     }
 
-    // Tablero de Avisos Oficiales
     function toggleOperatorPanel() {
       document.getElementById("operatorPanel").classList.toggle("active");
     }
@@ -1495,34 +1434,38 @@
       document.getElementById("noticeDesc").textContent = "Comunicado oficial emitido por INVERSIONES CAR-GO.";
     }
 
-    // Sincronizar Calculadora con las Tasas del Negocio
     function syncCalculatorMode() {
       const mode = document.getElementById("opType").value;
       const amountLabel = document.getElementById("amountLabel");
+      const rateLabel = document.getElementById("rateLabel");
       const rateInput = document.getElementById("appliedRate");
       const amountInput = document.getElementById("amountInput");
+      const destBank = document.getElementById("destBank");
 
-      if (mode === "usd_cop") {
+      if (mode === "remesa_usd") {
+        amountLabel.textContent = "Monto Enviado (USD)";
+        rateLabel.textContent = "Comisión Aplicada";
+        rateInput.value = "10% sobre el monto enviado";
+        if (parseFloat(amountInput.value) >= 10000) amountInput.value = 100;
+        destBank.value = "Entrega en Dólares / Liquidación Directa";
+      } else if (mode === "giro_eur") {
+        amountLabel.textContent = "Monto Giro Europeo (EUR)";
+        rateLabel.textContent = "Comisión Aplicada";
+        rateInput.value = "6% sobre el giro europeo";
+        if (parseFloat(amountInput.value) >= 10000) amountInput.value = 100;
+        destBank.value = "Entrega en Euros / Liquidación Europea";
+      } else if (mode === "envio_colombia") {
         amountLabel.textContent = "Monto a Enviar (USD)";
+        rateLabel.textContent = "Tasa Oficial Aplicada";
         rateInput.value = businessRates.usd_cop.toLocaleString("es-CO", { minimumFractionDigits: 2 }) + " COP / USD";
         if (parseFloat(amountInput.value) >= 10000) amountInput.value = 100;
-      } else if (mode === "usd_ves") {
-        amountLabel.textContent = "Monto a Enviar (USD)";
-        rateInput.value = businessRates.usd_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES / USD";
-        if (parseFloat(amountInput.value) >= 10000) amountInput.value = 100;
-      } else if (mode === "cop_ves") {
-        amountLabel.textContent = "Monto a Enviar (COP)";
-        rateInput.value = businessRates.cop_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES / 1.000 COP";
-        if (parseFloat(amountInput.value) < 1000) amountInput.value = 100000;
-      } else if (mode === "eur_ves") {
-        amountLabel.textContent = "Monto a Enviar (EUR)";
-        rateInput.value = businessRates.eur_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES / EUR";
-        if (parseFloat(amountInput.value) >= 10000) amountInput.value = 100;
+        destBank.value = "Nequi (Colombia)";
       } else if (mode === "cat_cop") {
         amountLabel.textContent = "Valor Factura Catálogo (COP)";
+        rateLabel.textContent = "Tasa Oficial Aplicada";
         rateInput.value = businessRates.cop_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES / 1.000 COP";
         if (parseFloat(amountInput.value) < 1000) amountInput.value = 250000;
-        document.getElementById("destBank").value = "Factura Ésika / L'Bel / Avon";
+        destBank.value = "Factura Ésika / L'Bel / Avon";
       }
 
       updateCalculator();
@@ -1533,25 +1476,43 @@
       const amount = parseFloat(document.getElementById("amountInput").value) || 0;
       const output = document.getElementById("calcOutput");
       const note = document.getElementById("calcNote");
+      const grossLabel = document.getElementById("breakdownGrossLabel");
+      const grossVal = document.getElementById("breakdownGrossVal");
+      const feeLabel = document.getElementById("breakdownFeeLabel");
+      const feeVal = document.getElementById("breakdownFeeVal");
 
-      if (mode === "usd_cop") {
+      if (mode === "remesa_usd") {
+        const fee = amount * 0.10;
+        const net = amount - fee;
+        grossLabel.textContent = "Monto bruto enviado (USD):";
+        grossVal.textContent = "$" + amount.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " USD";
+        feeLabel.textContent = "Comisión del servicio (10%):";
+        feeVal.textContent = "-$" + fee.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " USD";
+        output.textContent = "$" + net.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " USD";
+        note.textContent = "Descontando comisión fija del 10%";
+      } else if (mode === "giro_eur") {
+        const fee = amount * 0.06;
+        const net = amount - fee;
+        grossLabel.textContent = "Monto bruto giro europeo (EUR):";
+        grossVal.textContent = "€" + amount.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " EUR";
+        feeLabel.textContent = "Comisión giro europeo (6%):";
+        feeVal.textContent = "-€" + fee.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " EUR";
+        output.textContent = "€" + net.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " EUR";
+        note.textContent = "Descontando comisión fija del 6%";
+      } else if (mode === "envio_colombia") {
         const res = amount * businessRates.usd_cop;
+        grossLabel.textContent = "Monto a enviar (USD):";
+        grossVal.textContent = "$" + amount.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " USD";
+        feeLabel.textContent = "Tasa aplicada:";
+        feeVal.textContent = businessRates.usd_cop.toLocaleString("es-CO", { minimumFractionDigits: 2 }) + " COP";
         output.textContent = res.toLocaleString("es-CO", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " COP";
         note.textContent = "Recibe en Colombia (Nequi / Bancolombia / Davivienda)";
-      } else if (mode === "usd_ves") {
-        const res = amount * businessRates.usd_ves;
-        output.textContent = res.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " VES";
-        note.textContent = "Recibe en Venezuela (Pago Móvil / Transferencia)";
-      } else if (mode === "cop_ves") {
-        const res = (amount / 1000) * businessRates.cop_ves;
-        output.textContent = res.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " VES";
-        note.textContent = "Recibe en Venezuela (Pago Móvil / Transferencia)";
-      } else if (mode === "eur_ves") {
-        const res = amount * businessRates.eur_ves;
-        output.textContent = res.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " VES";
-        note.textContent = "Recibe en Venezuela (Pago Móvil / Transferencia)";
       } else if (mode === "cat_cop") {
         const res = (amount / 1000) * businessRates.cop_ves;
+        grossLabel.textContent = "Factura en Pesos (COP):";
+        grossVal.textContent = "$" + amount.toLocaleString("es-CO", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " COP";
+        feeLabel.textContent = "Tasa aplicada (por 1.000 COP):";
+        feeVal.textContent = businessRates.cop_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES";
         output.textContent = res.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " VES";
         note.textContent = "Monto a transferir en Bolívares para pagar tu factura";
       }
@@ -1560,23 +1521,22 @@
     function sendQuoteWhatsApp() {
       const opSelect = document.getElementById("opType");
       const opText = opSelect.options[opSelect.selectedIndex].text;
-      const amount = document.getElementById("amountInput").value || "0";
-      const rate = document.getElementById("appliedRate").value;
+      const gross = document.getElementById("breakdownGrossVal").textContent;
+      const fee = document.getElementById("breakdownFeeVal").textContent;
       const bank = document.getElementById("destBank").value;
-      const estimated = document.getElementById("calcOutput").textContent;
+      const net = document.getElementById("calcOutput").textContent;
 
-      const message = `Hola *INVERSIONES CAR-GO*, deseo procesar una operación con la tasa vigente:\n\n` +
-        `• *Operación:* ${opText}\n` +
-        `• *Monto ingresado:* ${amount}\n` +
-        `• *Tasa aplicada:* ${rate}\n` +
+      const message = `Hola *INVERSIONES CAR-GO*, deseo procesar una operación:\n\n` +
+        `• *Servicio:* ${opText}\n` +
+        `• *Monto enviado:* ${gross}\n` +
+        `• *Tarifa / Tasa:* ${fee}\n` +
         `• *Destino:* ${bank}\n` +
-        `• *Total calculado:* ${estimated}\n\n` +
-        `Quedo atento(a) a los datos de cuenta para realizar el pago.`;
+        `• *Total neto a recibir:* ${net}\n\n` +
+        `Quedo atento(a) a las instrucciones para concretar.`;
 
       window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank");
     }
 
-    // Reporte Express de Catálogos
     function sendCatalogWhatsApp() {
       const brand = document.getElementById("catBrand").value;
       const code = document.getElementById("catCode").value.trim() || "No especificado";
@@ -1591,7 +1551,6 @@
       window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank");
     }
 
-    // Verificador Antifraude
     function verifyChannel() {
       const raw = document.getElementById("phoneVerifyInput").value.replace(/\D/g, "");
       const res = document.getElementById("verifierResult");
@@ -1602,20 +1561,18 @@
         return;
       }
 
-      if (raw.endsWith("4128034793")) {
+      if (raw.endsWith("4246262165")) {
         res.className = "verifier-result valid";
-        res.innerHTML = "✓ <strong>CANAL OFICIAL VERIFICADO:</strong> El número +58 412-8034793 pertenece oficialmente a INVERSIONES CAR-GO.";
+        res.innerHTML = "✓ <strong>CANAL OFICIAL VERIFICADO:</strong> El número +58 424-6262165 pertenece oficialmente a INVERSIONES CAR-GO.";
       } else {
         res.className = "verifier-result invalid";
-        res.innerHTML = "✕ <strong>ALERTA DE SEGURIDAD:</strong> Este número NO corresponde a nuestros canales autorizados. No realices transferencias ni compartas datos.";
+        res.innerHTML = "✕ <strong>ALERTA DE SEGURIDAD:</strong> Este número NO corresponde a nuestra línea oficial (+58 424-6262165). No realices transferencias ni compartas datos.";
       }
     }
 
-    // Inicializar pizarra de tasas y calculadora
     renderRatesBoard();
     syncCalculatorMode();
   </script>
 </body>
 </html>
-
 

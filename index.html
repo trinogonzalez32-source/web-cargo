@@ -3,27 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>INVERSIONES CAR-GO | Remesas, Transferencias y Pago de Catálogos</title>
-  <meta name="description" content="Inversiones Car-Go: Envíos a Colombia (Nequi, Bancolombia, Davivienda, Daviplata), recepción de remesas internacionales, giros europeos y pago de facturas de catálogos Ésika, L'Bel y Avon." />
+  <title>INVERSIONES CAR-GO — Operación Binacional Zulia y Colombia</title>
+  <meta name="description" content="Inversiones Car-Go: Operación en Maracaibo (Plaza Lago, Curva de Molina), El Rosario de Perijá, Machiques y Colombia (Medellín 20 de Julio, Santa Lucía). Remesas, giros europeos, pagos en Colombia y trámites." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-page: #F7F6F2;
-      --bg-surface: #FFFFFF;
-      --bg-subtle: #EFEDE6;
-      --brand-primary: #0E1F3D;
-      --brand-accent: #C59B27;
-      --text-main: #0E1F3D;
-      --text-muted: #475569;
-      --border-hairline: #DCDAD3;
-      --tricolor-yellow: #FCD116;
-      --tricolor-blue: #003893;
-      --tricolor-red: #CE1126;
-      --status-ok: #15803D;
-      --status-warn: #B45309;
-      --status-danger: #B91C1C;
+      --paper: #F6F4EE;
+      --paper-alt: #ECE8DE;
+      --card: #FCFBF8;
+      --ink: #10203A;
+      --muted: #526074;
+      --line: #D8D2C5;
+      --line-strong: #10203A;
+      --gold: #B38922;
+      --gold-soft: rgba(179, 137, 34, 0.12);
+      --ok: #166534;
+      --warn: #9A3412;
+      --danger: #991B1B;
     }
 
     * {
@@ -39,121 +37,100 @@
     }
 
     body {
-      background-color: var(--bg-page);
-      color: var(--text-main);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      position: relative;
+      background-color: var(--paper);
+      color: var(--ink);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.65;
       max-width: 100%;
       overflow-x: clip;
     }
 
-    .geo-bg-top-left,
-    .geo-bg-top-right,
-    .geo-bg-bottom-left,
-    .geo-bg-bottom-right {
-      position: fixed;
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.85;
-    }
-    .geo-bg-top-left { top: 0; left: 0; width: 220px; height: 220px; }
-    .geo-bg-top-right { top: 0; right: 0; width: 260px; height: 260px; }
-    .geo-bg-bottom-left { bottom: 0; left: 0; width: 240px; height: 240px; }
-    .geo-bg-bottom-right { bottom: 0; right: 0; width: 220px; height: 220px; }
-
-    .container {
+    .wrap {
       width: 100%;
-      max-width: 1120px;
+      max-width: 1160px;
       margin: 0 auto;
-      padding: 0 20px;
-      position: relative;
-      z-index: 1;
+      padding: 0 24px;
     }
 
-    .top-bar {
-      background: var(--bg-surface);
-      border-bottom: 1px solid var(--border-hairline);
-      font-size: 13px;
-      padding: 10px 0;
-      position: relative;
-      z-index: 10;
+    .topbar {
+      background: var(--ink);
+      color: var(--paper);
+      font-size: 12px;
+      letter-spacing: 0.02em;
+      padding: 9px 0;
     }
 
-    .top-bar-inner {
+    .topbar-flex {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
     }
 
-    .status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 500;
+    .topbar-accent {
+      color: #E5BE5A;
+      font-weight: 600;
     }
 
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      background-color: var(--status-ok);
-      display: inline-block;
-      flex-shrink: 0;
-    }
-
-    header {
-      background: rgba(247, 246, 242, 0.96);
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid var(--border-hairline);
+    header.site-header {
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 40;
     }
 
-    .nav-inner {
+    .header-flex {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 0;
-      gap: 14px;
-    }
-
-    .brand-link {
-      text-decoration: none;
-      color: var(--brand-primary);
-      display: flex;
-      align-items: center;
-      flex-shrink: 0;
-    }
-
-    .brand-logo-svg {
-      width: 175px;
-      height: 62px;
-      display: block;
-    }
-
-    nav.nav-links {
-      display: flex;
+      padding: 16px 0;
       gap: 20px;
-      align-items: center;
-      flex-wrap: wrap;
     }
 
-    nav.nav-links a {
+    .wordmark {
       text-decoration: none;
-      color: var(--text-main);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      transition: color 0.2s;
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
     }
 
-    nav.nav-links a:hover {
-      color: var(--brand-accent);
+    .wordmark-top {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .wordmark-main {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    nav.main-nav {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    nav.main-nav a {
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 500;
+      padding-bottom: 2px;
+      border-bottom: 1.5px solid transparent;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    nav.main-nav a:hover {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
     }
 
     .btn {
@@ -164,279 +141,206 @@
       padding: 12px 20px;
       font-size: 13px;
       font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
       text-decoration: none;
-      border: 1px solid var(--brand-primary);
+      border: 1px solid var(--ink);
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.18s ease;
       background: transparent;
-      color: var(--brand-primary);
-      max-width: 100%;
+      color: var(--ink);
     }
 
-    .btn-primary {
-      background: var(--brand-primary);
+    .btn-solid {
+      background: var(--ink);
       color: #FFFFFF;
     }
 
-    .btn-primary:hover {
-      background: #18325E;
-      border-color: #18325E;
+    .btn-solid:hover {
+      background: #1C355E;
+      border-color: #1C355E;
     }
 
-    .btn-outline:hover {
-      background: var(--brand-primary);
-      color: #FFFFFF;
+    .btn-ghost:hover {
+      background: var(--paper-alt);
     }
 
     .btn-sm {
-      padding: 9px 14px;
-      font-size: 11px;
+      padding: 8px 14px;
+      font-size: 12px;
     }
 
-    .notice-section {
-      padding-top: 24px;
+    .hero-band {
+      padding: 52px 0 56px;
+      border-bottom: 1px solid var(--line);
     }
 
-    .notice-board {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-hairline);
-      border-left: 4px solid var(--brand-accent);
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .notice-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--brand-accent);
-      margin-bottom: 4px;
-    }
-
-    .notice-headline {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(19px, 3vw, 23px);
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      color: var(--brand-primary);
-    }
-
-    .notice-sub {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .hero {
-      padding: 48px 0;
-      border-bottom: 1px solid var(--border-hairline);
-    }
-
-    .hero-grid {
+    .hero-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-      gap: 36px;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 44px;
       align-items: start;
     }
 
-    .eyebrow {
+    .kicker {
+      display: inline-block;
       font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--brand-accent);
-      margin-bottom: 12px;
-      display: block;
-    }
-
-    .hero h1 {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(32px, 6vw, 50px);
-      line-height: 1.08;
-      text-transform: uppercase;
-      letter-spacing: 0.01em;
-      margin-bottom: 16px;
-      color: var(--brand-primary);
-    }
-
-    .hero p {
-      font-size: 15px;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-      max-width: 560px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
-    }
-
-    .rates-ticker {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-hairline);
-      padding: 16px 18px;
-      margin-bottom: 24px;
-    }
-
-    .rates-ticker-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 6px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
       font-weight: 700;
-      color: var(--brand-primary);
-      border-bottom: 1px solid var(--border-hairline);
-      padding-bottom: 8px;
-      margin-bottom: 12px;
-    }
-
-    .rates-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px 20px;
-      font-size: 13px;
-    }
-
-    .rate-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      border-bottom: 1px dashed var(--border-hairline);
-      padding-bottom: 4px;
-    }
-
-    .hero-metrics {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      border-top: 1px solid var(--border-hairline);
-      padding-top: 20px;
-      gap: 16px;
-    }
-
-    .metric-val {
-      font-family: 'Oswald', sans-serif;
-      font-size: 21px;
-      font-weight: 600;
-      color: var(--brand-primary);
-    }
-
-    .metric-lbl {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .calculator-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--brand-primary);
-      padding: 24px;
-      position: relative;
-      min-width: 0;
-    }
-
-    .calculator-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--tricolor-yellow) 0% 33.3%, var(--tricolor-blue) 33.3% 66.6%, var(--tricolor-red) 66.6% 100%);
-    }
-
-    .card-title {
-      font-family: 'Oswald', sans-serif;
-      font-size: 22px;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      letter-spacing: 0.03em;
-      margin-bottom: 6px;
+      color: var(--gold);
+      margin-bottom: 14px;
     }
 
-    .card-subtitle {
-      font-size: 13px;
-      color: var(--text-muted);
+    h1.hero-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(34px, 5.2vw, 54px);
+      font-weight: 700;
+      line-height: 1.07;
+      letter-spacing: -0.02em;
       margin-bottom: 18px;
     }
 
-    .form-group {
-      margin-bottom: 14px;
-      min-width: 0;
+    .hero-lead {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      max-width: 580px;
     }
 
-    .form-group label {
+    .hero-cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .rate-strip {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--line-strong);
+      border-bottom: 1px solid var(--line);
+      background: var(--card);
+    }
+
+    .rate-cell {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .rate-cell:nth-child(odd) {
+      border-right: 1px solid var(--line);
+    }
+
+    .rate-cell-lbl {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .rate-cell-val {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-top: 2px;
+    }
+
+    .quote-panel {
+      background: var(--card);
+      border: 1.5px solid var(--ink);
+      padding: 28px;
+      box-shadow: 8px 8px 0 var(--paper-alt);
+    }
+
+    .quote-header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 14px;
+      margin-bottom: 20px;
+    }
+
+    .quote-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .quote-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .field {
+      margin-bottom: 15px;
+    }
+
+    .field label {
       display: block;
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.07em;
       margin-bottom: 6px;
-      color: var(--brand-primary);
+      color: var(--ink);
     }
 
-    .form-control {
+    .input,
+    .select {
       width: 100%;
-      max-width: 100%;
-      padding: 11px 12px;
-      border: 1px solid var(--border-hairline);
-      background: var(--bg-page);
-      color: var(--brand-primary);
+      padding: 11px 13px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      color: var(--ink);
       font-family: inherit;
       font-size: 15px;
       outline: none;
-      transition: border-color 0.2s;
     }
 
-    .form-control:focus {
-      border-color: var(--brand-primary);
-      background: var(--bg-surface);
+    .input:focus,
+    .select:focus {
+      border-color: var(--ink);
+      background: #FFFFFF;
     }
 
-    .form-control[readonly] {
-      background: var(--bg-subtle);
-      font-weight: 600;
+    .input[readonly] {
+      background: var(--paper-alt);
       font-size: 13px;
-      cursor: not-allowed;
+      font-weight: 600;
     }
 
-    .form-row {
+    .field-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
     }
 
-    .calc-breakdown {
-      background: var(--bg-page);
-      border: 1px solid var(--border-hairline);
-      padding: 12px 14px;
-      margin-top: 14px;
+    .summary-box {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 14px;
+      margin: 16px 0 12px;
       font-size: 13px;
     }
 
-    .breakdown-line {
+    .summary-row {
       display: flex;
       justify-content: space-between;
-      gap: 8px;
-      padding: 4px 0;
-      color: var(--text-muted);
+      gap: 10px;
+      padding: 5px 0;
+      color: var(--muted);
     }
 
-    .calc-result-box {
-      background: var(--bg-subtle);
-      border: 1px solid var(--border-hairline);
-      border-top: none;
-      padding: 16px 14px;
-      margin-bottom: 12px;
+    .summary-row strong {
+      color: var(--ink);
+    }
+
+    .net-banner {
+      background: var(--paper-alt);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--gold);
+      padding: 15px 16px;
+      margin-bottom: 18px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -444,1165 +348,977 @@
       gap: 10px;
     }
 
-    .calc-result-label {
+    .net-label {
       font-size: 11px;
       font-weight: 700;
-      color: var(--brand-primary);
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.08em;
     }
 
-    .calc-result-amount {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(22px, 5vw, 28px);
-      font-weight: 600;
-      color: var(--brand-primary);
-      text-align: right;
+    .net-value {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(22px, 4vw, 28px);
+      font-weight: 700;
+      color: var(--ink);
     }
 
-    .commission-step-bar {
-      margin-bottom: 16px;
-      padding: 10px 12px;
-      background: var(--bg-page);
-      border: 1px dashed var(--border-hairline);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
+    section.band {
+      padding: 60px 0;
+      border-bottom: 1px solid var(--line);
     }
 
-    section.content-section {
-      padding: 56px 0;
-      border-bottom: 1px solid var(--border-hairline);
-    }
-
-    .section-header {
-      margin-bottom: 32px;
+    .band-head {
       max-width: 720px;
+      margin-bottom: 36px;
     }
 
-    .section-header h2 {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(26px, 4.5vw, 32px);
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
+    .band-head h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(28px, 4vw, 38px);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.015em;
       margin-bottom: 10px;
     }
 
-    .section-header p {
-      color: var(--text-muted);
+    .band-head p {
+      color: var(--muted);
       font-size: 15px;
     }
 
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .grid-2 {
+    .ops-list {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
+      border-top: 1px solid var(--line-strong);
+      border-left: 1px solid var(--line);
+      background: var(--card);
     }
 
-    .minimal-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-hairline);
-      padding: 24px;
+    .op-item {
+      padding: 26px 24px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-width: 0;
     }
 
-    .minimal-card h3 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
+    .op-num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .op-item h3 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 21px;
       margin-bottom: 10px;
     }
 
-    .tag-list {
+    .op-item p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .logo-strip {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--line);
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
       gap: 8px;
-      margin: 14px 0;
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 10px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .brand-badge img {
+      height: 16px;
+      width: auto;
+      max-width: 72px;
+      object-fit: contain;
+      display: block;
+      filter: grayscale(100%) contrast(1.1);
+    }
+
+    .remit-directory {
+      margin-top: 24px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 22px 24px;
+    }
+
+    .remit-directory h3 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .remit-directory p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .remit-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .logo-footnote {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 14px;
+    }
+
+    .branches-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .branch-column {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 26px;
+    }
+
+    .branch-column-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 22px;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .branch-country-tag {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: var(--gold-soft);
+      color: var(--ink);
+      padding: 4px 9px;
+    }
+
+    .branch-entries {
       list-style: none;
     }
 
-    .tag-item {
-      font-size: 12px;
-      font-weight: 500;
-      padding: 5px 10px;
-      background: var(--bg-page);
-      border: 1px solid var(--border-hairline);
-      color: var(--brand-primary);
+    .branch-entries li {
+      padding: 11px 0;
+      border-bottom: 1px dashed var(--line);
+      font-size: 14px;
     }
 
-    .time-badge {
-      font-size: 12px;
-      color: var(--text-muted);
-      border-top: 1px solid var(--border-hairline);
-      padding-top: 12px;
-      margin-top: 12px;
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
+    .branch-entries li:last-child {
+      border-bottom: none;
     }
 
-    .catalog-box {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-hairline);
-      padding: 24px;
+    .two-col {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 28px;
       align-items: start;
     }
 
-    .step-list {
-      list-style: none;
-      margin-top: 16px;
+    .verify-card {
+      background: var(--card);
+      border: 1px solid var(--line-strong);
+      padding: 26px;
     }
 
-    .step-list li {
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border-hairline);
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-    }
-
-    .step-num {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 700;
-      font-size: 15px;
-      color: var(--brand-accent);
-      border: 1px solid var(--brand-accent);
-      width: 28px;
-      height: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .verifier-box {
-      background: var(--bg-surface);
-      border: 1px solid var(--brand-primary);
-      padding: 24px;
-      min-width: 0;
-    }
-
-    .verifier-input-row {
+    .verify-row {
       display: flex;
       gap: 10px;
       margin-top: 14px;
       flex-wrap: wrap;
     }
 
-    .verifier-result {
+    .verify-msg {
       margin-top: 14px;
-      padding: 14px;
+      padding: 12px 14px;
       font-size: 13px;
       font-weight: 500;
       display: none;
-      border: 1px solid var(--border-hairline);
+      border: 1px solid var(--line);
     }
 
-    .verifier-result.valid {
+    .verify-msg.ok {
       display: block;
       background: #F0FDF4;
       border-color: #86EFAC;
-      color: var(--status-ok);
+      color: var(--ok);
     }
 
-    .verifier-result.invalid {
+    .verify-msg.bad {
       display: block;
       background: #FEF2F2;
       border-color: #FCA5A5;
-      color: var(--status-danger);
+      color: var(--danger);
     }
 
-    .ledger-table {
-      width: 100%;
-      min-width: 520px;
-      border-collapse: collapse;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-hairline);
-      font-size: 13px;
+    details.faq {
+      background: var(--card);
+      border: 1px solid var(--line);
+      margin-bottom: 10px;
     }
 
-    .ledger-table th,
-    .ledger-table td {
-      padding: 12px 14px;
-      text-align: left;
-      border-bottom: 1px solid var(--border-hairline);
-    }
-
-    .ledger-table th {
-      background: var(--bg-subtle);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 600;
-    }
-
-    details.faq-item {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-hairline);
-      margin-bottom: 12px;
-    }
-
-    details.faq-item summary.faq-question {
+    details.faq summary {
       list-style: none;
-      padding: 16px 18px;
+      padding: 15px 18px;
       font-size: 14px;
       font-weight: 600;
-      color: var(--brand-primary);
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      user-select: none;
     }
 
-    details.faq-item summary.faq-question::-webkit-details-marker {
+    details.faq summary::-webkit-details-marker {
       display: none;
     }
 
-    details.faq-item summary.faq-question::after {
+    details.faq summary::after {
       content: "+";
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--brand-accent);
-      flex-shrink: 0;
+      font-size: 18px;
+      color: var(--gold);
+      font-weight: 700;
     }
 
-    details.faq-item[open] summary.faq-question::after {
+    details.faq[open] summary::after {
       content: "−";
     }
 
-    details.faq-item .faq-answer {
-      padding: 14px 18px 18px;
+    details.faq .faq-body {
+      padding: 14px 18px 16px;
       font-size: 14px;
-      color: var(--text-muted);
-      border-top: 1px solid var(--border-hairline);
-      line-height: 1.7;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
     }
 
-    .policy-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-hairline);
-      padding: 24px;
+    .legal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .legal-box {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 22px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       gap: 16px;
-      min-width: 0;
     }
 
-    .policy-url-tag {
-      font-family: monospace;
-      font-size: 12px;
-      background: var(--bg-page);
-      border: 1px solid var(--border-hairline);
-      padding: 8px 12px;
-      color: var(--brand-primary);
-      word-break: break-all;
-    }
-
-    footer {
-      background: var(--bg-surface);
-      border-top: 1px solid var(--border-hairline);
-      padding: 44px 0 28px;
-      font-size: 13px;
-      color: var(--text-muted);
-      position: relative;
-      z-index: 1;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
-      gap: 28px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid var(--border-hairline);
-    }
-
-    .footer-title {
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--brand-primary);
-      margin-bottom: 12px;
-    }
-
-    .footer-links {
-      list-style: none;
-    }
-
-    .footer-links li {
+    .legal-box h3 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 19px;
       margin-bottom: 8px;
     }
 
-    .footer-links a {
-      color: var(--text-muted);
-      text-decoration: none;
+    .legal-box p {
+      font-size: 13px;
+      color: var(--muted);
     }
 
-    .footer-links a:hover {
-      color: var(--brand-primary);
-      text-decoration: underline;
+    footer.site-footer {
+      background: var(--paper-alt);
+      padding: 40px 0 28px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
     }
 
     .footer-bottom {
-      padding-top: 20px;
+      padding-top: 18px;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 12px;
+      font-size: 12px;
     }
 
-    @media (max-width: 960px) {
-      .hero-grid,
-      .grid-3,
-      .grid-2,
-      .catalog-box,
-      .footer-grid,
-      .rates-list {
+    @media (max-width: 920px) {
+      .hero-layout,
+      .ops-list,
+      .branches-grid,
+      .two-col,
+      .legal-grid {
         grid-template-columns: 1fr;
       }
 
-      nav.nav-links {
+      nav.main-nav {
         display: none;
+      }
+
+      .quote-panel {
+        box-shadow: none;
       }
     }
 
-    @media (max-width: 600px) {
-      .container {
+    @media (max-width: 560px) {
+      .wrap {
         padding: 0 16px;
       }
 
-      .brand-logo-svg {
-        width: 145px;
-        height: 52px;
-      }
-
-      .hero {
-        padding: 32px 0;
-      }
-
-      .hero-actions .btn {
-        width: 100%;
-      }
-
-      .hero-metrics {
+      .rate-strip,
+      .field-grid {
         grid-template-columns: 1fr;
-        gap: 12px;
       }
 
-      .form-row {
-        grid-template-columns: 1fr;
-        gap: 0;
+      .rate-cell:nth-child(odd) {
+        border-right: none;
       }
 
-      .calculator-card,
-      .catalog-box,
-      .verifier-box,
-      .minimal-card,
-      .policy-card {
-        padding: 20px 16px;
-      }
-
-      .verifier-input-row .btn {
+      .hero-cta-row .btn,
+      .verify-row .btn {
         width: 100%;
-      }
-
-      .geo-bg-top-left,
-      .geo-bg-top-right,
-      .geo-bg-bottom-left,
-      .geo-bg-bottom-right {
-        width: 120px;
-        height: 120px;
-        opacity: 0.45;
       }
     }
   </style>
 </head>
 <body>
 
-  <svg class="geo-bg-top-left" viewBox="0 0 220 220" fill="none">
-    <line x1="0" y1="140" x2="140" y2="0" stroke="#0E1F3D" stroke-width="1.5"/>
-    <line x1="0" y1="165" x2="165" y2="0" stroke="#0E1F3D" stroke-width="1"/>
-    <polygon points="85,78 96,60 107,78" fill="#0E1F3D"/>
-    <polyline points="40,0 75,35 110,0" stroke="#0E1F3D" stroke-width="1" fill="none"/>
-  </svg>
-
-  <svg class="geo-bg-top-right" viewBox="0 0 260 260" fill="none">
-    <polygon points="210,0 260,0 260,55" fill="#0E1F3D"/>
-    <polyline points="120,0 175,65 260,40" stroke="#C59B27" stroke-width="1" fill="none"/>
-    <polyline points="150,0 215,95 260,125" stroke="#C59B27" stroke-width="1" fill="none"/>
-    <polyline points="180,25 260,85 205,145 160,55" stroke="#C59B27" stroke-width="1" fill="none"/>
-  </svg>
-
-  <svg class="geo-bg-bottom-left" viewBox="0 0 240 240" fill="none">
-    <polygon points="0,165 0,240 75,240" fill="#0E1F3D"/>
-    <polyline points="0,115 70,150 40,210 120,240" stroke="#C59B27" stroke-width="1" fill="none"/>
-    <polyline points="0,145 95,185 150,240" stroke="#C59B27" stroke-width="1" fill="none"/>
-  </svg>
-
-  <svg class="geo-bg-bottom-right" viewBox="0 0 220 220" fill="none">
-    <line x1="80" y1="220" x2="220" y2="80" stroke="#0E1F3D" stroke-width="1.5"/>
-    <line x1="105" y1="220" x2="220" y2="105" stroke="#0E1F3D" stroke-width="1"/>
-    <polygon points="155,130 166,112 177,130" fill="#0E1F3D" transform="rotate(180 166 121)"/>
-  </svg>
-
-  <div class="top-bar">
-    <div class="container top-bar-inner">
-      <div class="status-pill">
-        <span class="status-dot" id="statusDot"></span>
-        <span id="statusText">Horario habitual de atención: 8:00 a. m. – 5:00 p. m.</span>
+  <div class="topbar">
+    <div class="wrap topbar-flex">
+      <div>
+        Atención: <span class="topbar-accent">8:00 a. m. – 5:00 p. m.</span> · Operación en Zulia y Colombia
       </div>
       <div>
-        Línea Oficial: <strong>+58 424-6262165</strong> · Finanzas & Remesas
+        Línea oficial: <span class="topbar-accent">+58 424-6262165</span>
       </div>
     </div>
   </div>
 
-  <header>
-    <div class="container nav-inner">
-      <a href="#" class="brand-link" aria-label="Inversiones Car-Go Inicio">
-        <svg class="brand-logo-svg" viewBox="0 0 260 92" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="130" y="21" text-anchor="middle" fill="#0E1F3D" font-family="Inter, sans-serif" font-size="16" font-weight="500" letter-spacing="2">INVERSIONES</text>
-          <text x="130" y="54" text-anchor="middle" fill="#0E1F3D" font-family="Inter, sans-serif" font-size="34" font-weight="700" letter-spacing="1.5">CAR-GO</text>
-          <line x1="196" y1="24" x2="202" y2="18" stroke="#0E1F3D" stroke-width="3" stroke-linecap="round"/>
-          <rect x="52" y="62" width="52" height="5" rx="2.5" fill="#FCD116"/>
-          <rect x="104" y="62" width="52" height="5" rx="2.5" fill="#003893"/>
-          <rect x="156" y="62" width="52" height="5" rx="2.5" fill="#CE1126"/>
-          <text x="130" y="81" text-anchor="middle" fill="#0E1F3D" font-size="11" letter-spacing="4">★★★★★★★★</text>
-        </svg>
+  <header class="site-header">
+    <div class="wrap header-flex">
+      <a href="#" class="wordmark" aria-label="Inversiones Car-Go">
+        <span class="wordmark-top">Zulia · Colombia</span>
+        <span class="wordmark-main">INVERSIONES CAR-GO</span>
       </a>
 
-      <nav class="nav-links">
+      <nav class="main-nav">
         <a href="#cotizador">Cotizador</a>
-        <a href="#servicios">Servicios y Bancos</a>
-        <a href="#catalogos">Catálogos</a>
-        <a href="#seguridad">Verificador</a>
-        <a href="#faq">FAQ</a>
+        <a href="#operativa">Operativa</a>
+        <a href="#sucursales">Sucursales</a>
+        <a href="#seguridad">Seguridad y FAQ</a>
         <a href="#legal">Políticas</a>
       </nav>
 
-      <a href="https://wa.me/584246262165?text=Hola%20Inversiones%20Car-Go,%20deseo%20consultar%20la%20tasa%20del%20d%C3%ADa." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-        WhatsApp
+      <a href="https://wa.me/584246262165?text=Hola%20Inversiones%20Car-Go,%20deseo%20realizar%20una%20operaci%C3%B3n." target="_blank" rel="noopener noreferrer" class="btn btn-solid btn-sm">
+        WhatsApp Oficial
       </a>
     </div>
   </header>
 
   <main>
-    <section class="notice-section" aria-label="Aviso Importante">
-      <div class="container">
-        <div class="notice-board">
-          <div>
-            <div class="notice-label">★ Aviso Importante</div>
-            <div class="notice-headline" id="noticeTitle">OPERANDO EN HORARIO HABITUAL (8:00 A. M. – 5:00 P. M.)</div>
-            <div class="notice-sub" id="noticeDesc">Transacciones seguras, rápidas y con la mejor tasa del mercado. Gracias por su preferencia.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="hero" id="cotizador">
-      <div class="container hero-grid">
+    <section class="hero-band" id="cotizador">
+      <div class="wrap hero-layout">
         <div>
-          <span class="eyebrow">Agencia Financiera · Transferencias y Remesas</span>
-          <h1>¡Tu dinero donde lo necesitas, al instante!</h1>
-          <p>
-            En <strong>INVERSIONES CAR-GO</strong> acortamos distancias. Gestionamos envíos desde cualquier país en dólares, giros europeos, transferencias directas a Colombia y pago puntual de facturas de catálogos.
+          <span class="kicker">Conexión financiera Venezuela &amp; Colombia</span>
+          <h1 class="hero-title">Recibe, envía y resuelve tus pagos sin enredos.</h1>
+          <p class="hero-lead">
+            Trabajamos desde <strong>Maracaibo</strong> y nuestras sedes en el <strong>Zulia y Colombia</strong> para facilitar el cobro de remesas y giros vía cuentas colombianas con entrega en dólares, además de envíos hacia Colombia, pago de mercancía, facturas, recargas y trámites.
           </p>
 
-          <div class="rates-ticker">
-            <div class="rates-ticker-header">
-              <span>Tarifas y Tasas Oficiales</span>
-              <span id="ratesUpdatedTime" style="font-weight:400; color:var(--text-muted);">Tarifas vigentes</span>
-            </div>
-            <div class="rates-list">
-              <div class="rate-row">
-                <span>Envíos en Dólares:</span>
-                <strong>Comisión 10%</strong>
-              </div>
-              <div class="rate-row">
-                <span>Giros Europeos (EUR):</span>
-                <strong>Comisión 6%</strong>
-              </div>
-              <div class="rate-row">
-                <span>Envío USD → Colombia:</span>
-                <strong id="displayUsdCop">4.150,00 COP</strong>
-              </div>
-              <div class="rate-row">
-                <span>Catálogos 1.000 COP → VES:</span>
-                <strong id="displayCopVes">10,95 VES</strong>
-              </div>
-            </div>
-          </div>
-
-          <div class="hero-actions">
-            <a href="https://wa.me/584246262165?text=Hola%20Inversiones%20Car-Go,%20quiero%20realizar%20un%20cambio%20hoy." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-              Realizar Cambio Hoy
+          <div class="hero-cta-row">
+            <a href="https://wa.me/584246262165?text=Hola%20Inversiones%20Car-Go,%20quiero%20cotizar%20una%20operaci%C3%B3n%20hoy." target="_blank" rel="noopener noreferrer" class="btn btn-solid">
+              Consultar por WhatsApp
             </a>
-            <a href="#servicios" class="btn btn-outline">
-              Ver Bancos y Países
+            <a href="#sucursales" class="btn btn-ghost">
+              Ver Sucursales
             </a>
           </div>
 
-          <div class="hero-metrics">
-            <div>
-              <div class="metric-val">10% / 6%</div>
-              <div class="metric-lbl">Tarifa fija USD (10%) y Giros Europeos (6%)</div>
+          <div class="rate-strip">
+            <div class="rate-cell">
+              <div class="rate-cell-lbl">EE. UU., México y Panamá</div>
+              <div class="rate-cell-val">Comisión 10%</div>
             </div>
-            <div>
-              <div class="metric-val">8 AM – 5 PM</div>
-              <div class="metric-lbl">Atención continua personalizada</div>
+            <div class="rate-cell">
+              <div class="rate-cell-lbl">Giros Europeos (vía Colombia)</div>
+              <div class="rate-cell-val">Comisión 6%</div>
             </div>
-            <div>
-              <div class="metric-val">100% Verificado</div>
-              <div class="metric-lbl">Comprobante oficial en cada operación</div>
+            <div class="rate-cell">
+              <div class="rate-cell-lbl">Referencia USD → COP</div>
+              <div class="rate-cell-val" id="boardUsdCop">4.150,00 COP</div>
+            </div>
+            <div class="rate-cell">
+              <div class="rate-cell-lbl">Referencia VES / 1.000 COP</div>
+              <div class="rate-cell-val" id="boardCopVes">10,95 VES</div>
             </div>
           </div>
         </div>
 
-        <div class="calculator-card">
-          <h2 class="card-title">Cotizador Oficial</h2>
-          <p class="card-subtitle">Cálculo referencial según comisión o tasa vigente (sujeto a confirmación al iniciar).</p>
+        <div class="quote-panel">
+          <div class="quote-header">
+            <h2 class="quote-title">Cotizador de Operación</h2>
+            <p class="quote-sub">Valores referenciales sujetos a confirmación al iniciar en la línea oficial.</p>
+          </div>
 
-          <div class="form-group">
-            <label for="opType">Operación a Realizar</label>
-            <select id="opType" class="form-control" onchange="syncCalculatorMode()">
-              <option value="remesa_usd">Envío en Dólares desde cualquier país (Comisión 10%)</option>
-              <option value="giro_eur">Giro Europeo en Euros (Comisión 6%)</option>
-              <option value="envio_colombia">Envío a Colombia (Nequi / Bancolombia / Davivienda / Daviplata)</option>
-              <option value="cat_cop">Pago Factura Catálogo (Ésika / L'Bel / Avon en COP)</option>
+          <div class="field">
+            <label for="opKind">Tipo de operación</label>
+            <select id="opKind" class="select" onchange="configureQuote()">
+              <option value="remesa_10">Remesa EE. UU. / México / Panamá — Comisión 10% (USD)</option>
+              <option value="giro_eur_6">Giro Europeo vía Colombia — Comisión 6% (EUR)</option>
+              <option value="envio_colombia">Envío a Colombia / Mercancía / Facturas / Trámites (USD → COP)</option>
+              <option value="bs_a_pesos">Envío de Bolívares (VES) por Pesos (COP)</option>
+              <option value="catalogos_cop">Pago de Catálogos Ésika / L'Bel / Avon / Natura / Azzorti (COP → VES)</option>
             </select>
           </div>
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="amountInput" id="amountLabel">Monto Enviado (USD)</label>
-              <input type="number" id="amountInput" class="form-control" value="100" min="0.01" max="1000000000" step="0.01" oninput="handleManualAmountInput()" />
+          <div class="field-grid">
+            <div class="field">
+              <label for="opAmount" id="opAmountLbl">Monto entrante (USD)</label>
+              <input type="number" id="opAmount" class="input" value="100" min="0.01" step="0.01" oninput="calculateQuote()" />
             </div>
-            <div class="form-group">
-              <label for="appliedRate" id="rateLabel">Comisión / Tasa Aplicada</label>
-              <input type="text" id="appliedRate" class="form-control" readonly />
+            <div class="field">
+              <label for="opRateInfo" id="opRateLbl">Tarifa / Tasa</label>
+              <input type="text" id="opRateInfo" class="input" readonly />
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="destBank">Canal o Banco Destino</label>
-            <select id="destBank" class="form-control">
-              <option value="Entrega en Dólares / Liquidación Directa">Entrega en Dólares / Liquidación Directa</option>
-              <option value="Entrega en Euros / Liquidación Europea">Entrega en Euros / Liquidación Europea</option>
-              <option value="Nequi (Colombia)">Nequi (Colombia)</option>
-              <option value="Bancolombia">Bancolombia</option>
-              <option value="Davivienda">Davivienda</option>
-              <option value="Daviplata">Daviplata</option>
-              <option value="Factura Ésika / L'Bel / Avon">Factura Ésika / L'Bel / Avon</option>
+          <div class="field">
+            <label for="opChannel">Canal o sede de gestión</label>
+            <select id="opChannel" class="select">
+              <option value="Cuenta colombiana (Bancolombia / Nequi / Daviplata / Davivienda / BBVA) + entrega USD">Cuenta colombiana (Bancolombia / Nequi / Daviplata / Davivienda / BBVA) + entrega USD</option>
+              <option value="Panamá (Yappy / Banco General / Banesco Panamá) + entrega USD">Panamá (Yappy / Banco General / Banesco Panamá) + entrega USD</option>
+              <option value="Western Union / Ria / Remitly / Taptap Send / Majority vía Colombia + entrega USD">Western Union / Ria / Remitly / Taptap Send / Majority vía Colombia + entrega USD</option>
+              <option value="Pago en Colombia (Mercancía / Factura / Recarga / Apostilla / Pasaporte)">Pago en Colombia (Mercancía / Factura / Recarga / Apostilla / Pasaporte)</option>
+              <option value="Sucursal Maracaibo — Plaza Lago">Sucursal Maracaibo — Plaza Lago</option>
+              <option value="Sucursal Maracaibo — Curva de Molina">Sucursal Maracaibo — Curva de Molina</option>
+              <option value="Sucursal El Rosario de Perijá">Sucursal El Rosario de Perijá</option>
+              <option value="Sucursal Machiques">Sucursal Machiques</option>
+              <option value="Sucursal Medellín — 20 de Julio">Sucursal Medellín — 20 de Julio</option>
+              <option value="Sucursal Santa Lucía (Colombia)">Sucursal Santa Lucía (Colombia)</option>
             </select>
           </div>
 
-          <div class="calc-breakdown">
-            <div class="breakdown-line">
-              <span id="breakdownGrossLabel">Monto bruto enviado:</span>
-              <strong id="breakdownGrossVal">$100,00 USD</strong>
+          <div class="summary-box">
+            <div class="summary-row">
+              <span id="sumBaseLbl">Monto ingresado:</span>
+              <strong id="sumBaseVal">$100,00 USD</strong>
             </div>
-            <div class="breakdown-line">
-              <span id="breakdownFeeLabel">Comisión del servicio (10%):</span>
-              <strong id="breakdownFeeVal" style="color:var(--status-warn);">-$10,00 USD</strong>
+            <div class="summary-row">
+              <span id="sumFeeLbl">Comisión (10%):</span>
+              <strong id="sumFeeVal" style="color:var(--warn);">-$10,00 USD</strong>
             </div>
           </div>
 
-          <div class="calc-result-box">
+          <div class="net-banner">
             <div>
-              <div class="calc-result-label">Monto Neto Estimado</div>
-              <div style="font-size:11px; color:var(--text-muted);" id="calcNote">Descontando comisión fija del 10%</div>
+              <div class="net-label" id="netBannerLbl">Monto estimado a recibir</div>
+              <div style="font-size:11px; color:var(--muted);" id="netBannerSub">Tras descontar 10% sobre el monto entrante</div>
             </div>
-            <div class="calc-result-amount" id="calcOutput">$90,00 USD</div>
+            <div class="net-value" id="netBannerVal">$90,00 USD</div>
           </div>
 
-          <!-- Botón de lógica porcentual (+% / -% sobre el monto ingresado) -->
-          <div class="commission-step-bar" id="commissionStepBar">
-            <span id="commissionStepHint" style="font-size: 12px; color: var(--text-muted);">Operación porcentual sobre monto:</span>
-            <button type="button" id="btnCommissionStep" class="btn btn-outline btn-sm" onclick="toggleCommissionStepButton()">
-              Aplicar +10%
-            </button>
-          </div>
-
-          <button type="button" class="btn btn-primary" style="width:100%;" onclick="sendQuoteWhatsApp()">
-            Procesar Operación por WhatsApp
+          <button type="button" class="btn btn-solid" style="width:100%;" onclick="sendQuoteToWhatsApp()">
+            Enviar cotización a WhatsApp
           </button>
         </div>
       </div>
     </section>
 
-    <section class="content-section" id="servicios">
-      <div class="container">
-        <div class="section-header">
-          <span class="eyebrow">Cobertura Financiera</span>
-          <h2>Directorio de Bancos y Canales de Recepción</h2>
-          <p>Operamos directamente con las principales entidades financieras y billeteras digitales para garantizar acreditaciones sin demoras.</p>
+    <section class="band" id="operativa">
+      <div class="wrap">
+        <div class="band-head">
+          <span class="kicker">Cómo trabajamos</span>
+          <h2>Un puente directo entre Colombia, el exterior y el Zulia</h2>
+          <p>Centralizamos la recepción en bancos colombianos para simplificar el envío desde el exterior o desde Colombia y entregar en dólares o resolver pagos en destino.</p>
         </div>
 
-        <div class="grid-3">
-          <div class="minimal-card">
+        <div class="ops-list">
+          <article class="op-item">
             <div>
-              <h3>Envíos a Colombia</h3>
-              <p style="font-size:14px; color:var(--text-muted);">Transferencias directas a cuentas bancarias y billeteras digitales en Colombia sin intermediarios innecesarios.</p>
-              <ul class="tag-list">
-                <li class="tag-item">Nequi</li>
-                <li class="tag-item">Bancolombia</li>
-                <li class="tag-item">Davivienda</li>
-                <li class="tag-item">Daviplata</li>
-              </ul>
+              <div class="op-num">01 · DESDE COLOMBIA</div>
+              <h3>Recepción en cualquier banco colombiano</h3>
+              <p>Para facilitar los envíos desde Colombia hacia Venezuela sin trabas, recibimos directamente en las cuentas de la empresa en cualquier banco o billetera colombiana.</p>
             </div>
-            <div class="time-badge">
-              <span>Acreditación estimada:</span>
-              <strong>5 – 20 min</strong>
+            <div class="logo-strip" aria-label="Bancos y billeteras de Colombia">
+              <span class="brand-badge">
+                <img src="img/bancolombia.png" alt="Bancolombia" onerror="this.style.display='none'" />
+                Bancolombia
+              </span>
+              <span class="brand-badge">
+                <img src="img/nequi.png" alt="Nequi" onerror="this.style.display='none'" />
+                Nequi
+              </span>
+              <span class="brand-badge">
+                <img src="img/daviplata.png" alt="Daviplata" onerror="this.style.display='none'" />
+                Daviplata
+              </span>
+              <span class="brand-badge">
+                <img src="img/davivienda.png" alt="Davivienda" onerror="this.style.display='none'" />
+                Davivienda
+              </span>
+              <span class="brand-badge">BBVA · Cualquier banco CO</span>
             </div>
-          </div>
+          </article>
 
-          <div class="minimal-card">
+          <article class="op-item">
             <div>
-              <h3>Remesas y Giros Europeos</h3>
-              <p style="font-size:14px; color:var(--text-muted);">Recibimos envíos en dólares desde cualquier país (10%) y giros desde Europa (6%) con liquidación rápida.</p>
-              <ul class="tag-list">
-                <li class="tag-item">EE. UU. (10%)</li>
-                <li class="tag-item">Europa / España (6%)</li>
-                <li class="tag-item">Colombia</li>
-                <li class="tag-item">México</li>
-                <li class="tag-item">Panamá</li>
-              </ul>
+              <div class="op-num">02 · EE. UU., MÉXICO Y PANAMÁ (10%)</div>
+              <h3>Remesas a cuenta o canales de Panamá</h3>
+              <p>En Panamá recibimos por <strong>Yappy</strong>, <strong>Banco General</strong> o <strong>Banesco Panamá</strong>. Desde EE. UU., México y Panamá pueden enviar directo a cuenta bancaria: se comparte la cuenta, llega por Colombia y aquí entregamos los dólares cobrando el <strong>10%</strong> del monto entrante en USD.</p>
             </div>
-            <div class="time-badge">
-              <span>Liquidación:</span>
-              <strong>Mismo día hábil</strong>
+            <div class="logo-strip" aria-label="Canales EE. UU., México y Panamá">
+              <span class="brand-badge">Yappy</span>
+              <span class="brand-badge">Banco General</span>
+              <span class="brand-badge">Banesco Panamá</span>
+              <span class="brand-badge">
+                <img src="img/western-union.png" alt="Western Union" onerror="this.style.display='none'" />
+                Western Union
+              </span>
+              <span class="brand-badge">
+                <img src="img/remitly.jpg" alt="Remitly" onerror="this.style.display='none'" />
+                Remitly
+              </span>
             </div>
-          </div>
+          </article>
 
-          <div class="minimal-card">
+          <article class="op-item">
             <div>
-              <h3>Pago de Catálogos</h3>
-              <p style="font-size:14px; color:var(--text-muted);">Gestión especializada de pago de facturas para consultoras y distribuidoras de marcas líderes de belleza.</p>
-              <ul class="tag-list">
-                <li class="tag-item">Ésika</li>
-                <li class="tag-item">L'Bel</li>
-                <li class="tag-item">Avon</li>
-              </ul>
+              <div class="op-num">03 · EUROPA Y EE. UU. (6% EUROPA)</div>
+              <h3>Giros europeos recibidos vía Colombia</h3>
+              <p>Si tu familiar en Europa ya tiene la cuenta, puede acudir a remesadoras como <strong>Western Union</strong> o <strong>Ria</strong> enviando por Colombia. Cobramos el <strong>6%</strong> del monto entrante en euros, llega por Colombia y entregamos los dólares aquí.</p>
             </div>
-            <div class="time-badge">
-              <span>Soporte incluido:</span>
-              <strong>Recibo oficial</strong>
+            <div class="logo-strip" aria-label="Remesadoras hacia Colombia">
+              <span class="brand-badge">
+                <img src="img/western-union.png" alt="Western Union" onerror="this.style.display='none'" />
+                Western Union
+              </span>
+              <span class="brand-badge">
+                <img src="img/ria.png" alt="Ria Money Transfer" onerror="this.style.display='none'" />
+                Ria Money Transfer
+              </span>
+              <span class="brand-badge">
+                <img src="img/taptap-send.png" alt="Taptap Send" onerror="this.style.display='none'" />
+                Taptap Send
+              </span>
+              <span class="brand-badge">
+                <img src="img/majority.png" alt="Majority" onerror="this.style.display='none'" />
+                Majority
+              </span>
             </div>
+          </article>
+
+          <article class="op-item">
+            <div>
+              <div class="op-num">04 · VENEZUELA → COLOMBIA</div>
+              <h3>Mercancía, facturas, recargas y trámites</h3>
+              <p>Realizamos envíos de Venezuela a Colombia para pago de <strong>mercancía</strong>, pago de <strong>todo tipo de factura colombiana</strong>, <strong>recargas telefónicas</strong>, servicios en Colombia y pagos asociados a trámites como <strong>apostillas</strong> y <strong>pasaportes</strong>, además de catálogos.</p>
+            </div>
+            <div class="logo-strip" aria-label="Catálogos y pagos en Colombia">
+              <span class="brand-badge">
+                <img src="img/esika.png" alt="Ésika" onerror="this.style.display='none'" />
+                Ésika
+              </span>
+              <span class="brand-badge">
+                <img src="img/natura.png" alt="Natura" onerror="this.style.display='none'" />
+                Natura
+              </span>
+              <span class="brand-badge">
+                <img src="img/azzorti.png" alt="Azzorti" onerror="this.style.display='none'" />
+                Azzorti
+              </span>
+              <span class="brand-badge">L'Bel · Avon</span>
+              <span class="brand-badge">Mercancía · Facturas · Trámites</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="remit-directory" aria-label="Remesadoras desde Estados Unidos y Europa hacia Colombia">
+          <h3>Remesadoras recibidas desde EE. UU. y Europa hacia Colombia</h3>
+          <p>
+            Opciones utilizadas para enviar hacia Colombia (llegada en pesos vía Colombia y entrega de dólares en Venezuela):
+          </p>
+          <div class="remit-links">
+            <span class="brand-badge">
+              <img src="img/western-union.png" alt="Western Union" onerror="this.style.display='none'" />
+              Western Union
+            </span>
+            <span class="brand-badge">
+              <img src="img/ria.png" alt="Ria Money Transfer" onerror="this.style.display='none'" />
+              Ria Money Transfer
+            </span>
+            <span class="brand-badge">
+              <img src="img/remitly.jpg" alt="Remitly" onerror="this.style.display='none'" />
+              Remitly
+            </span>
+            <span class="brand-badge">
+              <img src="img/taptap-send.png" alt="Taptap Send" onerror="this.style.display='none'" />
+              Taptap Send
+            </span>
+            <span class="brand-badge">
+              <img src="img/majority.png" alt="Majority" onerror="this.style.display='none'" />
+              Majority
+            </span>
           </div>
         </div>
+
+        <p class="logo-footnote">
+          Nota: Guarda tus imágenes en la carpeta <code>img/</code> con los nombres indicados (<code>bancolombia.png</code>, <code>nequi.png</code>, <code>daviplata.png</code>, <code>davivienda.png</code>, <code>western-union.png</code>, <code>ria.png</code>, <code>taptap-send.png</code>, <code>majority.png</code>, <code>remitly.jpg</code>, <code>esika.png</code>, <code>natura.png</code>, <code>azzorti.png</code>) para que se muestren automáticamente. Todas las marcas pertenecen a sus respectivos titulares.
+        </p>
       </div>
     </section>
 
-    <section class="content-section" id="catalogos">
-      <div class="container">
-        <div class="section-header">
-          <span class="eyebrow">Módulo Especializado</span>
-          <h2>Pago de Facturas para Consultoras de Catálogo</h2>
-          <p>Evita recargos por mora o bloqueos de pedido en tus campañas de <strong>Ésika, L'Bel y Avon</strong> reportando tu factura en 3 pasos.</p>
+    <section class="band" id="sucursales">
+      <div class="wrap">
+        <div class="band-head">
+          <span class="kicker">Presencia física</span>
+          <h2>Nuestras sucursales en Venezuela y Colombia</h2>
+          <p>Contamos con puntos operativos en el estado Zulia y en Colombia para respaldar tus gestiones.</p>
         </div>
 
-        <div class="catalog-box">
-          <div>
-            <h3 style="font-family:'Oswald',sans-serif; font-size:22px; text-transform:uppercase;">¿Cómo funciona el proceso?</h3>
-            <ul class="step-list">
-              <li>
-                <span class="step-num">1</span>
-                <div>
-                  <strong>Indica tu marca y código de consultora</strong><br>
-                  <span style="font-size:13px; color:var(--text-muted);">Selecciona Ésika, L'Bel o Avon y verifica el saldo exacto de tu factura vigente.</span>
-                </div>
-              </li>
-              <li>
-                <span class="step-num">2</span>
-                <div>
-                  <strong>Realiza tu transferencia local</strong><br>
-                  <span style="font-size:13px; color:var(--text-muted);">Te indicamos la tasa del día y nuestras cuentas oficiales verificadas.</span>
-                </div>
-              </li>
-              <li>
-                <span class="step-num">3</span>
-                <div>
-                  <strong>Recibe tu comprobante de abono</strong><br>
-                  <span style="font-size:13px; color:var(--text-muted);">Procesamos el pago en plataforma y te enviamos el soporte para tu control contable.</span>
-                </div>
-              </li>
+        <div class="branches-grid">
+          <div class="branch-column">
+            <div class="branch-column-title">
+              <span>Estado Zulia</span>
+              <span class="branch-country-tag">Venezuela</span>
+            </div>
+            <ul class="branch-entries">
+              <li><strong>Maracaibo — Plaza Lago:</strong> Atención y gestión de operaciones en la ciudad.</li>
+              <li><strong>Maracaibo — Curva de Molina:</strong> Punto operativo en Maracaibo.</li>
+              <li><strong>El Rosario de Perijá:</strong> Sucursal activa para atención local.</li>
+              <li><strong>Machiques:</strong> Sucursal activa en el municipio Machiques de Perijá.</li>
             </ul>
           </div>
 
-          <div style="background:var(--bg-page); border:1px solid var(--border-hairline); padding:20px;">
-            <h3 style="font-family:'Oswald',sans-serif; font-size:20px; text-transform:uppercase; margin-bottom:14px;">Reporte Rápido de Factura</h3>
-            <div class="form-group">
-              <label for="catBrand">Marca del Catálogo</label>
-              <select id="catBrand" class="form-control">
-                <option value="Ésika">Ésika</option>
-                <option value="L'Bel">L'Bel</option>
-                <option value="Avon">Avon</option>
-              </select>
+          <div class="branch-column">
+            <div class="branch-column-title">
+              <span>Colombia</span>
+              <span class="branch-country-tag">Colombia</span>
             </div>
-            <div class="form-group">
-              <label for="catCode">Código de Consultora / Cédula</label>
-              <input type="text" id="catCode" class="form-control" maxlength="40" placeholder="Ej. 10458921" />
-            </div>
-            <div class="form-group">
-              <label for="catAmount">Monto de la Factura (COP)</label>
-              <input type="number" id="catAmount" class="form-control" min="1" max="1000000000" placeholder="Ej. 285000" />
-            </div>
-            <button type="button" class="btn btn-primary" style="width:100%;" onclick="sendCatalogWhatsApp()">
-              Enviar Reporte a WhatsApp
-            </button>
+            <ul class="branch-entries">
+              <li><strong>Medellín — 20 de Julio:</strong> Sede operativa en Colombia.</li>
+              <li><strong>Santa Lucía:</strong> Sede operativa en Colombia.</li>
+              <li><strong>Sede adicional en Colombia:</strong> Ubicación por confirmar en el directorio oficial.</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="content-section" id="seguridad">
-      <div class="container">
-        <div class="section-header">
-          <span class="eyebrow">Seguridad Antifraude</span>
-          <h2>Verificador de Canales Oficiales y Bitácora</h2>
-          <p>Protégete contra suplantaciones. Antes de transferir, confirma siempre que te comunicas con nuestra única línea oficial de atención al cliente.</p>
+    <section class="band" id="seguridad">
+      <div class="wrap">
+        <div class="band-head">
+          <span class="kicker">Respaldo y consultas</span>
+          <h2>Verificador oficial y preguntas frecuentes</h2>
         </div>
 
-        <div class="grid-2" style="margin-bottom:36px;">
-          <div class="verifier-box">
-            <h3 class="card-title">Validador de Número Oficial</h3>
-            <p class="card-subtitle">Ingresa el número de WhatsApp o teléfono que te contactó para verificar su autenticidad.</p>
-            <div class="verifier-input-row">
-              <input type="text" id="phoneVerifyInput" class="form-control" maxlength="25" style="flex:1; min-width:200px;" placeholder="Ej. +58 424-6262165" />
-              <button type="button" class="btn btn-primary" onclick="verifyChannel()">Verificar</button>
+        <div class="two-col">
+          <div class="verify-card">
+            <h3 class="quote-title" style="font-size:21px;">Verifica nuestra línea oficial</h3>
+            <p class="quote-sub">Confirma que el número que te escribe corresponde a <strong>+58 424-6262165</strong>.</p>
+            <div class="verify-row">
+              <input type="text" id="phoneCheck" class="input" style="flex:1; min-width:190px;" placeholder="+58 424-6262165" />
+              <button type="button" class="btn btn-solid" onclick="checkPhone()">Validar</button>
             </div>
-            <div id="verifierResult" class="verifier-result"></div>
+            <div id="phoneCheckMsg" class="verify-msg"></div>
+            <p style="font-size:12px; color:var(--muted); margin-top:16px;">
+              Nunca pidas ni entregues claves, códigos SMS o datos sensibles fuera de los canales confirmados.
+            </p>
           </div>
 
-          <div class="minimal-card">
-            <div>
-              <h3>Reglas de Oro de Seguridad</h3>
-              <ul style="margin-top:12px; padding-left:18px; font-size:14px; color:var(--text-muted); line-height:1.8;">
-                <li>Nuestra única línea oficial de atención al cliente es <strong>+58 424-6262165</strong>.</li>
-                <li>Nunca solicitamos claves bancarias, códigos SMS ni tokens de seguridad.</li>
-                <li>Verifica siempre el titular de la cuenta receptora antes de confirmar tu envío.</li>
-                <li>Atendemos exclusivamente dentro del horario publicado en nuestro tablero oficial.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+          <div>
+            <details class="faq" open>
+              <summary>¿Cómo funciona el envío por remesadoras desde el exterior?</summary>
+              <div class="faq-body">
+                Te compartimos una cuenta para que tu familiar haga el envío directo a cuenta bancaria. El fondo ingresa por Colombia y aquí entregamos los dólares aplicando el <strong>10%</strong> en envíos desde EE. UU., México o Panamá, o el <strong>6%</strong> en giros europeos (por ejemplo vía Western Union o Ria por Colombia).
+              </div>
+            </details>
 
-        <h3 style="font-family:'Oswald',sans-serif; font-size:20px; text-transform:uppercase; margin-bottom:14px;">Registro Reciente de Operaciones Completadas</h3>
-        <div style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
-          <table class="ledger-table">
-            <thead>
-              <tr>
-                <th>Referencia</th>
-                <th>Servicio / Destino</th>
-                <th>Canal</th>
-                <th>Tiempo de Gestión</th>
-                <th>Estado</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>#CG-9481</td>
-                <td>Envío a Colombia</td>
-                <td>Nequi (***4821)</td>
-                <td>8 minutos</td>
-                <td><strong>✓ Acreditado</strong></td>
-              </tr>
-              <tr>
-                <td>#CG-9482</td>
-                <td>Pago Factura Catálogo</td>
-                <td>Ésika (Cód. ***910)</td>
-                <td>12 minutos</td>
-                <td><strong>✓ Comprobante Emitido</strong></td>
-              </tr>
-              <tr>
-                <td>#CG-9483</td>
-                <td>Giro Europeo (6%)</td>
-                <td>Liquidación Directa</td>
-                <td>15 minutos</td>
-                <td><strong>✓ Completado</strong></td>
-              </tr>
-              <tr>
-                <td>#CG-9484</td>
-                <td>Remesa en Dólares (10%)</td>
-                <td>Entrega Verificada</td>
-                <td>10 minutos</td>
-                <td><strong>✓ Completado</strong></td>
-              </tr>
-            </tbody>
-          </table>
+            <details class="faq">
+              <summary>¿En qué bancos colombianos pueden enviar desde Colombia?</summary>
+              <div class="faq-body">
+                Recibimos en cuentas de la empresa en <strong>Bancolombia, Nequi, Daviplata, Davivienda, BBVA</strong> y cualquier banco colombiano para hacer el trámite sencillo desde Colombia.
+              </div>
+            </details>
+
+            <details class="faq">
+              <summary>¿Qué pagos y trámites realizan hacia Colombia?</summary>
+              <div class="faq-body">
+                Hacemos envíos de Venezuela a Colombia para pago de <strong>mercancía</strong>, <strong>facturas colombianas</strong>, <strong>recargas telefónicas</strong>, servicios en Colombia y pagos asociados a trámites como <strong>apostillas</strong> y <strong>pasaportes</strong>, además de catálogos como <strong>Ésika, Natura, Azzorti, L'Bel y Avon</strong>.
+              </div>
+            </details>
+
+            <details class="faq">
+              <summary>¿Cuáles son sus sucursales y horario?</summary>
+              <div class="faq-body">
+                Atendemos de <strong>8:00 a. m. a 5:00 p. m.</strong> por <strong>+58 424-6262165</strong>, con sucursales en Maracaibo (Plaza Lago y Curva de Molina), El Rosario de Perijá, Machiques, y en Colombia en Medellín (20 de Julio), Santa Lucía y otra sede en Colombia por confirmar.
+              </div>
+            </details>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="content-section" id="faq">
-      <div class="container">
-        <div class="section-header">
-          <span class="eyebrow">Soporte al Cliente</span>
-          <h2>Preguntas Frecuentes</h2>
+    <section class="band" id="legal" style="border-bottom:none;">
+      <div class="wrap">
+        <div class="band-head">
+          <span class="kicker">Marco legal</span>
+          <h2>Políticas y condiciones del servicio</h2>
+          <p>Accede a cada documento independiente en la raíz del sitio.</p>
         </div>
 
-        <details class="faq-item" open>
-          <summary class="faq-question">¿Cuál es el horario de atención y la línea oficial de INVERSIONES CAR-GO?</summary>
-          <div class="faq-answer">
-            Nuestra línea oficial de atención al cliente es <strong>+58 424-6262165</strong> y atendemos en horario habitual de <strong>8:00 a. m. a 5:00 p. m.</strong> En caso de días feriados o jornadas especiales no laborables, lo anunciamos con antelación en nuestro Tablero de Aviso Importante.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">¿Cuál es el porcentaje de comisión para envíos en dólares y giros europeos?</summary>
-          <div class="faq-answer">
-            Para envíos en dólares desde cualquier país se aplica una comisión fija del <strong>10%</strong> sobre el monto enviado. Para giros europeos en euros se aplica una comisión del <strong>6%</strong>. Puedes simular el monto exacto a recibir en nuestro Cotizador Oficial.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">¿Qué datos necesito para enviar dinero a Colombia?</summary>
-          <div class="faq-answer">
-            Solo necesitas indicar el banco o billetera destino (<strong>Nequi, Bancolombia, Davivienda o Daviplata</strong>), el número de cuenta o celular asociado, el nombre completo del titular y su número de documento de identidad (Cédula).
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">¿Cómo se verifica el pago de una factura de catálogo (Ésika, L'Bel, Avon)?</summary>
-          <div class="faq-answer">
-            Una vez realizado el pago en el portal oficial de la marca, te enviamos de inmediato el soporte digital con el número de aprobación y fecha de aplicación para tu respaldo.
-          </div>
-        </details>
-      </div>
-    </section>
-
-    <section class="content-section" id="legal" style="border-bottom:none;">
-      <div class="container">
-        <div class="section-header">
-          <span class="eyebrow">Transparencia y Cumplimiento</span>
-          <h2>Políticas de Privacidad, Protección de Datos y Términos</h2>
-          <p>Consulta cada documento legal en su página independiente para conocer cómo protegemos tu información y tus derechos como usuario.</p>
-        </div>
-
-        <div class="grid-3">
-          <div class="policy-card">
+        <div class="legal-grid">
+          <div class="legal-box">
             <div>
-              <h3 style="font-family:'Oswald',sans-serif; font-size:20px; text-transform:uppercase; margin-bottom:10px;">1. Política de Privacidad</h3>
-              <p style="font-size:14px; color:var(--text-muted); margin-bottom:14px;">Detalle sobre el tratamiento confidencial de datos personales y bancarios suministrados a través de nuestra línea oficial.</p>
-              <div class="policy-url-tag">https://inversionescargo.com/politica-privacidad.html</div>
+              <h3>Política de Privacidad</h3>
+              <p>Tratamiento responsable de los datos necesarios para procesar tus remesas, giros o pagos.</p>
             </div>
-            <a href="politica-privacidad.html" class="btn btn-outline btn-sm">Abrir Política de Privacidad</a>
+            <a href="politica-privacidad.html" class="btn btn-ghost btn-sm">Ver Política de Privacidad</a>
           </div>
 
-          <div class="policy-card">
+          <div class="legal-box">
             <div>
-              <h3 style="font-family:'Oswald',sans-serif; font-size:20px; text-transform:uppercase; margin-bottom:10px;">2. Eliminación de Datos</h3>
-              <p style="font-size:14px; color:var(--text-muted); margin-bottom:14px;">Procedimiento paso a paso para solicitar la supresión o actualización de tus datos personales en nuestros registros.</p>
-              <div class="policy-url-tag">https://inversionescargo.com/eliminacion-datos.html</div>
+              <h3>Eliminación de Datos</h3>
+              <p>Instrucciones para solicitar la eliminación o actualización de tus registros de contacto.</p>
             </div>
-            <a href="eliminacion-datos.html" class="btn btn-outline btn-sm">Abrir Eliminación de Datos</a>
+            <a href="eliminacion-datos.html" class="btn btn-ghost btn-sm">Ver Eliminación de Datos</a>
           </div>
 
-          <div class="policy-card">
+          <div class="legal-box">
             <div>
-              <h3 style="font-family:'Oswald',sans-serif; font-size:20px; text-transform:uppercase; margin-bottom:10px;">3. Términos del Servicio</h3>
-              <p style="font-size:14px; color:var(--text-muted); margin-bottom:14px;">Condiciones operativas, tarifas aplicables (10% USD y 6% giros europeos), horarios y protocolos de seguridad.</p>
-              <div class="policy-url-tag">https://inversionescargo.com/terminos-servicio.html</div>
+              <h3>Términos del Servicio</h3>
+              <p>Reglas operativas, tarifas aplicables, horarios de atención y prevención de fraude.</p>
             </div>
-            <a href="terminos-servicio.html" class="btn btn-outline btn-sm">Abrir Términos del Servicio</a>
+            <a href="terminos-servicio.html" class="btn btn-ghost btn-sm">Ver Términos del Servicio</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
         <div>
-          <strong style="font-family:'Oswald',sans-serif; font-size:20px; color:var(--brand-primary); letter-spacing:0.04em;">INVERSIONES CAR-GO</strong>
-          <p style="margin-top:10px; max-width:360px;">
-            ¡Tu dinero donde lo necesitas, al instante! Envíos en dólares, giros europeos, transferencias a Colombia y pago de facturas de catálogos.
-          </p>
-          <p style="margin-top:12px;">
-            <strong>Línea Oficial:</strong> +58 424-6262165<br>
-            <strong>Horario:</strong> 8:00 a. m. – 5:00 p. m.
+          <strong style="font-family:'Fraunces',Georgia,serif; font-size:20px; color:var(--ink);">INVERSIONES CAR-GO</strong>
+          <p style="margin-top:8px; max-width:420px;">
+            Operación entre Zulia (Maracaibo · Plaza Lago · Curva de Molina · El Rosario de Perijá · Machiques) y Colombia (Medellín 20 de Julio · Santa Lucía).
           </p>
         </div>
-
         <div>
-          <div class="footer-title">Servicios</div>
-          <ul class="footer-links">
-            <li><a href="#cotizador">Cotizador Oficial (10% USD / 6% EUR)</a></li>
-            <li><a href="#servicios">Envíos Nequi / Bancolombia / Davivienda</a></li>
-            <li><a href="#servicios">Remesas Internacionales y Giros Europeos</a></li>
-            <li><a href="#catalogos">Pago Ésika, L'Bel y Avon</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <div class="footer-title">Documentos Legales (URLs Independientes)</div>
-          <ul class="footer-links">
-            <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
-            <li><a href="eliminacion-datos.html">Eliminación de Datos de Usuario</a></li>
-            <li><a href="terminos-servicio.html">Términos del Servicio</a></li>
-            <li><a href="#seguridad">Verificador Antifraude</a></li>
-          </ul>
+          <strong>Línea oficial:</strong> +58 424-6262165<br>
+          <strong>Horario:</strong> 8:00 a. m. – 5:00 p. m.
         </div>
       </div>
-
       <div class="footer-bottom">
         <span>© 2026 INVERSIONES CAR-GO. Todos los derechos reservados.</span>
-        <span>Transacciones seguras · Línea oficial +58 424-6262165</span>
+        <span>Línea oficial +58 424-6262165</span>
       </div>
     </div>
   </footer>
 
   <script>
-    const WHATSAPP_NUMBER = "584246262165";
+    const WA_PHONE = "584246262165";
 
-    const DEFAULT_RATES = Object.freeze({
-      usd_cop: 4150.00,
-      cop_ves: 10.95
+    const RATES = Object.freeze({
+      usdToCop: 4150.00,
+      copPer1000Ves: 10.95
     });
 
-    // false = siguiente pulso suma +% sobre el monto actual (ej. 22 + 10% = 24.20)
-    // true  = siguiente pulso resta -% sobre el monto actual (ej. 24.20 - 10% = 21.78)
-    let isSubtractStepNext = false;
-
-    function getSafeAmount(inputId) {
-      const el = document.getElementById(inputId);
-      const val = Number(el ? el.value : 0);
-      if (!Number.isFinite(val) || val < 0) return 0;
-      return Math.min(val, 1000000000);
+    function readPositiveNumber(id) {
+      const el = document.getElementById(id);
+      const n = Number(el ? el.value : 0);
+      if (!Number.isFinite(n) || n <= 0) return 0;
+      return Math.min(n, 1000000000);
     }
 
-    function sanitizeText(raw, maxLen = 60) {
-      return String(raw || "")
-        .replace(/[<>&"'`]/g, "")
-        .trim()
-        .slice(0, maxLen);
+    function fmtNum(val, decimals = 2) {
+      return Number(val || 0).toLocaleString("es-VE", {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals
+      });
     }
 
-    function getActivePercentRate() {
-      const mode = document.getElementById("opType").value;
-      if (mode === "remesa_usd") return 0.10;
-      if (mode === "giro_eur") return 0.06;
-      return 0;
+    function refreshBoard() {
+      const u = document.getElementById("boardUsdCop");
+      const v = document.getElementById("boardCopVes");
+      if (u) u.textContent = fmtNum(RATES.usdToCop, 2) + " COP";
+      if (v) v.textContent = fmtNum(RATES.copPer1000Ves, 2) + " VES";
     }
 
-    function syncCommissionStepButtonLabel() {
-      const btn = document.getElementById("btnCommissionStep");
-      if (!btn) return;
-      const pct = Math.round(getActivePercentRate() * 100);
-      if (pct <= 0) return;
-      btn.textContent = isSubtractStepNext ? `Aplicar -${pct}%` : `Aplicar +${pct}%`;
-    }
+    function configureQuote() {
+      const kind = document.getElementById("opKind").value;
+      const amtLbl = document.getElementById("opAmountLbl");
+      const rateLbl = document.getElementById("opRateLbl");
+      const rateInfo = document.getElementById("opRateInfo");
+      const amtInput = document.getElementById("opAmount");
+      const channel = document.getElementById("opChannel");
 
-    function resetCommissionStep() {
-      isSubtractStepNext = false;
-      syncCommissionStepButtonLabel();
-    }
-
-    function handleManualAmountInput() {
-      resetCommissionStep();
-      updateCalculator();
-    }
-
-    function toggleCommissionStepButton() {
-      const rate = getActivePercentRate();
-      if (rate <= 0) return;
-
-      const amountInput = document.getElementById("amountInput");
-      const current = getSafeAmount("amountInput");
-      if (current <= 0) return;
-
-      let nextValue;
-      if (!isSubtractStepNext) {
-        // Paso 1: monto + porcentaje (ej. 22 + 10% = 24.20)
-        nextValue = current * (1 + rate);
-        isSubtractStepNext = true;
-      } else {
-        // Paso 2: monto - porcentaje (ej. 24.20 - 10% = 21.78)
-        nextValue = current * (1 - rate);
-        isSubtractStepNext = false;
+      if (kind === "remesa_10") {
+        amtLbl.textContent = "Monto entrante (USD)";
+        rateLbl.textContent = "Comisión aplicada";
+        rateInfo.value = "10% sobre monto entrante USD";
+        if (readPositiveNumber("opAmount") >= 10000) amtInput.value = "100";
+        channel.value = "Cuenta colombiana (Bancolombia / Nequi / Daviplata / Davivienda / BBVA) + entrega USD";
+      } else if (kind === "giro_eur_6") {
+        amtLbl.textContent = "Monto entrante (EUR)";
+        rateLbl.textContent = "Comisión aplicada";
+        rateInfo.value = "6% sobre giro europeo (EUR)";
+        if (readPositiveNumber("opAmount") >= 10000) amtInput.value = "100";
+        channel.value = "Western Union / Ria / Remitly / Taptap Send / Majority vía Colombia + entrega USD";
+      } else if (kind === "envio_colombia") {
+        amtLbl.textContent = "Monto base (USD)";
+        rateLbl.textContent = "Tasa referencial";
+        rateInfo.value = fmtNum(RATES.usdToCop, 2) + " COP / USD";
+        if (readPositiveNumber("opAmount") >= 10000) amtInput.value = "100";
+        channel.value = "Pago en Colombia (Mercancía / Factura / Recarga / Apostilla / Pasaporte)";
+      } else if (kind === "bs_a_pesos") {
+        amtLbl.textContent = "Monto en Bolívares (VES)";
+        rateLbl.textContent = "Tasa referencial";
+        rateInfo.value = fmtNum(RATES.copPer1000Ves, 2) + " VES / 1.000 COP";
+        if (readPositiveNumber("opAmount") < 1000) amtInput.value = "10950";
+        channel.value = "Cuenta colombiana (Bancolombia / Nequi / Daviplata / Davivienda / BBVA) + entrega USD";
+      } else if (kind === "catalogos_cop") {
+        amtLbl.textContent = "Monto en Pesos (COP)";
+        rateLbl.textContent = "Tasa referencial";
+        rateInfo.value = fmtNum(RATES.copPer1000Ves, 2) + " VES / 1.000 COP";
+        if (readPositiveNumber("opAmount") < 1000) amtInput.value = "250000";
+        channel.value = "Pago en Colombia (Mercancía / Factura / Recarga / Apostilla / Pasaporte)";
       }
 
-      amountInput.value = Number(nextValue.toFixed(2));
-      syncCommissionStepButtonLabel();
-      updateCalculator();
+      calculateQuote();
     }
 
-    function renderRatesBoard() {
-      const usdCopEl = document.getElementById("displayUsdCop");
-      const copVesEl = document.getElementById("displayCopVes");
-      if (usdCopEl) {
-        usdCopEl.textContent = DEFAULT_RATES.usd_cop.toLocaleString("es-CO", { minimumFractionDigits: 2 }) + " COP";
-      }
-      if (copVesEl) {
-        copVesEl.textContent = DEFAULT_RATES.cop_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES";
-      }
-    }
+    function calculateQuote() {
+      const kind = document.getElementById("opKind").value;
+      const amt = readPositiveNumber("opAmount");
 
-    function syncCalculatorMode() {
-      resetCommissionStep();
+      const baseLbl = document.getElementById("sumBaseLbl");
+      const baseVal = document.getElementById("sumBaseVal");
+      const feeLbl = document.getElementById("sumFeeLbl");
+      const feeVal = document.getElementById("sumFeeVal");
+      const netLbl = document.getElementById("netBannerLbl");
+      const netSub = document.getElementById("netBannerSub");
+      const netVal = document.getElementById("netBannerVal");
 
-      const mode = document.getElementById("opType").value;
-      const amountLabel = document.getElementById("amountLabel");
-      const rateLabel = document.getElementById("rateLabel");
-      const rateInput = document.getElementById("appliedRate");
-      const amountInput = document.getElementById("amountInput");
-      const destBank = document.getElementById("destBank");
-      const stepBar = document.getElementById("commissionStepBar");
-
-      if (mode === "remesa_usd") {
-        amountLabel.textContent = "Monto Enviado (USD)";
-        rateLabel.textContent = "Comisión Aplicada";
-        rateInput.value = "10% sobre el monto enviado";
-        if (getSafeAmount("amountInput") >= 10000) amountInput.value = "100";
-        destBank.value = "Entrega en Dólares / Liquidación Directa";
-        if (stepBar) stepBar.style.display = "flex";
-      } else if (mode === "giro_eur") {
-        amountLabel.textContent = "Monto Giro Europeo (EUR)";
-        rateLabel.textContent = "Comisión Aplicada";
-        rateInput.value = "6% sobre el giro europeo";
-        if (getSafeAmount("amountInput") >= 10000) amountInput.value = "100";
-        destBank.value = "Entrega en Euros / Liquidación Europea";
-        if (stepBar) stepBar.style.display = "flex";
-      } else if (mode === "envio_colombia") {
-        amountLabel.textContent = "Monto a Enviar (USD)";
-        rateLabel.textContent = "Tasa Referencial";
-        rateInput.value = DEFAULT_RATES.usd_cop.toLocaleString("es-CO", { minimumFractionDigits: 2 }) + " COP / USD";
-        if (getSafeAmount("amountInput") >= 10000) amountInput.value = "100";
-        destBank.value = "Nequi (Colombia)";
-        if (stepBar) stepBar.style.display = "none";
-      } else if (mode === "cat_cop") {
-        amountLabel.textContent = "Valor Factura Catálogo (COP)";
-        rateLabel.textContent = "Tasa Referencial";
-        rateInput.value = DEFAULT_RATES.cop_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES / 1.000 COP";
-        if (getSafeAmount("amountInput") < 1000) amountInput.value = "250000";
-        destBank.value = "Factura Ésika / L'Bel / Avon";
-        if (stepBar) stepBar.style.display = "none";
-      }
-
-      updateCalculator();
-    }
-
-    function updateCalculator() {
-      const mode = document.getElementById("opType").value;
-      const amount = getSafeAmount("amountInput");
-      const output = document.getElementById("calcOutput");
-      const note = document.getElementById("calcNote");
-      const grossLabel = document.getElementById("breakdownGrossLabel");
-      const grossVal = document.getElementById("breakdownGrossVal");
-      const feeLabel = document.getElementById("breakdownFeeLabel");
-      const feeVal = document.getElementById("breakdownFeeVal");
-
-      if (mode === "remesa_usd") {
-        const fee = amount * 0.10;
-        const net = amount - fee;
-        grossLabel.textContent = "Monto ingresado (USD):";
-        grossVal.textContent = "$" + amount.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " USD";
-        feeLabel.textContent = "Comisión del servicio (10%):";
-        feeVal.textContent = "-$" + fee.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " USD";
-        output.textContent = "$" + net.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " USD";
-        note.textContent = "Monto ingresado menos 10% de comisión";
-      } else if (mode === "giro_eur") {
-        const fee = amount * 0.06;
-        const net = amount - fee;
-        grossLabel.textContent = "Monto ingresado (EUR):";
-        grossVal.textContent = "€" + amount.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " EUR";
-        feeLabel.textContent = "Comisión giro europeo (6%):";
-        feeVal.textContent = "-€" + fee.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " EUR";
-        output.textContent = "€" + net.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " EUR";
-        note.textContent = "Monto ingresado menos 6% de comisión";
-      } else if (mode === "envio_colombia") {
-        const res = amount * DEFAULT_RATES.usd_cop;
-        grossLabel.textContent = "Monto a enviar (USD):";
-        grossVal.textContent = "$" + amount.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " USD";
-        feeLabel.textContent = "Tasa referencial:";
-        feeVal.textContent = DEFAULT_RATES.usd_cop.toLocaleString("es-CO", { minimumFractionDigits: 2 }) + " COP";
-        output.textContent = res.toLocaleString("es-CO", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " COP";
-        note.textContent = "Recibe en Colombia (Nequi / Bancolombia / Davivienda)";
-      } else if (mode === "cat_cop") {
-        const res = (amount / 1000) * DEFAULT_RATES.cop_ves;
-        grossLabel.textContent = "Factura en Pesos (COP):";
-        grossVal.textContent = "$" + amount.toLocaleString("es-CO", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " COP";
-        feeLabel.textContent = "Tasa referencial (por 1.000 COP):";
-        feeVal.textContent = DEFAULT_RATES.cop_ves.toLocaleString("es-VE", { minimumFractionDigits: 2 }) + " VES";
-        output.textContent = res.toLocaleString("es-VE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " VES";
-        note.textContent = "Monto referencial en Bolívares para pagar tu factura";
+      if (kind === "remesa_10") {
+        const fee = amt * 0.10;
+        const net = amt - fee;
+        baseLbl.textContent = "Monto entrante (USD):";
+        baseVal.textContent = "$" + fmtNum(amt) + " USD";
+        feeLbl.textContent = "Comisión (10%):";
+        feeVal.textContent = "-$" + fmtNum(fee) + " USD";
+        netLbl.textContent = "Estimado a entregar (USD)";
+        netSub.textContent = "10% descontado sobre el monto entrante en USD";
+        netVal.textContent = "$" + fmtNum(net) + " USD";
+      } else if (kind === "giro_eur_6") {
+        const fee = amt * 0.06;
+        const net = amt - fee;
+        baseLbl.textContent = "Monto entrante (EUR):";
+        baseVal.textContent = "€" + fmtNum(amt) + " EUR";
+        feeLbl.textContent = "Comisión giro europeo (6%):";
+        feeVal.textContent = "-€" + fmtNum(fee) + " EUR";
+        netLbl.textContent = "Monto base tras 6% (EUR)";
+        netSub.textContent = "Recibido vía Colombia · liquidación sujeta a tasa del día";
+        netVal.textContent = "€" + fmtNum(net) + " EUR";
+      } else if (kind === "envio_colombia") {
+        const cop = amt * RATES.usdToCop;
+        baseLbl.textContent = "Monto base (USD):";
+        baseVal.textContent = "$" + fmtNum(amt) + " USD";
+        feeLbl.textContent = "Tasa referencial:";
+        feeVal.textContent = fmtNum(RATES.usdToCop) + " COP";
+        netLbl.textContent = "Referencial en Colombia (COP)";
+        netSub.textContent = "Para mercancía, facturas, recargas o trámites";
+        netVal.textContent = "$" + fmtNum(cop) + " COP";
+      } else if (kind === "bs_a_pesos") {
+        const cop = RATES.copPer1000Ves > 0 ? (amt / RATES.copPer1000Ves) * 1000 : 0;
+        baseLbl.textContent = "Monto en Bolívares (VES):";
+        baseVal.textContent = fmtNum(amt) + " VES";
+        feeLbl.textContent = "Referencia por 1.000 COP:";
+        feeVal.textContent = fmtNum(RATES.copPer1000Ves) + " VES";
+        netLbl.textContent = "Equivalente en Pesos (COP)";
+        netSub.textContent = "Sujeto a confirmación de tasa al momento";
+        netVal.textContent = "$" + fmtNum(cop) + " COP";
+      } else if (kind === "catalogos_cop") {
+        const ves = (amt / 1000) * RATES.copPer1000Ves;
+        baseLbl.textContent = "Monto en Pesos (COP):";
+        baseVal.textContent = "$" + fmtNum(amt) + " COP";
+        feeLbl.textContent = "Referencia por 1.000 COP:";
+        feeVal.textContent = fmtNum(RATES.copPer1000Ves) + " VES";
+        netLbl.textContent = "Referencial en Bolívares (VES)";
+        netSub.textContent = "Ésika · Natura · Azzorti · L'Bel · Avon";
+        netVal.textContent = fmtNum(ves) + " VES";
       }
     }
 
-    function sendQuoteWhatsApp() {
-      const opSelect = document.getElementById("opType");
-      const opText = opSelect.options[opSelect.selectedIndex].text;
-      const gross = document.getElementById("breakdownGrossVal").textContent;
-      const fee = document.getElementById("breakdownFeeVal").textContent;
-      const bank = document.getElementById("destBank").value;
-      const net = document.getElementById("calcOutput").textContent;
+    function sendQuoteToWhatsApp() {
+      const sel = document.getElementById("opKind");
+      const kindLabel = sel.options[sel.selectedIndex].text;
+      const base = document.getElementById("sumBaseVal").textContent;
+      const fee = document.getElementById("sumFeeVal").textContent;
+      const channel = document.getElementById("opChannel").value;
+      const result = document.getElementById("netBannerVal").textContent;
 
-      const message = `Hola *INVERSIONES CAR-GO*, deseo consultar y procesar una operación (cálculo referencial sujeto a confirmación de la agencia):\n\n` +
-        `• *Servicio:* ${opText}\n` +
-        `• *Monto ingresado:* ${gross}\n` +
-        `• *Comisión / Tasa referencial:* ${fee}\n` +
-        `• *Destino:* ${bank}\n` +
-        `• *Total neto estimado:* ${net}\n\n` +
-        `Por favor confírmenme la tasa vigente y las instrucciones oficiales.`;
+      const text =
+        `Hola *INVERSIONES CAR-GO*, deseo confirmar esta operación:\n\n` +
+        `• *Operación:* ${kindLabel}\n` +
+        `• *Monto:* ${base}\n` +
+        `• *Comisión / Tasa:* ${fee}\n` +
+        `• *Canal / Sede:* ${channel}\n` +
+        `• *Resultado referencial:* ${result}\n\n` +
+        `Quedo atento a las indicaciones oficiales.`;
 
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+      window.open(`https://wa.me/${WA_PHONE}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
     }
 
-    function sendCatalogWhatsApp() {
-      const brand = sanitizeText(document.getElementById("catBrand").value, 20);
-      const code = sanitizeText(document.getElementById("catCode").value, 40) || "No especificado";
-      const amountVal = getSafeAmount("catAmount");
-      const amountText = amountVal > 0 ? `$${amountVal.toLocaleString("es-CO")} COP` : "Por confirmar";
+    function checkPhone() {
+      const digits = document.getElementById("phoneCheck").value.replace(/\D/g, "");
+      const box = document.getElementById("phoneCheckMsg");
 
-      const message = `Hola *INVERSIONES CAR-GO*, solicito información para pago de factura de catálogo:\n\n` +
-        `• *Marca:* ${brand}\n` +
-        `• *Código de Consultora:* ${code}\n` +
-        `• *Monto Factura:* ${amountText}\n\n` +
-        `Quedo atenta a la confirmación de la tasa del día.`;
-
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
-    }
-
-    function verifyChannel() {
-      const raw = document.getElementById("phoneVerifyInput").value.replace(/\D/g, "");
-      const res = document.getElementById("verifierResult");
-
-      if (!raw) {
-        res.className = "verifier-result invalid";
-        res.textContent = "Por favor ingresa un número telefónico para validar.";
+      if (!digits) {
+        box.className = "verify-msg bad";
+        box.textContent = "Ingresa un número telefónico para comprobarlo.";
         return;
       }
 
-      if (raw.endsWith("4246262165")) {
-        res.className = "verifier-result valid";
-        res.textContent = "✓ CANAL OFICIAL VERIFICADO: El número +58 424-6262165 es la línea oficial de atención al cliente de INVERSIONES CAR-GO.";
+      if (digits.endsWith("4246262165")) {
+        box.className = "verify-msg ok";
+        box.textContent = "Verificado: +58 424-6262165 es la línea oficial de INVERSIONES CAR-GO.";
       } else {
-        res.className = "verifier-result invalid";
-        res.textContent = "✕ ALERTA DE SEGURIDAD: Este número NO corresponde a nuestra línea oficial (+58 424-6262165). No realices transferencias ni compartas datos.";
+        box.className = "verify-msg bad";
+        box.textContent = "Atención: este número no coincide con la línea oficial (+58 424-6262165).";
       }
     }
 
-    renderRatesBoard();
-    syncCalculatorMode();
+    refreshBoard();
+    configureQuote();
   </script>
 </body>
 </html>

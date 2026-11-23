@@ -23,7 +23,6 @@
       --tri-blue: #003893;
       --tri-red: #CE1126;
       --ok: #166534;
-      --warn: #9A3412;
       --danger: #991B1B;
     }
 
@@ -191,15 +190,15 @@
     }
 
     .hero-band {
-      padding: 52px 0 56px;
+      padding: 56px 0;
       border-bottom: 1px solid var(--line);
     }
 
     .hero-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
       gap: 44px;
-      align-items: start;
+      align-items: center;
     }
 
     .kicker {
@@ -225,163 +224,57 @@
       font-size: 16px;
       color: var(--muted);
       margin-bottom: 24px;
-      max-width: 580px;
+      max-width: 620px;
     }
 
     .hero-cta-row {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-bottom: 32px;
     }
 
-    .rate-strip {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      border-top: 1px solid var(--line-strong);
-      border-bottom: 1px solid var(--line);
-      background: var(--card);
-    }
-
-    .rate-cell {
-      padding: 14px 16px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .rate-cell:nth-child(odd) {
-      border-right: 1px solid var(--line);
-    }
-
-    .rate-cell-lbl {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      font-weight: 600;
-    }
-
-    .rate-cell-val {
-      font-family: 'Fraunces', Georgia, serif;
-      font-size: 19px;
-      font-weight: 700;
-      color: var(--ink);
-      margin-top: 2px;
-    }
-
-    .quote-panel {
+    .commission-card {
       background: var(--card);
       border: 1.5px solid var(--ink);
-      padding: 28px;
+      padding: 26px;
       box-shadow: 8px 8px 0 var(--paper-alt);
     }
 
-    .quote-header {
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 14px;
-      margin-bottom: 20px;
-    }
-
-    .quote-title {
+    .commission-card-title {
       font-family: 'Fraunces', Georgia, serif;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 700;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
     }
 
-    .quote-sub {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-
-    .field {
-      margin-bottom: 15px;
-    }
-
-    .field label {
-      display: block;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      margin-bottom: 6px;
-      color: var(--ink);
-    }
-
-    .input,
-    .select {
-      width: 100%;
-      padding: 11px 13px;
-      border: 1px solid var(--line);
-      background: var(--paper);
-      color: var(--ink);
-      font-family: inherit;
-      font-size: 15px;
-      outline: none;
-    }
-
-    .input:focus,
-    .select:focus {
-      border-color: var(--ink);
-      background: #FFFFFF;
-    }
-
-    .input[readonly] {
-      background: var(--paper-alt);
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .field-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    .commission-row {
+      padding: 14px 0;
+      border-bottom: 1px dashed var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
       gap: 12px;
     }
 
-    .summary-box {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      padding: 14px;
-      margin: 16px 0 12px;
-      font-size: 13px;
+    .commission-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
     }
 
-    .summary-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 5px 0;
+    .commission-lbl {
+      font-size: 14px;
       color: var(--muted);
+      font-weight: 500;
     }
 
-    .summary-row strong {
-      color: var(--ink);
-    }
-
-    .net-banner {
-      background: var(--paper-alt);
-      border: 1px solid var(--line);
-      border-left: 4px solid var(--gold);
-      padding: 15px 16px;
-      margin-bottom: 18px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .net-label {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .net-value {
+    .commission-val {
       font-family: 'Fraunces', Georgia, serif;
-      font-size: clamp(22px, 4vw, 28px);
+      font-size: 22px;
       font-weight: 700;
       color: var(--ink);
+      white-space: nowrap;
     }
 
     section.band {
@@ -570,6 +463,34 @@
       padding: 26px;
     }
 
+    .verify-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    .verify-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .input {
+      width: 100%;
+      padding: 11px 13px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      color: var(--ink);
+      font-family: inherit;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .input:focus {
+      border-color: var(--ink);
+      background: #FFFFFF;
+    }
+
     .verify-row {
       display: flex;
       gap: 10px;
@@ -705,7 +626,7 @@
         display: none;
       }
 
-      .quote-panel {
+      .commission-card {
         box-shadow: none;
       }
     }
@@ -713,15 +634,6 @@
     @media (max-width: 560px) {
       .wrap {
         padding: 0 16px;
-      }
-
-      .rate-strip,
-      .field-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .rate-cell:nth-child(odd) {
-        border-right: none;
       }
 
       .hero-cta-row .btn,
@@ -762,7 +674,6 @@
       </a>
 
       <nav class="main-nav">
-        <a href="#cotizador">Cotizador</a>
         <a href="#operativa">Operativa</a>
         <a href="#sucursales">Sucursales</a>
         <a href="#seguridad">Seguridad y FAQ</a>
@@ -776,7 +687,7 @@
   </header>
 
   <main>
-    <section class="hero-band" id="cotizador">
+    <section class="hero-band">
       <div class="wrap hero-layout">
         <div>
           <span class="kicker">Remesas, giros y pagos</span>
@@ -786,101 +697,26 @@
           </p>
 
           <div class="hero-cta-row">
-            <a href="https://wa.me/584246262165?text=Hola%20Inversiones%20Car-Go,%20quiero%20cotizar%20una%20operaci%C3%B3n%20hoy." target="_blank" rel="noopener noreferrer" class="btn btn-solid">
+            <a href="https://wa.me/584246262165?text=Hola%20Inversiones%20Car-Go,%20quiero%20consultar%20una%20operaci%C3%B3n%20hoy." target="_blank" rel="noopener noreferrer" class="btn btn-solid">
               Consultar por WhatsApp
             </a>
             <a href="#sucursales" class="btn btn-ghost">
               Ver Sucursales
             </a>
           </div>
-
-          <div class="rate-strip">
-            <div class="rate-cell">
-              <div class="rate-cell-lbl">EE. UU., México y Panamá</div>
-              <div class="rate-cell-val">Comisión 10%</div>
-            </div>
-            <div class="rate-cell">
-              <div class="rate-cell-lbl">Giros Europeos</div>
-              <div class="rate-cell-val">Comisión 6%</div>
-            </div>
-            <div class="rate-cell">
-              <div class="rate-cell-lbl">Referencia USD → COP</div>
-              <div class="rate-cell-val" id="boardUsdCop">4.150,00 COP</div>
-            </div>
-            <div class="rate-cell">
-              <div class="rate-cell-lbl">Referencia VES / 1.000 COP</div>
-              <div class="rate-cell-val" id="boardCopVes">10,95 VES</div>
-            </div>
-          </div>
         </div>
 
-        <div class="quote-panel">
-          <div class="quote-header">
-            <h2 class="quote-title">Cotizador de Operación</h2>
-            <p class="quote-sub">Valores referenciales sujetos a confirmación al iniciar en la línea oficial.</p>
+        <aside class="commission-card" aria-label="Comisiones de envío">
+          <h2 class="commission-card-title">Comisiones de servicio</h2>
+          <div class="commission-row">
+            <span class="commission-lbl">EE. UU., México y Panamá</span>
+            <span class="commission-val">10%</span>
           </div>
-
-          <div class="field">
-            <label for="opKind">Tipo de operación</label>
-            <select id="opKind" class="select" onchange="configureQuote()">
-              <option value="remesa_10">Remesa EE. UU. / México / Panamá — Comisión 10% (USD)</option>
-              <option value="giro_eur_6">Giro Europeo — Comisión 6% (EUR)</option>
-              <option value="envio_colombia">Envío / Mercancía / Facturas / Trámites (USD → COP)</option>
-              <option value="bs_a_pesos">Envío de Bolívares (VES) por Pesos (COP)</option>
-              <option value="catalogos_cop">Pago de Catálogos Ésika / L'Bel / Avon / Natura / Azzorti (COP → VES)</option>
-            </select>
+          <div class="commission-row">
+            <span class="commission-lbl">Giros Europeos</span>
+            <span class="commission-val">6%</span>
           </div>
-
-          <div class="field-grid">
-            <div class="field">
-              <label for="opAmount" id="opAmountLbl">Monto entrante (USD)</label>
-              <input type="number" id="opAmount" class="input" value="100" min="0.01" step="0.01" oninput="calculateQuote()" />
-            </div>
-            <div class="field">
-              <label for="opRateInfo" id="opRateLbl">Tarifa / Tasa</label>
-              <input type="text" id="opRateInfo" class="input" readonly />
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="opChannel">Canal o sede de gestión</label>
-            <select id="opChannel" class="select">
-              <option value="Bancolombia / Nequi / Daviplata / Davivienda / BBVA + entrega USD">Bancolombia / Nequi / Daviplata / Davivienda / BBVA + entrega USD</option>
-              <option value="Panamá (Yappy / Banco General / Banesco Panamá) + entrega USD">Panamá (Yappy / Banco General / Banesco Panamá) + entrega USD</option>
-              <option value="Western Union / Ria / Remitly / Taptap Send / Majority + entrega USD">Western Union / Ria / Remitly / Taptap Send / Majority + entrega USD</option>
-              <option value="Mercancía / Factura / Recarga / Apostilla / Pasaporte">Mercancía / Factura / Recarga / Apostilla / Pasaporte</option>
-              <option value="Sucursal Maracaibo — Plaza Lago">Sucursal Maracaibo — Plaza Lago</option>
-              <option value="Sucursal Maracaibo — Curva de Molina">Sucursal Maracaibo — Curva de Molina</option>
-              <option value="Sucursal El Rosario de Perijá">Sucursal El Rosario de Perijá</option>
-              <option value="Sucursal Machiques">Sucursal Machiques</option>
-              <option value="Sucursal Medellín — 20 de Julio">Sucursal Medellín — 20 de Julio</option>
-              <option value="Sucursal Santa Lucía">Sucursal Santa Lucía</option>
-            </select>
-          </div>
-
-          <div class="summary-box">
-            <div class="summary-row">
-              <span id="sumBaseLbl">Monto ingresado:</span>
-              <strong id="sumBaseVal">$100,00 USD</strong>
-            </div>
-            <div class="summary-row">
-              <span id="sumFeeLbl">Comisión (10%):</span>
-              <strong id="sumFeeVal" style="color:var(--warn);">-$10,00 USD</strong>
-            </div>
-          </div>
-
-          <div class="net-banner">
-            <div>
-              <div class="net-label" id="netBannerLbl">Monto estimado a recibir</div>
-              <div style="font-size:11px; color:var(--muted);" id="netBannerSub">Tras descontar 10% sobre el monto entrante</div>
-            </div>
-            <div class="net-value" id="netBannerVal">$90,00 USD</div>
-          </div>
-
-          <button type="button" class="btn btn-solid" style="width:100%;" onclick="sendQuoteToWhatsApp()">
-            Enviar cotización a WhatsApp
-          </button>
-        </div>
+        </aside>
       </div>
     </section>
 
@@ -1073,8 +909,8 @@
 
         <div class="two-col">
           <div class="verify-card">
-            <h3 class="quote-title" style="font-size:21px;">Verifica nuestra línea oficial</h3>
-            <p class="quote-sub">Confirma que el número que te escribe corresponde a <strong>+58 424-6262165</strong>.</p>
+            <h3 class="verify-title">Verifica nuestra línea oficial</h3>
+            <p class="verify-sub">Confirma que el número que te escribe corresponde a <strong>+58 424-6262165</strong>.</p>
             <div class="verify-row">
               <input type="text" id="phoneCheck" class="input" style="flex:1; min-width:190px;" placeholder="+58 424-6262165" />
               <button type="button" class="btn btn-solid" onclick="checkPhone()">Validar</button>
@@ -1163,206 +999,4 @@
             <svg class="cargo-logo-mark" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <rect x="1.5" y="1.5" width="41" height="41" rx="4" fill="#0E1F3D" stroke="#C59B27" stroke-width="1.5"/>
               <path d="M10 15L22 9L34 15V29L22 35L10 29V15Z" stroke="#F7F6F2" stroke-width="1.8" stroke-linejoin="round"/>
-              <path d="M16 22H28M28 22L24 18M28 22L24 26" stroke="#C59B27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span class="cargo-logo-text">
-              <span class="cargo-logo-name">INVERSIONES CAR-GO</span>
-              <span class="cargo-logo-tri" aria-hidden="true">
-                <span></span><span></span><span></span>
-              </span>
-            </span>
-          </a>
-          <p style="margin-top:12px; max-width:420px;">
-            Sedes en Plaza Lago, Curva de Molina, El Rosario de Perijá, Machiques, Medellín (20 de Julio) y Santa Lucía.
-          </p>
-        </div>
-        <div>
-          <strong>Línea oficial:</strong> +58 424-6262165<br>
-          <strong>Horario:</strong> 8:00 a. m. – 5:00 p. m.
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2026 INVERSIONES CAR-GO. Todos los derechos reservados.</span>
-        <span>Línea oficial +58 424-6262165</span>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const WA_PHONE = "584246262165";
-
-    const RATES = Object.freeze({
-      usdToCop: 4150.00,
-      copPer1000Ves: 10.95
-    });
-
-    function readPositiveNumber(id) {
-      const el = document.getElementById(id);
-      const n = Number(el ? el.value : 0);
-      if (!Number.isFinite(n) || n <= 0) return 0;
-      return Math.min(n, 1000000000);
-    }
-
-    function fmtNum(val, decimals = 2) {
-      return Number(val || 0).toLocaleString("es-VE", {
-        minimumFractionDigits: decimals,
-        maximumFractionDigits: decimals
-      });
-    }
-
-    function refreshBoard() {
-      const u = document.getElementById("boardUsdCop");
-      const v = document.getElementById("boardCopVes");
-      if (u) u.textContent = fmtNum(RATES.usdToCop, 2) + " COP";
-      if (v) v.textContent = fmtNum(RATES.copPer1000Ves, 2) + " VES";
-    }
-
-    function configureQuote() {
-      const kind = document.getElementById("opKind").value;
-      const amtLbl = document.getElementById("opAmountLbl");
-      const rateLbl = document.getElementById("opRateLbl");
-      const rateInfo = document.getElementById("opRateInfo");
-      const amtInput = document.getElementById("opAmount");
-      const channel = document.getElementById("opChannel");
-
-      if (kind === "remesa_10") {
-        amtLbl.textContent = "Monto entrante (USD)";
-        rateLbl.textContent = "Comisión aplicada";
-        rateInfo.value = "10% sobre monto entrante USD";
-        if (readPositiveNumber("opAmount") >= 10000) amtInput.value = "100";
-        channel.value = "Bancolombia / Nequi / Daviplata / Davivienda / BBVA + entrega USD";
-      } else if (kind === "giro_eur_6") {
-        amtLbl.textContent = "Monto entrante (EUR)";
-        rateLbl.textContent = "Comisión aplicada";
-        rateInfo.value = "6% sobre giro europeo (EUR)";
-        if (readPositiveNumber("opAmount") >= 10000) amtInput.value = "100";
-        channel.value = "Western Union / Ria / Remitly / Taptap Send / Majority + entrega USD";
-      } else if (kind === "envio_colombia") {
-        amtLbl.textContent = "Monto base (USD)";
-        rateLbl.textContent = "Tasa referencial";
-        rateInfo.value = fmtNum(RATES.usdToCop, 2) + " COP / USD";
-        if (readPositiveNumber("opAmount") >= 10000) amtInput.value = "100";
-        channel.value = "Mercancía / Factura / Recarga / Apostilla / Pasaporte";
-      } else if (kind === "bs_a_pesos") {
-        amtLbl.textContent = "Monto en Bolívares (VES)";
-        rateLbl.textContent = "Tasa referencial";
-        rateInfo.value = fmtNum(RATES.copPer1000Ves, 2) + " VES / 1.000 COP";
-        if (readPositiveNumber("opAmount") < 1000) amtInput.value = "10950";
-        channel.value = "Bancolombia / Nequi / Daviplata / Davivienda / BBVA + entrega USD";
-      } else if (kind === "catalogos_cop") {
-        amtLbl.textContent = "Monto en Pesos (COP)";
-        rateLbl.textContent = "Tasa referencial";
-        rateInfo.value = fmtNum(RATES.copPer1000Ves, 2) + " VES / 1.000 COP";
-        if (readPositiveNumber("opAmount") < 1000) amtInput.value = "250000";
-        channel.value = "Mercancía / Factura / Recarga / Apostilla / Pasaporte";
-      }
-
-      calculateQuote();
-    }
-
-    function calculateQuote() {
-      const kind = document.getElementById("opKind").value;
-      const amt = readPositiveNumber("opAmount");
-
-      const baseLbl = document.getElementById("sumBaseLbl");
-      const baseVal = document.getElementById("sumBaseVal");
-      const feeLbl = document.getElementById("sumFeeLbl");
-      const feeVal = document.getElementById("sumFeeVal");
-      const netLbl = document.getElementById("netBannerLbl");
-      const netSub = document.getElementById("netBannerSub");
-      const netVal = document.getElementById("netBannerVal");
-
-      if (kind === "remesa_10") {
-        const fee = amt * 0.10;
-        const net = amt - fee;
-        baseLbl.textContent = "Monto entrante (USD):";
-        baseVal.textContent = "$" + fmtNum(amt) + " USD";
-        feeLbl.textContent = "Comisión (10%):";
-        feeVal.textContent = "-$" + fmtNum(fee) + " USD";
-        netLbl.textContent = "Estimado a entregar (USD)";
-        netSub.textContent = "10% descontado sobre el monto entrante en USD";
-        netVal.textContent = "$" + fmtNum(net) + " USD";
-      } else if (kind === "giro_eur_6") {
-        const fee = amt * 0.06;
-        const net = amt - fee;
-        baseLbl.textContent = "Monto entrante (EUR):";
-        baseVal.textContent = "€" + fmtNum(amt) + " EUR";
-        feeLbl.textContent = "Comisión giro europeo (6%):";
-        feeVal.textContent = "-€" + fmtNum(fee) + " EUR";
-        netLbl.textContent = "Monto base tras 6% (EUR)";
-        netSub.textContent = "Liquidación sujeta a tasa del día";
-        netVal.textContent = "€" + fmtNum(net) + " EUR";
-      } else if (kind === "envio_colombia") {
-        const cop = amt * RATES.usdToCop;
-        baseLbl.textContent = "Monto base (USD):";
-        baseVal.textContent = "$" + fmtNum(amt) + " USD";
-        feeLbl.textContent = "Tasa referencial:";
-        feeVal.textContent = fmtNum(RATES.usdToCop) + " COP";
-        netLbl.textContent = "Referencial (COP)";
-        netSub.textContent = "Para mercancía, facturas, recargas o trámites";
-        netVal.textContent = "$" + fmtNum(cop) + " COP";
-      } else if (kind === "bs_a_pesos") {
-        const cop = RATES.copPer1000Ves > 0 ? (amt / RATES.copPer1000Ves) * 1000 : 0;
-        baseLbl.textContent = "Monto en Bolívares (VES):";
-        baseVal.textContent = fmtNum(amt) + " VES";
-        feeLbl.textContent = "Referencia por 1.000 COP:";
-        feeVal.textContent = fmtNum(RATES.copPer1000Ves) + " VES";
-        netLbl.textContent = "Equivalente en Pesos (COP)";
-        netSub.textContent = "Sujeto a confirmación de tasa al momento";
-        netVal.textContent = "$" + fmtNum(cop) + " COP";
-      } else if (kind === "catalogos_cop") {
-        const ves = (amt / 1000) * RATES.copPer1000Ves;
-        baseLbl.textContent = "Monto en Pesos (COP):";
-        baseVal.textContent = "$" + fmtNum(amt) + " COP";
-        feeLbl.textContent = "Referencia por 1.000 COP:";
-        feeVal.textContent = fmtNum(RATES.copPer1000Ves) + " VES";
-        netLbl.textContent = "Referencial en Bolívares (VES)";
-        netSub.textContent = "Ésika · Natura · Azzorti · L'Bel · Avon";
-        netVal.textContent = fmtNum(ves) + " VES";
-      }
-    }
-
-    function sendQuoteToWhatsApp() {
-      const sel = document.getElementById("opKind");
-      const kindLabel = sel.options[sel.selectedIndex].text;
-      const base = document.getElementById("sumBaseVal").textContent;
-      const fee = document.getElementById("sumFeeVal").textContent;
-      const channel = document.getElementById("opChannel").value;
-      const result = document.getElementById("netBannerVal").textContent;
-
-      const text =
-        `Hola *INVERSIONES CAR-GO*, deseo confirmar esta operación:\n\n` +
-        `• *Operación:* ${kindLabel}\n` +
-        `• *Monto:* ${base}\n` +
-        `• *Comisión / Tasa:* ${fee}\n` +
-        `• *Canal / Sede:* ${channel}\n` +
-        `• *Resultado referencial:* ${result}\n\n` +
-        `Quedo atento a las indicaciones oficiales.`;
-
-      window.open(`https://wa.me/${WA_PHONE}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
-    }
-
-    function checkPhone() {
-      const digits = document.getElementById("phoneCheck").value.replace(/\D/g, "");
-      const box = document.getElementById("phoneCheckMsg");
-
-      if (!digits) {
-        box.className = "verify-msg bad";
-        box.textContent = "Ingresa un número telefónico para comprobarlo.";
-        return;
-      }
-
-      if (digits.endsWith("4246262165")) {
-        box.className = "verify-msg ok";
-        box.textContent = "Verificado: +58 424-6262165 es la línea oficial de INVERSIONES CAR-GO.";
-      } else {
-        box.className = "verify-msg bad";
-        box.textContent = "Atención: este número no coincide con la línea oficial (+58 424-6262165).";
-      }
-    }
-
-    refreshBoard();
-    configureQuote();
-  </script>
-</body>
-</html>
+              <path d="M

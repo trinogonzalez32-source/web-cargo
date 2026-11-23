@@ -7,18 +7,21 @@
   <meta name="description" content="Inversiones Car-Go: Operación en Maracaibo (Plaza Lago, Curva de Molina), El Rosario de Perijá, Machiques y Colombia (Medellín 20 de Julio, Santa Lucía). Remesas, giros europeos, pagos en Colombia y trámites." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --paper: #F6F4EE;
+      --paper: #F7F6F2;
       --paper-alt: #ECE8DE;
-      --card: #FCFBF8;
-      --ink: #10203A;
+      --card: #FFFFFF;
+      --ink: #0E1F3D;
       --muted: #526074;
-      --line: #D8D2C5;
-      --line-strong: #10203A;
-      --gold: #B38922;
-      --gold-soft: rgba(179, 137, 34, 0.12);
+      --line: #DCDAD3;
+      --line-strong: #0E1F3D;
+      --gold: #C59B27;
+      --gold-soft: rgba(197, 155, 39, 0.14);
+      --tri-yellow: #FCD116;
+      --tri-blue: #003893;
+      --tri-red: #CE1126;
       --ok: #166534;
       --warn: #9A3412;
       --danger: #991B1B;
@@ -85,32 +88,61 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 16px 0;
+      padding: 14px 0;
       gap: 20px;
     }
 
-    .wordmark {
+    /* Logo SVG Original INVERSIONES CAR-GO */
+    .cargo-logo {
       text-decoration: none;
       color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      flex-shrink: 0;
+    }
+
+    .cargo-logo-mark {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+    }
+
+    .cargo-logo-text {
       display: flex;
       flex-direction: column;
       line-height: 1.05;
     }
 
-    .wordmark-top {
-      font-size: 10px;
+    .cargo-logo-sub {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 9.5px;
       font-weight: 700;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--gold);
+      margin-bottom: 2px;
     }
 
-    .wordmark-main {
-      font-family: 'Fraunces', Georgia, serif;
-      font-size: 24px;
+    .cargo-logo-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 20px;
       font-weight: 700;
-      letter-spacing: -0.01em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ink);
     }
+
+    .cargo-logo-tri {
+      display: flex;
+      height: 3px;
+      width: 100%;
+      margin-top: 3px;
+    }
+
+    .cargo-logo-tri span:nth-child(1) { flex: 1; background: var(--tri-yellow); }
+    .cargo-logo-tri span:nth-child(2) { flex: 1; background: var(--tri-blue); }
+    .cargo-logo-tri span:nth-child(3) { flex: 1; background: var(--tri-red); }
 
     nav.main-nav {
       display: flex;
@@ -724,9 +756,20 @@
 
   <header class="site-header">
     <div class="wrap header-flex">
-      <a href="#" class="wordmark" aria-label="Inversiones Car-Go">
-        <span class="wordmark-top">Zulia · Colombia</span>
-        <span class="wordmark-main">INVERSIONES CAR-GO</span>
+      <!-- Logotipo SVG Original INVERSIONES CAR-GO -->
+      <a href="#" class="cargo-logo" aria-label="Inversiones Car-Go">
+        <svg class="cargo-logo-mark" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="1.5" y="1.5" width="41" height="41" rx="4" fill="#0E1F3D" stroke="#C59B27" stroke-width="1.5"/>
+          <path d="M10 15L22 9L34 15V29L22 35L10 29V15Z" stroke="#F7F6F2" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M16 22H28M28 22L24 18M28 22L24 26" stroke="#C59B27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="cargo-logo-text">
+          <span class="cargo-logo-sub">Zulia · Colombia</span>
+          <span class="cargo-logo-name">INVERSIONES CAR-GO</span>
+          <span class="cargo-logo-tri" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+        </span>
       </a>
 
       <nav class="main-nav">
@@ -1127,8 +1170,21 @@
     <div class="wrap">
       <div class="footer-top">
         <div>
-          <strong style="font-family:'Fraunces',Georgia,serif; font-size:20px; color:var(--ink);">INVERSIONES CAR-GO</strong>
-          <p style="margin-top:8px; max-width:420px;">
+          <a href="#" class="cargo-logo" aria-label="Inversiones Car-Go">
+            <svg class="cargo-logo-mark" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="1.5" y="1.5" width="41" height="41" rx="4" fill="#0E1F3D" stroke="#C59B27" stroke-width="1.5"/>
+              <path d="M10 15L22 9L34 15V29L22 35L10 29V15Z" stroke="#F7F6F2" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M16 22H28M28 22L24 18M28 22L24 26" stroke="#C59B27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="cargo-logo-text">
+              <span class="cargo-logo-sub">Zulia · Colombia</span>
+              <span class="cargo-logo-name">INVERSIONES CAR-GO</span>
+              <span class="cargo-logo-tri" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </span>
+            </span>
+          </a>
+          <p style="margin-top:12px; max-width:420px;">
             Operación entre Zulia (Maracaibo · Plaza Lago · Curva de Molina · El Rosario de Perijá · Machiques) y Colombia (Medellín 20 de Julio · Santa Lucía).
           </p>
         </div>

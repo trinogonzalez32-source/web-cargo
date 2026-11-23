@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>INVERSIONES CAR-GO — Operación Binacional Zulia y Colombia</title>
+  <title>INVERSIONES CAR-GO</title>
   <meta name="description" content="Inversiones Car-Go: Operación en Maracaibo (Plaza Lago, Curva de Molina), El Rosario de Perijá, Machiques y Colombia (Medellín 20 de Julio, Santa Lucía). Remesas, giros europeos, pagos en Colombia y trámites." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -114,16 +114,6 @@
       line-height: 1.05;
     }
 
-    .cargo-logo-sub {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 9.5px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 2px;
-    }
-
     .cargo-logo-name {
       font-family: 'Oswald', sans-serif;
       font-size: 20px;
@@ -137,7 +127,7 @@
       display: flex;
       height: 3px;
       width: 100%;
-      margin-top: 3px;
+      margin-top: 4px;
     }
 
     .cargo-logo-tri span:nth-child(1) { flex: 1; background: var(--tri-yellow); }
@@ -746,7 +736,7 @@
   <div class="topbar">
     <div class="wrap topbar-flex">
       <div>
-        Atención: <span class="topbar-accent">8:00 a. m. – 5:00 p. m.</span> · Operación en Zulia y Colombia
+        Atención: <span class="topbar-accent">8:00 a. m. – 5:00 p. m.</span>
       </div>
       <div>
         Línea oficial: <span class="topbar-accent">+58 424-6262165</span>
@@ -764,7 +754,6 @@
           <path d="M16 22H28M28 22L24 18M28 22L24 26" stroke="#C59B27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <span class="cargo-logo-text">
-          <span class="cargo-logo-sub">Zulia · Colombia</span>
           <span class="cargo-logo-name">INVERSIONES CAR-GO</span>
           <span class="cargo-logo-tri" aria-hidden="true">
             <span></span><span></span><span></span>
@@ -790,10 +779,10 @@
     <section class="hero-band" id="cotizador">
       <div class="wrap hero-layout">
         <div>
-          <span class="kicker">Conexión financiera Venezuela &amp; Colombia</span>
+          <span class="kicker">Remesas, giros y pagos</span>
           <h1 class="hero-title">Recibe, envía y resuelve tus pagos sin enredos.</h1>
           <p class="hero-lead">
-            Trabajamos desde <strong>Maracaibo</strong> y nuestras sedes en el <strong>Zulia y Colombia</strong> para facilitar el cobro de remesas y giros vía cuentas colombianas con entrega en dólares, además de envíos hacia Colombia, pago de mercancía, facturas, recargas y trámites.
+            Facilitamos el cobro de remesas y giros con entrega en dólares, además de envíos, pago de mercancía, facturas, recargas y trámites.
           </p>
 
           <div class="hero-cta-row">
@@ -811,7 +800,7 @@
               <div class="rate-cell-val">Comisión 10%</div>
             </div>
             <div class="rate-cell">
-              <div class="rate-cell-lbl">Giros Europeos (vía Colombia)</div>
+              <div class="rate-cell-lbl">Giros Europeos</div>
               <div class="rate-cell-val">Comisión 6%</div>
             </div>
             <div class="rate-cell">
@@ -835,8 +824,8 @@
             <label for="opKind">Tipo de operación</label>
             <select id="opKind" class="select" onchange="configureQuote()">
               <option value="remesa_10">Remesa EE. UU. / México / Panamá — Comisión 10% (USD)</option>
-              <option value="giro_eur_6">Giro Europeo vía Colombia — Comisión 6% (EUR)</option>
-              <option value="envio_colombia">Envío a Colombia / Mercancía / Facturas / Trámites (USD → COP)</option>
+              <option value="giro_eur_6">Giro Europeo — Comisión 6% (EUR)</option>
+              <option value="envio_colombia">Envío / Mercancía / Facturas / Trámites (USD → COP)</option>
               <option value="bs_a_pesos">Envío de Bolívares (VES) por Pesos (COP)</option>
               <option value="catalogos_cop">Pago de Catálogos Ésika / L'Bel / Avon / Natura / Azzorti (COP → VES)</option>
             </select>
@@ -856,16 +845,16 @@
           <div class="field">
             <label for="opChannel">Canal o sede de gestión</label>
             <select id="opChannel" class="select">
-              <option value="Cuenta colombiana (Bancolombia / Nequi / Daviplata / Davivienda / BBVA) + entrega USD">Cuenta colombiana (Bancolombia / Nequi / Daviplata / Davivienda / BBVA) + entrega USD</option>
+              <option value="Bancolombia / Nequi / Daviplata / Davivienda / BBVA + entrega USD">Bancolombia / Nequi / Daviplata / Davivienda / BBVA + entrega USD</option>
               <option value="Panamá (Yappy / Banco General / Banesco Panamá) + entrega USD">Panamá (Yappy / Banco General / Banesco Panamá) + entrega USD</option>
-              <option value="Western Union / Ria / Remitly / Taptap Send / Majority vía Colombia + entrega USD">Western Union / Ria / Remitly / Taptap Send / Majority vía Colombia + entrega USD</option>
-              <option value="Pago en Colombia (Mercancía / Factura / Recarga / Apostilla / Pasaporte)">Pago en Colombia (Mercancía / Factura / Recarga / Apostilla / Pasaporte)</option>
+              <option value="Western Union / Ria / Remitly / Taptap Send / Majority + entrega USD">Western Union / Ria / Remitly / Taptap Send / Majority + entrega USD</option>
+              <option value="Mercancía / Factura / Recarga / Apostilla / Pasaporte">Mercancía / Factura / Recarga / Apostilla / Pasaporte</option>
               <option value="Sucursal Maracaibo — Plaza Lago">Sucursal Maracaibo — Plaza Lago</option>
               <option value="Sucursal Maracaibo — Curva de Molina">Sucursal Maracaibo — Curva de Molina</option>
               <option value="Sucursal El Rosario de Perijá">Sucursal El Rosario de Perijá</option>
               <option value="Sucursal Machiques">Sucursal Machiques</option>
               <option value="Sucursal Medellín — 20 de Julio">Sucursal Medellín — 20 de Julio</option>
-              <option value="Sucursal Santa Lucía (Colombia)">Sucursal Santa Lucía (Colombia)</option>
+              <option value="Sucursal Santa Lucía">Sucursal Santa Lucía</option>
             </select>
           </div>
 
@@ -899,18 +888,18 @@
       <div class="wrap">
         <div class="band-head">
           <span class="kicker">Cómo trabajamos</span>
-          <h2>Un puente directo entre Colombia, el exterior y el Zulia</h2>
-          <p>Centralizamos la recepción en bancos colombianos para simplificar el envío desde el exterior o desde Colombia y entregar en dólares o resolver pagos en destino.</p>
+          <h2>Recepción ágil y entrega en dólares</h2>
+          <p>Facilitamos el envío y cobro a través de cuentas bancarias y remesadoras compatibles con entrega de dólares y gestión de pagos.</p>
         </div>
 
         <div class="ops-list">
           <article class="op-item">
             <div>
-              <div class="op-num">01 · DESDE COLOMBIA</div>
-              <h3>Recepción en cualquier banco colombiano</h3>
-              <p>Para facilitar los envíos desde Colombia hacia Venezuela sin trabas, recibimos directamente en las cuentas de la empresa en cualquier banco o billetera colombiana.</p>
+              <div class="op-num">01 · CUENTAS Y BILLETERAS</div>
+              <h3>Recepción directa en cuentas habilitadas</h3>
+              <p>Recibimos directamente en las cuentas de la empresa para que el envío sea sencillo y rápido.</p>
             </div>
-            <div class="logo-strip" aria-label="Bancos y billeteras de Colombia">
+            <div class="logo-strip" aria-label="Bancos y billeteras">
               <span class="brand-badge">
                 <img src="img/bancolombia.png" alt="Bancolombia" onerror="this.style.display='none'" />
                 Bancolombia
@@ -927,7 +916,7 @@
                 <img src="img/davivienda.png" alt="Davivienda" onerror="this.style.display='none'" />
                 Davivienda
               </span>
-              <span class="brand-badge">BBVA · Cualquier banco CO</span>
+              <span class="brand-badge">BBVA · Otros bancos</span>
             </div>
           </article>
 
@@ -935,7 +924,7 @@
             <div>
               <div class="op-num">02 · EE. UU., MÉXICO Y PANAMÁ (10%)</div>
               <h3>Remesas a cuenta o canales de Panamá</h3>
-              <p>En Panamá recibimos por <strong>Yappy</strong>, <strong>Banco General</strong> o <strong>Banesco Panamá</strong>. Desde EE. UU., México y Panamá pueden enviar directo a cuenta bancaria: se comparte la cuenta, llega por Colombia y aquí entregamos los dólares cobrando el <strong>10%</strong> del monto entrante en USD.</p>
+              <p>En Panamá recibimos por <strong>Yappy</strong>, <strong>Banco General</strong> o <strong>Banesco Panamá</strong>. Desde EE. UU., México y Panamá pueden enviar directo a cuenta bancaria y aquí entregamos los dólares cobrando el <strong>10%</strong> del monto entrante en USD.</p>
             </div>
             <div class="logo-strip" aria-label="Canales EE. UU., México y Panamá">
               <span class="brand-badge">Yappy</span>
@@ -954,11 +943,11 @@
 
           <article class="op-item">
             <div>
-              <div class="op-num">03 · EUROPA Y EE. UU. (6% EUROPA)</div>
-              <h3>Giros europeos recibidos vía Colombia</h3>
-              <p>Si tu familiar en Europa ya tiene la cuenta, puede acudir a remesadoras como <strong>Western Union</strong> o <strong>Ria</strong> enviando por Colombia. Cobramos el <strong>6%</strong> del monto entrante en euros, llega por Colombia y entregamos los dólares aquí.</p>
+              <div class="op-num">03 · GIROS EUROPEOS (6%)</div>
+              <h3>Giros europeos con entrega en dólares</h3>
+              <p>Si tu familiar en Europa ya tiene la cuenta, puede acudir a remesadoras como <strong>Western Union</strong> o <strong>Ria</strong>; cobramos el <strong>6%</strong> del monto entrante en euros y entregamos los dólares aquí.</p>
             </div>
-            <div class="logo-strip" aria-label="Remesadoras hacia Colombia">
+            <div class="logo-strip" aria-label="Remesadoras">
               <span class="brand-badge">
                 <img src="img/western-union.png" alt="Western Union" onerror="this.style.display='none'" />
                 Western Union
@@ -980,11 +969,11 @@
 
           <article class="op-item">
             <div>
-              <div class="op-num">04 · VENEZUELA → COLOMBIA</div>
+              <div class="op-num">04 · PAGOS Y TRÁMITES</div>
               <h3>Mercancía, facturas, recargas y trámites</h3>
-              <p>Realizamos envíos de Venezuela a Colombia para pago de <strong>mercancía</strong>, pago de <strong>todo tipo de factura colombiana</strong>, <strong>recargas telefónicas</strong>, servicios en Colombia y pagos asociados a trámites como <strong>apostillas</strong> y <strong>pasaportes</strong>, además de catálogos.</p>
+              <p>Realizamos pago de <strong>mercancía</strong>, <strong>todo tipo de factura</strong>, <strong>recargas telefónicas</strong>, servicios y pagos asociados a trámites como <strong>apostillas</strong> y <strong>pasaportes</strong>, además de catálogos.</p>
             </div>
-            <div class="logo-strip" aria-label="Catálogos y pagos en Colombia">
+            <div class="logo-strip" aria-label="Catálogos y pagos">
               <span class="brand-badge">
                 <img src="img/esika.png" alt="Ésika" onerror="this.style.display='none'" />
                 Ésika
@@ -1003,10 +992,10 @@
           </article>
         </div>
 
-        <div class="remit-directory" aria-label="Remesadoras desde Estados Unidos y Europa hacia Colombia">
-          <h3>Remesadoras recibidas desde EE. UU. y Europa hacia Colombia</h3>
+        <div class="remit-directory" aria-label="Remesadoras desde Estados Unidos y Europa">
+          <h3>Remesadoras desde EE. UU. y Europa</h3>
           <p>
-            Opciones utilizadas para enviar hacia Colombia (llegada en pesos vía Colombia y entrega de dólares en Venezuela):
+            Opciones utilizadas para envíos directos a cuenta con entrega de dólares:
           </p>
           <div class="remit-links">
             <span class="brand-badge">
@@ -1042,33 +1031,33 @@
       <div class="wrap">
         <div class="band-head">
           <span class="kicker">Presencia física</span>
-          <h2>Nuestras sucursales en Venezuela y Colombia</h2>
-          <p>Contamos con puntos operativos en el estado Zulia y en Colombia para respaldar tus gestiones.</p>
+          <h2>Nuestras sucursales</h2>
+          <p>Puntos operativos disponibles para atención y gestión.</p>
         </div>
 
         <div class="branches-grid">
           <div class="branch-column">
             <div class="branch-column-title">
-              <span>Estado Zulia</span>
-              <span class="branch-country-tag">Venezuela</span>
+              <span>Sucursales</span>
+              <span class="branch-country-tag">Sede 1</span>
             </div>
             <ul class="branch-entries">
-              <li><strong>Maracaibo — Plaza Lago:</strong> Atención y gestión de operaciones en la ciudad.</li>
-              <li><strong>Maracaibo — Curva de Molina:</strong> Punto operativo en Maracaibo.</li>
-              <li><strong>El Rosario de Perijá:</strong> Sucursal activa para atención local.</li>
-              <li><strong>Machiques:</strong> Sucursal activa en el municipio Machiques de Perijá.</li>
+              <li><strong>Maracaibo — Plaza Lago:</strong> Atención y gestión de operaciones.</li>
+              <li><strong>Maracaibo — Curva de Molina:</strong> Punto operativo.</li>
+              <li><strong>El Rosario de Perijá:</strong> Sucursal activa.</li>
+              <li><strong>Machiques:</strong> Sucursal activa.</li>
             </ul>
           </div>
 
           <div class="branch-column">
             <div class="branch-column-title">
-              <span>Colombia</span>
-              <span class="branch-country-tag">Colombia</span>
+              <span>Otras sedes</span>
+              <span class="branch-country-tag">Sede 2</span>
             </div>
             <ul class="branch-entries">
-              <li><strong>Medellín — 20 de Julio:</strong> Sede operativa en Colombia.</li>
-              <li><strong>Santa Lucía:</strong> Sede operativa en Colombia.</li>
-              <li><strong>Sede adicional en Colombia:</strong> Ubicación por confirmar en el directorio oficial.</li>
+              <li><strong>Medellín — 20 de Julio:</strong> Sede operativa.</li>
+              <li><strong>Santa Lucía:</strong> Sede operativa.</li>
+              <li><strong>Sede adicional:</strong> Ubicación por confirmar en el directorio oficial.</li>
             </ul>
           </div>
         </div>
@@ -1100,28 +1089,28 @@
             <details class="faq" open>
               <summary>¿Cómo funciona el envío por remesadoras desde el exterior?</summary>
               <div class="faq-body">
-                Te compartimos una cuenta para que tu familiar haga el envío directo a cuenta bancaria. El fondo ingresa por Colombia y aquí entregamos los dólares aplicando el <strong>10%</strong> en envíos desde EE. UU., México o Panamá, o el <strong>6%</strong> en giros europeos (por ejemplo vía Western Union o Ria por Colombia).
+                Te compartimos una cuenta para que tu familiar haga el envío directo a cuenta bancaria y aquí entregamos los dólares aplicando el <strong>10%</strong> en envíos desde EE. UU., México o Panamá, o el <strong>6%</strong> en giros europeos (por ejemplo vía Western Union o Ria).
               </div>
             </details>
 
             <details class="faq">
-              <summary>¿En qué bancos colombianos pueden enviar desde Colombia?</summary>
+              <summary>¿En qué bancos pueden enviar?</summary>
               <div class="faq-body">
-                Recibimos en cuentas de la empresa en <strong>Bancolombia, Nequi, Daviplata, Davivienda, BBVA</strong> y cualquier banco colombiano para hacer el trámite sencillo desde Colombia.
+                Recibimos en cuentas de la empresa en <strong>Bancolombia, Nequi, Daviplata, Davivienda, BBVA</strong> y otros bancos habilitados para hacer el trámite sencillo.
               </div>
             </details>
 
             <details class="faq">
-              <summary>¿Qué pagos y trámites realizan hacia Colombia?</summary>
+              <summary>¿Qué pagos y trámites realizan?</summary>
               <div class="faq-body">
-                Hacemos envíos de Venezuela a Colombia para pago de <strong>mercancía</strong>, <strong>facturas colombianas</strong>, <strong>recargas telefónicas</strong>, servicios en Colombia y pagos asociados a trámites como <strong>apostillas</strong> y <strong>pasaportes</strong>, además de catálogos como <strong>Ésika, Natura, Azzorti, L'Bel y Avon</strong>.
+                Realizamos pago de <strong>mercancía</strong>, <strong>todo tipo de factura</strong>, <strong>recargas telefónicas</strong>, servicios y pagos asociados a trámites como <strong>apostillas</strong> y <strong>pasaportes</strong>, además de catálogos como <strong>Ésika, Natura, Azzorti, L'Bel y Avon</strong>.
               </div>
             </details>
 
             <details class="faq">
               <summary>¿Cuáles son sus sucursales y horario?</summary>
               <div class="faq-body">
-                Atendemos de <strong>8:00 a. m. a 5:00 p. m.</strong> por <strong>+58 424-6262165</strong>, con sucursales en Maracaibo (Plaza Lago y Curva de Molina), El Rosario de Perijá, Machiques, y en Colombia en Medellín (20 de Julio), Santa Lucía y otra sede en Colombia por confirmar.
+                Atendemos de <strong>8:00 a. m. a 5:00 p. m.</strong> por <strong>+58 424-6262165</strong>, con sedes en Plaza Lago, Curva de Molina, El Rosario de Perijá, Machiques, Medellín (20 de Julio), Santa Lucía y otra sede por confirmar.
               </div>
             </details>
           </div>
@@ -1177,7 +1166,6 @@
               <path d="M16 22H28M28 22L24 18M28 22L24 26" stroke="#C59B27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <span class="cargo-logo-text">
-              <span class="cargo-logo-sub">Zulia · Colombia</span>
               <span class="cargo-logo-name">INVERSIONES CAR-GO</span>
               <span class="cargo-logo-tri" aria-hidden="true">
                 <span></span><span></span><span></span>
@@ -1185,7 +1173,7 @@
             </span>
           </a>
           <p style="margin-top:12px; max-width:420px;">
-            Operación entre Zulia (Maracaibo · Plaza Lago · Curva de Molina · El Rosario de Perijá · Machiques) y Colombia (Medellín 20 de Julio · Santa Lucía).
+            Sedes en Plaza Lago, Curva de Molina, El Rosario de Perijá, Machiques, Medellín (20 de Julio) y Santa Lucía.
           </p>
         </div>
         <div>
@@ -1242,31 +1230,31 @@
         rateLbl.textContent = "Comisión aplicada";
         rateInfo.value = "10% sobre monto entrante USD";
         if (readPositiveNumber("opAmount") >= 10000) amtInput.value = "100";
-        channel.value = "Cuenta colombiana (Bancolombia / Nequi / Daviplata / Davivienda / BBVA) + entrega USD";
+        channel.value = "Bancolombia / Nequi / Daviplata / Davivienda / BBVA + entrega USD";
       } else if (kind === "giro_eur_6") {
         amtLbl.textContent = "Monto entrante (EUR)";
         rateLbl.textContent = "Comisión aplicada";
         rateInfo.value = "6% sobre giro europeo (EUR)";
         if (readPositiveNumber("opAmount") >= 10000) amtInput.value = "100";
-        channel.value = "Western Union / Ria / Remitly / Taptap Send / Majority vía Colombia + entrega USD";
+        channel.value = "Western Union / Ria / Remitly / Taptap Send / Majority + entrega USD";
       } else if (kind === "envio_colombia") {
         amtLbl.textContent = "Monto base (USD)";
         rateLbl.textContent = "Tasa referencial";
         rateInfo.value = fmtNum(RATES.usdToCop, 2) + " COP / USD";
         if (readPositiveNumber("opAmount") >= 10000) amtInput.value = "100";
-        channel.value = "Pago en Colombia (Mercancía / Factura / Recarga / Apostilla / Pasaporte)";
+        channel.value = "Mercancía / Factura / Recarga / Apostilla / Pasaporte";
       } else if (kind === "bs_a_pesos") {
         amtLbl.textContent = "Monto en Bolívares (VES)";
         rateLbl.textContent = "Tasa referencial";
         rateInfo.value = fmtNum(RATES.copPer1000Ves, 2) + " VES / 1.000 COP";
         if (readPositiveNumber("opAmount") < 1000) amtInput.value = "10950";
-        channel.value = "Cuenta colombiana (Bancolombia / Nequi / Daviplata / Davivienda / BBVA) + entrega USD";
+        channel.value = "Bancolombia / Nequi / Daviplata / Davivienda / BBVA + entrega USD";
       } else if (kind === "catalogos_cop") {
         amtLbl.textContent = "Monto en Pesos (COP)";
         rateLbl.textContent = "Tasa referencial";
         rateInfo.value = fmtNum(RATES.copPer1000Ves, 2) + " VES / 1.000 COP";
         if (readPositiveNumber("opAmount") < 1000) amtInput.value = "250000";
-        channel.value = "Pago en Colombia (Mercancía / Factura / Recarga / Apostilla / Pasaporte)";
+        channel.value = "Mercancía / Factura / Recarga / Apostilla / Pasaporte";
       }
 
       calculateQuote();
@@ -1302,7 +1290,7 @@
         feeLbl.textContent = "Comisión giro europeo (6%):";
         feeVal.textContent = "-€" + fmtNum(fee) + " EUR";
         netLbl.textContent = "Monto base tras 6% (EUR)";
-        netSub.textContent = "Recibido vía Colombia · liquidación sujeta a tasa del día";
+        netSub.textContent = "Liquidación sujeta a tasa del día";
         netVal.textContent = "€" + fmtNum(net) + " EUR";
       } else if (kind === "envio_colombia") {
         const cop = amt * RATES.usdToCop;
@@ -1310,7 +1298,7 @@
         baseVal.textContent = "$" + fmtNum(amt) + " USD";
         feeLbl.textContent = "Tasa referencial:";
         feeVal.textContent = fmtNum(RATES.usdToCop) + " COP";
-        netLbl.textContent = "Referencial en Colombia (COP)";
+        netLbl.textContent = "Referencial (COP)";
         netSub.textContent = "Para mercancía, facturas, recargas o trámites";
         netVal.textContent = "$" + fmtNum(cop) + " COP";
       } else if (kind === "bs_a_pesos") {

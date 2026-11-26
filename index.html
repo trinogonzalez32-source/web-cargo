@@ -90,51 +90,25 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 0;
+      padding: 12px 0;
       gap: 20px;
     }
 
-    /* Logo SVG Original INVERSIONES CAR-GO */
     .cargo-logo {
       text-decoration: none;
       color: var(--ink);
       display: inline-flex;
       align-items: center;
-      gap: 11px;
       flex-shrink: 0;
     }
 
-    .cargo-logo-mark {
-      width: 40px;
-      height: 40px;
-      flex-shrink: 0;
+    .cargo-logo-img {
+      height: 54px;
+      width: auto;
+      max-width: 240px;
+      object-fit: contain;
+      display: block;
     }
-
-    .cargo-logo-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.05;
-    }
-
-    .cargo-logo-name {
-      font-family: 'Oswald', sans-serif;
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--ink);
-    }
-
-    .cargo-logo-tri {
-      display: flex;
-      height: 3px;
-      width: 100%;
-      margin-top: 4px;
-    }
-
-    .cargo-logo-tri span:nth-child(1) { flex: 1; background: var(--tri-yellow); }
-    .cargo-logo-tri span:nth-child(2) { flex: 1; background: var(--tri-blue); }
-    .cargo-logo-tri span:nth-child(3) { flex: 1; background: var(--tri-red); }
 
     nav.main-nav {
       display: flex;
@@ -639,6 +613,11 @@
         padding: 0 16px;
       }
 
+      .cargo-logo-img {
+        height: 44px;
+        max-width: 190px;
+      }
+
       .hero-cta-row .btn,
       .verify-row .btn {
         width: 100%;
@@ -661,19 +640,8 @@
 
   <header class="site-header">
     <div class="wrap header-flex">
-      <!-- Logotipo SVG Original INVERSIONES CAR-GO -->
       <a href="#" class="cargo-logo" aria-label="Inversiones Car-Go">
-        <svg class="cargo-logo-mark" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="1.5" y="1.5" width="41" height="41" rx="4" fill="#0E1F3D" stroke="#C59B27" stroke-width="1.5"/>
-          <path d="M10 15L22 9L34 15V29L22 35L10 29V15Z" stroke="#F7F6F2" stroke-width="1.8" stroke-linejoin="round"/>
-          <path d="M16 22H28M28 22L24 18M28 22L24 26" stroke="#C59B27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span class="cargo-logo-text">
-          <span class="cargo-logo-name">INVERSIONES CAR-GO</span>
-          <span class="cargo-logo-tri" aria-hidden="true">
-            <span></span><span></span><span></span>
-          </span>
-        </span>
+        <img src="img/logo-header.png" alt="INVERSIONES CAR-GO" class="cargo-logo-img" />
       </a>
 
       <nav class="main-nav">
@@ -861,7 +829,7 @@
         </div>
 
         <p class="logo-footnote">
-          Nota: Guarda tus imágenes en la carpeta <code>img/</code> con los nombres indicados (<code>favicon.png</code>, <code>bancolombia.png</code>, <code>nequi.png</code>, <code>daviplata.png</code>, <code>davivienda.png</code>, <code>western-union.png</code>, <code>ria.png</code>, <code>taptap-send.png</code>, <code>majority.png</code>, <code>remitly.jpg</code>, <code>esika.png</code>, <code>natura.png</code>, <code>azzorti.png</code>) para que se muestren automáticamente. Todas las marcas pertenecen a sus respectivos titulares.
+          Nota: Guarda tus imágenes en la carpeta <code>img/</code> con los nombres indicados (<code>logo-header.png</code>, <code>favicon.png</code>, <code>bancolombia.png</code>, <code>nequi.png</code>, <code>daviplata.png</code>, <code>davivienda.png</code>, <code>western-union.png</code>, <code>ria.png</code>, <code>taptap-send.png</code>, <code>majority.png</code>, <code>remitly.jpg</code>, <code>esika.png</code>, <code>natura.png</code>, <code>azzorti.png</code>) para que se muestren automáticamente. Todas las marcas pertenecen a sus respectivos titulares.
         </p>
       </div>
     </section>
@@ -999,17 +967,7 @@
       <div class="footer-top">
         <div>
           <a href="#" class="cargo-logo" aria-label="Inversiones Car-Go">
-            <svg class="cargo-logo-mark" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="1.5" y="1.5" width="41" height="41" rx="4" fill="#0E1F3D" stroke="#C59B27" stroke-width="1.5"/>
-              <path d="M10 15L22 9L34 15V29L22 35L10 29V15Z" stroke="#F7F6F2" stroke-width="1.8" stroke-linejoin="round"/>
-              <path d="M16 22H28M28 22L24 18M28 22L24 26" stroke="#C59B27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span class="cargo-logo-text">
-              <span class="cargo-logo-name">INVERSIONES CAR-GO</span>
-              <span class="cargo-logo-tri" aria-hidden="true">
-                <span></span><span></span><span></span>
-              </span>
-            </span>
+            <img src="img/logo-header.png" alt="INVERSIONES CAR-GO" class="cargo-logo-img" />
           </a>
           <p style="margin-top:12px; max-width:420px;">
             Sedes en Plaza Lago, Curva de Molina, El Rosario de Perijá, Machiques, Medellín (20 de Julio) y Santa Lucía.

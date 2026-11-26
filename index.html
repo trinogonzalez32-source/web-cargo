@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>INVERSIONES CAR-GO</title>
   <meta name="description" content="Inversiones Car-Go: Operación en Maracaibo (Plaza Lago, Curva de Molina), El Rosario de Perijá, Machiques y Colombia (Medellín 20 de Julio, Santa Lucía). Remesas, giros europeos, pagos en Colombia y trámites." />
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="img/favicon.png" />
+  <link rel="apple-touch-icon" href="img/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -697,7 +700,7 @@
           </p>
 
           <div class="hero-cta-row">
-            <a href="https://wa.me/584246262165?text=Hola%20Inversiones%20Car-Go,%20quiero%20consultar%20una%20operaci%C3%B3n%20hoy." target="_blank" rel="noopener noreferrer" class="btn btn-solid">
+            <a href="https://wa.me/584246262165?text=Hola%20Inversiones%20Car-Go,%20quiero%20cotizar%20una%20operaci%C3%B3n%20hoy." target="_blank" rel="noopener noreferrer" class="btn btn-solid">
               Consultar por WhatsApp
             </a>
             <a href="#sucursales" class="btn btn-ghost">
@@ -858,7 +861,7 @@
         </div>
 
         <p class="logo-footnote">
-          Nota: Guarda tus imágenes en la carpeta <code>img/</code> con los nombres indicados (<code>bancolombia.png</code>, <code>nequi.png</code>, <code>daviplata.png</code>, <code>davivienda.png</code>, <code>western-union.png</code>, <code>ria.png</code>, <code>taptap-send.png</code>, <code>majority.png</code>, <code>remitly.jpg</code>, <code>esika.png</code>, <code>natura.png</code>, <code>azzorti.png</code>) para que se muestren automáticamente. Todas las marcas pertenecen a sus respectivos titulares.
+          Nota: Guarda tus imágenes en la carpeta <code>img/</code> con los nombres indicados (<code>favicon.png</code>, <code>bancolombia.png</code>, <code>nequi.png</code>, <code>daviplata.png</code>, <code>davivienda.png</code>, <code>western-union.png</code>, <code>ria.png</code>, <code>taptap-send.png</code>, <code>majority.png</code>, <code>remitly.jpg</code>, <code>esika.png</code>, <code>natura.png</code>, <code>azzorti.png</code>) para que se muestren automáticamente. Todas las marcas pertenecen a sus respectivos titulares.
         </p>
       </div>
     </section>
@@ -999,4 +1002,50 @@
             <svg class="cargo-logo-mark" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <rect x="1.5" y="1.5" width="41" height="41" rx="4" fill="#0E1F3D" stroke="#C59B27" stroke-width="1.5"/>
               <path d="M10 15L22 9L34 15V29L22 35L10 29V15Z" stroke="#F7F6F2" stroke-width="1.8" stroke-linejoin="round"/>
-              <path d="M
+              <path d="M16 22H28M28 22L24 18M28 22L24 26" stroke="#C59B27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="cargo-logo-text">
+              <span class="cargo-logo-name">INVERSIONES CAR-GO</span>
+              <span class="cargo-logo-tri" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </span>
+            </span>
+          </a>
+          <p style="margin-top:12px; max-width:420px;">
+            Sedes en Plaza Lago, Curva de Molina, El Rosario de Perijá, Machiques, Medellín (20 de Julio) y Santa Lucía.
+          </p>
+        </div>
+        <div>
+          <strong>Línea oficial:</strong> +58 424-6262165<br>
+          <strong>Horario:</strong> 8:00 a. m. – 5:00 p. m.
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 INVERSIONES CAR-GO. Todos los derechos reservados.</span>
+        <span>Línea oficial +58 424-6262165</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function checkPhone() {
+      const digits = document.getElementById("phoneCheck").value.replace(/\D/g, "");
+      const box = document.getElementById("phoneCheckMsg");
+
+      if (!digits) {
+        box.className = "verify-msg bad";
+        box.textContent = "Ingresa un número telefónico para comprobarlo.";
+        return;
+      }
+
+      if (digits.endsWith("4246262165")) {
+        box.className = "verify-msg ok";
+        box.textContent = "Verificado: +58 424-6262165 es la línea oficial de INVERSIONES CAR-GO.";
+      } else {
+        box.className = "verify-msg bad";
+        box.textContent = "Atención: este número no coincide con la línea oficial (+58 424-6262165).";
+      }
+    }
+  </script>
+</body>
+</html>

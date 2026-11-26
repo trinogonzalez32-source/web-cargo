@@ -94,7 +94,7 @@
       gap: 18px;
     }
 
-    /* Logotipo extendido a lo ancho de la zona marcada, bajo y con presencia */
+    /* Logotipo ancho, bajo y con letras expandidas a lo ancho del bloque */
     .cargo-logo {
       text-decoration: none;
       color: var(--ink);
@@ -114,26 +114,27 @@
 
     .cargo-logo-sub {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 8.5px;
+      font-size: 10px;
       font-weight: 700;
-      letter-spacing: 0.56em;
+      letter-spacing: 0.85em;
       text-transform: uppercase;
       color: var(--muted);
       text-align: center;
-      padding-left: 6px;
+      padding-left: 10px;
       margin-bottom: 3px;
+      white-space: nowrap;
     }
 
     .cargo-logo-main {
       font-family: 'Oswald', sans-serif;
-      font-size: 35px;
+      font-size: 44px;
       font-weight: 700;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.34em;
       line-height: 0.92;
       text-transform: uppercase;
       color: var(--ink);
       text-align: center;
-      padding-left: 5px;
+      padding-left: 14px;
       white-space: nowrap;
     }
 
@@ -653,9 +654,16 @@
         width: 280px;
       }
 
+      .cargo-logo-sub {
+        font-size: 8.5px;
+        letter-spacing: 0.62em;
+        padding-left: 7px;
+      }
+
       .cargo-logo-main {
-        font-size: 30px;
-        letter-spacing: 0.12em;
+        font-size: 34px;
+        letter-spacing: 0.24em;
+        padding-left: 9px;
       }
     }
 
@@ -688,13 +696,15 @@
 
       .cargo-logo-sub {
         font-size: 7.5px;
-        letter-spacing: 0.42em;
+        letter-spacing: 0.52em;
+        padding-left: 5px;
         margin-bottom: 2.5px;
       }
 
       .cargo-logo-main {
-        font-size: 27px;
-        letter-spacing: 0.12em;
+        font-size: 28px;
+        letter-spacing: 0.2em;
+        padding-left: 6px;
         line-height: 0.92;
       }
 
@@ -1090,3 +1100,37 @@
             Sedes en Plaza Lago, Curva de Molina, El Rosario de Perijá, Machiques, Medellín (20 de Julio) y Santa Lucía.
           </p>
         </div>
+        <div>
+          <strong>Línea oficial:</strong> +58 424-6262165<br>
+          <strong>Horario:</strong> 8:00 a. m. – 5:00 p. m.
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 INVERSIONES CAR-GO. Todos los derechos reservados.</span>
+        <span>Línea oficial +58 424-6262165</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function checkPhone() {
+      const digits = document.getElementById("phoneCheck").value.replace(/\D/g, "");
+      const box = document.getElementById("phoneCheckMsg");
+
+      if (!digits) {
+        box.className = "verify-msg bad";
+        box.textContent = "Ingresa un número telefónico para comprobarlo.";
+        return;
+      }
+
+      if (digits.endsWith("4246262165")) {
+        box.className = "verify-msg ok";
+        box.textContent = "Verificado: +58 424-6262165 es la línea oficial de INVERSIONES CAR-GO.";
+      } else {
+        box.className = "verify-msg bad";
+        box.textContent = "Atención: este número no coincide con la línea oficial (+58 424-6262165).";
+      }
+    }
+  </script>
+</body>
+</html>

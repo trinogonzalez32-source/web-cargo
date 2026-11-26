@@ -90,45 +90,55 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 0;
+      padding: 12px 0;
       gap: 20px;
     }
 
+    /* Logotipo adaptado a la estética editorial de la página */
     .cargo-logo {
       text-decoration: none;
       color: var(--ink);
       display: inline-flex;
       flex-direction: column;
-      align-items: center;
+      align-items: stretch;
       line-height: 1;
       flex-shrink: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .cargo-logo:hover {
+      opacity: 0.88;
     }
 
     .cargo-logo-sub {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.22em;
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
-      color: var(--ink);
+      color: var(--muted);
+      text-align: center;
       margin-bottom: 2px;
     }
 
     .cargo-logo-main {
       font-family: 'Oswald', sans-serif;
-      font-size: 26px;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      line-height: 0.98;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      line-height: 0.96;
       text-transform: uppercase;
       color: var(--ink);
+      text-align: center;
     }
 
     .cargo-logo-tri {
       display: flex;
       width: 100%;
-      height: 4px;
+      height: 3px;
       margin-top: 4px;
+      border-radius: 1px;
+      overflow: hidden;
     }
 
     .cargo-logo-tri span:nth-child(1) { flex: 1; background: var(--tri-yellow); }
@@ -138,15 +148,15 @@
     .cargo-logo-stars {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 4px;
+      justify-content: space-between;
+      padding: 0 2px;
       margin-top: 4px;
     }
 
     .cargo-logo-stars svg {
-      width: 8px;
-      height: 8px;
-      fill: var(--ink);
+      width: 6.5px;
+      height: 6.5px;
+      fill: var(--gold);
       display: block;
     }
 
@@ -655,12 +665,12 @@
       }
 
       .cargo-logo-sub {
-        font-size: 8px;
-        letter-spacing: 0.16em;
+        font-size: 7.5px;
+        letter-spacing: 0.18em;
       }
 
       .cargo-logo-main {
-        font-size: 22px;
+        font-size: 20px;
       }
 
       .hero-cta-row .btn,
@@ -1020,3 +1030,63 @@
       </div>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <a href="#" class="cargo-logo" aria-label="Inversiones Car-Go">
+            <span class="cargo-logo-sub">INVERSIONES</span>
+            <span class="cargo-logo-main">CAR-GÓ</span>
+            <span class="cargo-logo-tri" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </span>
+            <span class="cargo-logo-stars" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 7.1-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 7.1-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 7.1-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 7.1-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 7.1-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 7.1-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 7.1-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 7.1-1.01L12 2z"/></svg>
+            </span>
+          </a>
+          <p style="margin-top:12px; max-width:420px;">
+            Sedes en Plaza Lago, Curva de Molina, El Rosario de Perijá, Machiques, Medellín (20 de Julio) y Santa Lucía.
+          </p>
+        </div>
+        <div>
+          <strong>Línea oficial:</strong> +58 424-6262165<br>
+          <strong>Horario:</strong> 8:00 a. m. – 5:00 p. m.
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 INVERSIONES CAR-GO. Todos los derechos reservados.</span>
+        <span>Línea oficial +58 424-6262165</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function checkPhone() {
+      const digits = document.getElementById("phoneCheck").value.replace(/\D/g, "");
+      const box = document.getElementById("phoneCheckMsg");
+
+      if (!digits) {
+        box.className = "verify-msg bad";
+        box.textContent = "Ingresa un número telefónico para comprobarlo.";
+        return;
+      }
+
+      if (digits.endsWith("4246262165")) {
+        box.className = "verify-msg ok";
+        box.textContent = "Verificado: +58 424-6262165 es la línea oficial de INVERSIONES CAR-GO.";
+      } else {
+        box.className = "verify-msg bad";
+        box.textContent = "Atención: este número no coincide con la línea oficial (+58 424-6262165).";
+      }
+    }
+  </script>
+</body>
+</html>
